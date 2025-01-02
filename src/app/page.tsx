@@ -619,7 +619,7 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]" />
         <motion.div
-          className="max-w-5xl mx-auto py-20"
+          className="w-full max-w-5xl mx-auto py-20 px-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -635,32 +635,51 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className={`${cardClass} p-8 rounded-xl`}>
-                  <span className="inline-block px-3 py-1 rounded-full text-sm font-mono text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 mb-4">
-                    {item.date}
-                  </span>
-                  <h3 className="text-xl font-medium mb-2 text-neutral-900 dark:text-neutral-100">
-                    {item.degree}
-                  </h3>
-                  <h4 className="text-lg text-primary-600 dark:text-primary-400 mb-4">
-                    {item.institution}
-                  </h4>
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
-                    {item.description}
-                  </p>
-                  {item.achievements.length > 0 && (
-                    <div className="space-y-2">
-                      {item.achievements.map((achievement, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-primary-400" />
-                          <span>{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                <div className={`${cardClass} p-6 relative overflow-hidden group w-full`}>
+                  {/* Decorative line */}
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary-500/50 to-primary-600/50 dark:from-primary-400/30 dark:to-primary-500/30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                  
+                  {/* Date badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block px-3 py-1.5 text-base font-mono 
+                                   bg-neutral-100 dark:bg-neutral-800/50 
+                                   text-neutral-600 dark:text-neutral-400 
+                                   rounded-full border border-neutral-200/10 dark:border-neutral-700/10">
+                      {item.date}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="pr-20 md:pr-28">
+                    <h3 className="text-2xl font-medium mb-2 text-neutral-900 dark:text-neutral-100">
+                      {item.degree}
+                    </h3>
+                    <h4 className="text-lg text-primary-600 dark:text-primary-400 mb-3">
+                      {item.institution}
+                    </h4>
+                    <p className="text-base text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    {/* Achievements */}
+                    {item.achievements && item.achievements.length > 0 && (
+                      <div className="space-y-2">
+                        {item.achievements.map((achievement, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start gap-2 text-neutral-600 dark:text-neutral-400 group/achievement"
+                          >
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/50 dark:bg-primary-400/30 
+                                           group-hover/achievement:bg-primary-500 dark:group-hover/achievement:bg-primary-400 
+                                           transition-colors duration-300 shrink-0" />
+                            <span className="text-xs leading-relaxed group-hover/achievement:text-neutral-900 dark:group-hover/achievement:text-neutral-100 transition-colors duration-300">
+                              {achievement}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
