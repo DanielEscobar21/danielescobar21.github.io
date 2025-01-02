@@ -34,13 +34,13 @@ const scrollToSection = (sectionId: string) => {
 };
 
 // Componente de navegación entre secciones
-const SectionNavigation = ({ currentSection, language }: { currentSection: string, language: string }) => {
+const SectionNavigation = ({ currentSection, language }: { currentSection: string, language: 'es' | 'en' }) => {
   const currentIndex = sections.indexOf(currentSection);
   const prevSection = currentIndex > 0 ? sections[currentIndex - 1] : null;
   const nextSection = currentIndex < sections.length - 1 ? sections[currentIndex + 1] : null;
   const isHome = currentSection === 'inicio';
 
-  const sectionNames = {
+  const sectionNames: Record<'es' | 'en', Record<string, string>> = {
     es: {
       inicio: 'Inicio',
       'sobre-mi': 'Sobre Mí',
@@ -159,7 +159,7 @@ export default function Home() {
 
   // Efecto para el autoplay del carrusel
   useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout | undefined;
     
     if (autoPlay) {
       interval = setInterval(() => {
