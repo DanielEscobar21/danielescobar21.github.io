@@ -211,23 +211,84 @@ export default function Home() {
             {currentContent.hero.subtitle}
           </motion.p>
 
+          {/* Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <motion.a
+              href="/CV_DanielEscobar.pdf"
+              download="CV_DanielEscobar.pdf"
+              target="_blank"
+              className="px-6 py-3 bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 
+                        rounded-full flex items-center gap-2 hover:scale-105 transition-transform cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              {currentContent.hero.buttons.resume}
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/danielescobar00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 border border-neutral-200/50 dark:border-neutral-800/50 
+                        rounded-full flex items-center gap-2
+                        text-neutral-600 dark:text-neutral-400 
+                        hover:text-neutral-900 dark:hover:text-neutral-100
+                        hover:border-neutral-300 dark:hover:border-neutral-700
+                        transition-colors cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              {currentContent.hero.buttons.linkedin}
+            </motion.a>
+          </motion.div>
+
           {/* Background Decoration */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-100/50 dark:to-neutral-900/50 pointer-events-none" />
         </motion.div>
         <div className="absolute bottom-12 left-0 right-0 flex justify-center">
           <motion.button
-            onClick={() => scrollToSection('sobre-mi')}
+            onClick={() => scrollToSection("sobre-mi")}
             className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
             whileHover={{ y: 3 }}
           >
-            {language === 'es' ? 'Sobre Mí' : 'About'}
-            <svg 
-              className="w-4 h-4 rotate-90" 
-              fill="none" 
-              stroke="currentColor" 
+            {language === "es" ? "Sobre Mí" : "About"}
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </motion.button>
         </div>
@@ -253,14 +314,16 @@ export default function Home() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              {currentContent.about.description.split('\n\n').map((paragraph, index) => (
-                <p 
-                  key={index}
-                  className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {currentContent.about.description
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
             </motion.div>
 
             <motion.div
@@ -287,7 +350,10 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-        <SectionNavigation currentSection="sobre-mi" language={language} />
+        <SectionNavigation
+          currentSection="sobre-mi"
+          language={language}
+        />
       </section>
 
       {/* Skills Section */}
@@ -303,7 +369,7 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className={titleClass}>
-            {language === 'es' ? 'Habilidades' : 'Skills'}
+            {language === "es" ? "Habilidades" : "Skills"}
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -317,35 +383,37 @@ export default function Home() {
                 {currentContent.about.skills.technical.title}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {currentContent.about.skills.technical.items.map((category, index) => (
-                  <motion.div
-                    key={category.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className={cardClass}
-                  >
-                    <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
-                      {category.name}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
+                {currentContent.about.skills.technical.items.map(
+                  (category, index) => (
+                    <motion.div
+                      key={category.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className={cardClass}
+                    >
+                      <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
+                        {category.name}
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
                                    text-neutral-500 dark:text-neutral-400 
                                    border border-neutral-200/10 dark:border-neutral-700/10
                                    hover:text-neutral-900 dark:hover:text-neutral-100
                                    hover:border-neutral-300 dark:hover:border-neutral-600 
                                    transition-colors duration-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )
+                )}
               </div>
             </motion.div>
 
@@ -380,7 +448,10 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-        <SectionNavigation currentSection="skills" language={language} />
+        <SectionNavigation
+          currentSection="skills"
+          language={language}
+        />
       </section>
 
       {/* Education Section */}
@@ -437,7 +508,10 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
-        <SectionNavigation currentSection="educacion" language={language} />
+        <SectionNavigation
+          currentSection="educacion"
+          language={language}
+        />
       </section>
 
       {/* Experience Section */}
@@ -502,7 +576,10 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
-        <SectionNavigation currentSection="experiencia" language={language} />
+        <SectionNavigation
+          currentSection="experiencia"
+          language={language}
+        />
       </section>
 
       {/* Projects Section */}
@@ -554,7 +631,10 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
-        <SectionNavigation currentSection="proyectos" language={language} />
+        <SectionNavigation
+          currentSection="proyectos"
+          language={language}
+        />
       </section>
 
       {/* Contact Section */}
@@ -593,29 +673,31 @@ export default function Home() {
               {/* Notification */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ 
+                animate={{
                   opacity: showNotification ? 1 : 0,
-                  y: showNotification ? 0 : 10
+                  y: showNotification ? 0 : 10,
                 }}
                 className="absolute top-full mt-4
                           bg-neutral-900 dark:bg-neutral-100 text-neutral-100 dark:text-neutral-900 
                           px-6 py-3 rounded-full shadow-lg text-sm
                           pointer-events-none select-none text-center w-max"
               >
-                {language === 'es' ? 'Copiado, espero saber de ti pronto' : 'Copied, hope to hear from you soon'}
+                {language === "es"
+                  ? "Copiado, espero saber de ti pronto"
+                  : "Copied, hope to hear from you soon"}
               </motion.div>
             </div>
 
             {/* Social media buttons with animation */}
-            <motion.div 
+            <motion.div
               className="flex items-center space-x-6"
-              animate={{ 
+              animate={{
                 y: showNotification ? 40 : 0,
-                transition: { type: "spring", stiffness: 200, damping: 20 }
+                transition: { type: "spring", stiffness: 200, damping: 20 },
               }}
             >
               <motion.a
-                href="https://github.com/descoba"
+                href="https://github.com/DanielEscobar21"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative p-3 rounded-full border border-neutral-200/50 dark:border-neutral-800/50 
@@ -633,7 +715,7 @@ export default function Home() {
               </motion.a>
 
               <motion.a
-                href="https://linkedin.com/in/daniel-escobar-araujo"
+                href="https://www.linkedin.com/in/danielescobar00"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative p-3 rounded-full border border-neutral-200/50 dark:border-neutral-800/50 
@@ -654,19 +736,24 @@ export default function Home() {
 
           <div className="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8">
             <motion.button
-              onClick={() => scrollToSection('proyectos')}
+              onClick={() => scrollToSection("proyectos")}
               className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
               whileHover={{ y: -3 }}
             >
-              <svg 
+              <svg
                 className="w-4 h-4 rotate-180"
-                fill="none" 
-                stroke="currentColor" 
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
-              {language === 'es' ? 'Proyectos' : 'Projects'}
+              {language === "es" ? "Proyectos" : "Projects"}
             </motion.button>
 
             <motion.button
@@ -674,41 +761,79 @@ export default function Home() {
               className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
               whileHover={{ y: -3 }}
             >
-              {language === 'es' ? 'Volver arriba' : 'Back to top'}
+              {language === "es" ? "Volver arriba" : "Back to top"}
               <div className="flex flex-col -space-y-1">
-                <svg 
+                <svg
                   className="w-4 h-4 rotate-180"
-                  fill="none" 
-                  stroke="currentColor" 
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
-                <svg 
+                <svg
                   className="w-4 h-4 rotate-180"
-                  fill="none" 
-                  stroke="currentColor" 
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </div>
             </motion.button>
           </div>
 
-          <motion.p
-            className="mt-12 text-sm text-neutral-500 dark:text-neutral-500"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            © {new Date().getFullYear()} Daniel Escobar.{" "}
-            {language === "es"
-              ? "Todos los derechos reservados"
-              : "All rights reserved"}
-            .
-          </motion.p>
+          {/* Copyright y Built with */}
+          <div className="flex flex-col items-center gap-4 mt-24">
+            {/* Copyright */}
+            <motion.p
+              className="text-sm text-neutral-500 dark:text-neutral-500"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              © {new Date().getFullYear()} Daniel Escobar.{" "}
+              {language === "es"
+                ? "Todos los derechos reservados"
+                : "All rights reserved"}
+              .
+            </motion.p>
+
+            {/* Built with */}
+            <motion.div
+              className="flex flex-col items-center gap-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <p className="text-xs text-neutral-500 dark:text-neutral-500">
+                {language === "es" ? "Hecho con" : "Built with"}
+              </p>
+              <div className="flex items-center gap-3 text-neutral-400 dark:text-neutral-600">
+                <span className="flex items-center gap-1">Next.js</span>
+                <span>•</span>
+                <span className="flex items-center gap-1">React</span>
+                <span>•</span>
+                <span className="flex items-center gap-1">TypeScript</span>
+                <span>•</span>
+                <span className="flex items-center gap-1">Tailwind</span>
+                <span>•</span>
+                <span className="flex items-center gap-1">Framer Motion</span>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
     </main>

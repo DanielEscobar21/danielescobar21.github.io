@@ -5,7 +5,11 @@ export const texts = {
       name: "Daniel Escobar Araujo",
       title: "Ingeniero de Software",
       subtitle: "Creando soluciones digitales innovadoras",
-      scrollText: 'Desliza para más'
+      scrollText: 'Desliza para más',
+      buttons: {
+        resume: 'Descargar CV',
+        linkedin: 'Visitar LinkedIn'
+      }
     },
     about: {
       title: "Sobre Mí",
@@ -207,7 +211,11 @@ export const texts = {
       name: "Daniel Escobar Araujo",
       title: "Software Engineer",
       subtitle: "Creating innovative digital solutions",
-      scrollText: 'Scroll for more'
+      scrollText: 'Scroll for more',
+      buttons: {
+        resume: 'Download Resume',
+        linkedin: 'Visit LinkedIn'
+      }
     },
     about: {
       title: "About Me",
