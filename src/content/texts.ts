@@ -119,7 +119,7 @@ export const texts = {
       images: [
         {
           src: "/img/profile/profile1.jpg",
-          alt: "Trabajando en la oficina",
+          alt: "!Ese soy yo!",
         },
       ],
     },
@@ -361,7 +361,7 @@ export const texts = {
       images: [
         {
           src: "/img/profile/profile1.jpg",
-          alt: "Working at the office",
+          alt: "Thats me!",
         },
       ],
     },
