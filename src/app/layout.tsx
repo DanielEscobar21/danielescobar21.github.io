@@ -1,9 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { ThemeProvider } from '../context/ThemeContext'
 
 export const metadata: Metadata = {
-  title: 'Mi Portfolio',
-  description: 'Portfolio personal creado con Next.js',
+  title: 'Daniel Escobar | Software Engineer',
+  description: 'Portfolio personal de Daniel Escobar, Ingeniero de Software',
 }
 
 export default function RootLayout({
@@ -12,9 +13,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
-      <body className="min-h-screen">
-        {children}
+    <html lang="es" className="scroll-smooth dark">
+      <body className="min-h-screen bg-light-base dark:bg-dark-base text-gray-900 dark:text-gray-100">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
