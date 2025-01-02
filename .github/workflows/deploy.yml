@@ -18,15 +18,18 @@ jobs:
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.17.0'
+          cache: 'npm'
 
-      - name: Clean cache
+      - name: Clean cache and directories
         run: |
           rm -rf .next
           rm -rf out
+          rm -rf node_modules
+          npm cache clean --force
 
       - name: Install dependencies 📦
-        run: npm ci
+        run: npm install
 
       - name: Build project 🛠️
         run: |
@@ -34,10 +37,8 @@ jobs:
           node --version
           echo "NPM version:"
           npm --version
-          echo "Listing all CSS files..."
-          find . -name "*.css" -o -name "*.scss"
           echo "Starting build..."
-          NEXT_DEBUG=true npm run build
+          npm run build
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
@@ -46,4 +47,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
-          branch: gh-pages 
+          branch: gh-pages
