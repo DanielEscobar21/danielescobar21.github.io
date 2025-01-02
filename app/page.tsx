@@ -1,3 +1,0 @@
-import Navbar from '../components/Navbar';
-
-// resto del código...
