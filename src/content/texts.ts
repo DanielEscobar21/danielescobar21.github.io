@@ -262,6 +262,82 @@ export const texts = {
             "Integré funcionalidades de exportación de datos en múltiples formatos.",
             "Diseñé una interfaz intuitiva para la visualización de datos y tendencias de temperatura."
           ]
+        },
+        {
+          title: "Sistema de Gestión Gubernamental",
+          type: "Professional",
+          company: "BIIDA Technology",
+          description: "Plataforma para la gestión y administración de empresas y multas de cumplimiento gubernamental",
+          longDescription: "Desarrollo de un sistema integral para una entidad gubernamental que permite la gestión, seguimiento y administración de empresas registradas, así como el control y monitoreo de multas y cumplimiento normativo.",
+          tech: [
+            "Java",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "MySQL",
+            "JQuery",
+            "Bootstrap",
+            "Apache Tomcat"
+          ],
+          achievements: [
+            "Desarrollé una plataforma web completa para la gestión de registros empresariales y seguimiento de multas.",
+            "Implementé un sistema de autenticación y autorización basado en roles para diferentes niveles de usuarios gubernamentales.",
+            "Diseñé e implementé una base de datos relacional para el manejo eficiente de registros empresariales y multas.",
+            "Creé interfaces intuitivas para la gestión de documentos y seguimiento de casos.",
+            "Integré funcionalidades de generación de reportes y estadísticas para el análisis de cumplimiento."
+          ]
+        },
+        {
+          title: "Farmacia Naturista Vida",
+          type: "Personal",
+          description: "Sistema de administración de medicamentos y recetas para farmacia naturista",
+          longDescription: "Desarrollo de una plataforma web para la gestión integral de una farmacia naturista, incluyendo control de inventario de medicamentos, generación de recetas médicas, sistema de impresión y administración de usuarios con diferentes niveles de acceso.",
+          url: "https://github.com/DanielEscobar21/VIDAinfo.git",
+          tech: [
+            "Laravel",
+            "PHP",
+            "MySQL",
+            "JavaScript",
+            "Bootstrap",
+            "HTML",
+            "CSS",
+            "jQuery",
+            "DomPDF"
+          ],
+          achievements: [
+            "Desarrollé un sistema completo de gestión de inventario para medicamentos naturistas.",
+            "Implementé un módulo de generación e impresión de recetas médicas con PDF personalizado.",
+            "Creé un sistema de autenticación y autorización con diferentes roles de usuario.",
+            "Diseñé una interfaz intuitiva para la gestión de medicamentos y recetas.",
+            "Integré funcionalidades de búsqueda y filtrado avanzado de medicamentos."
+          ]
+        },
+        {
+          title: "Express Dating",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Aplicación móvil de citas con videollamadas y mensajería en tiempo real",
+          longDescription: "Desarrollo de una aplicación móvil nativa de Android para citas que incluye funcionalidades de videollamadas, mensajería instantánea, matching de usuarios y perfiles personalizados.",
+          url: "https://play.google.com/store/apps/details?id=com.globalsoftm.gs_app_express_dating&pcampaignid=web_share",
+          tech: [
+            "Kotlin",
+            "Android SDK",
+            "Firebase",
+            "Sinch SDK",
+            "Cloud Firestore",
+            "Firebase Auth",
+            "Firebase Storage",
+            "Material Design",
+            "Google Maps API",
+            "Push Notifications"
+          ],
+          achievements: [
+            "Desarrollé una aplicación nativa de Android usando Kotlin y siguiendo los principios de Material Design.",
+            "Implementé un sistema de videollamadas en tiempo real utilizando el SDK de Sinch.",
+            "Integré Firebase para la gestión de usuarios, mensajería instantánea y almacenamiento de datos.",
+            "Diseñé un algoritmo de matching basado en preferencias y ubicación de usuarios.",
+            "Implementé un sistema de notificaciones push para mantener a los usuarios actualizados."
+          ]
         }
       ]
     },
@@ -624,6 +700,82 @@ export const texts = {
             "Created an automated reporting system for documentation and quality control.",
             "Integrated data export functionality in multiple formats.",
             "Designed an intuitive interface for data visualization and temperature trends."
+          ]
+        },
+        {
+          title: "Government Management System",
+          type: "Professional",
+          company: "BIIDA Technology",
+          description: "Platform for business management and compliance fines administration",
+          longDescription: "Development of a comprehensive system for a government entity that enables the management, tracking, and administration of registered businesses, as well as control and monitoring of fines and regulatory compliance.",
+          tech: [
+            "Java",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "MySQL",
+            "JQuery",
+            "Bootstrap",
+            "Apache Tomcat"
+          ],
+          achievements: [
+            "Developed a complete web platform for business registry management and fine tracking.",
+            "Implemented a role-based authentication and authorization system for different government user levels.",
+            "Designed and implemented a relational database for efficient handling of business records and fines.",
+            "Created intuitive interfaces for document management and case tracking.",
+            "Integrated reporting and statistics generation features for compliance analysis."
+          ]
+        },
+        {
+          title: "Vida Natural Pharmacy",
+          type: "Personal",
+          description: "Medication and prescription management system for natural pharmacy",
+          longDescription: "Development of a web platform for comprehensive management of a natural pharmacy, including medication inventory control, medical prescription generation, printing system, and user administration with different access levels.",
+          url: "https://github.com/DanielEscobar21/VIDAinfo.git",
+          tech: [
+            "Laravel",
+            "PHP",
+            "MySQL",
+            "JavaScript",
+            "Bootstrap",
+            "HTML",
+            "CSS",
+            "jQuery",
+            "DomPDF"
+          ],
+          achievements: [
+            "Developed a complete inventory management system for natural medicines.",
+            "Implemented a module for generating and printing medical prescriptions with custom PDF.",
+            "Created an authentication and authorization system with different user roles.",
+            "Designed an intuitive interface for medication and prescription management.",
+            "Integrated advanced search and filtering functionalities for medications."
+          ]
+        },
+        {
+          title: "Express Dating",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Dating mobile app with video calls and real-time messaging",
+          longDescription: "Development of a native Android dating application featuring video calls, instant messaging, user matching, and customized profiles.",
+          url: "https://play.google.com/store/apps/details?id=com.globalsoftm.gs_app_express_dating&pcampaignid=web_share",
+          tech: [
+            "Kotlin",
+            "Android SDK",
+            "Firebase",
+            "Sinch SDK",
+            "Cloud Firestore",
+            "Firebase Auth",
+            "Firebase Storage",
+            "Material Design",
+            "Google Maps API",
+            "Push Notifications"
+          ],
+          achievements: [
+            "Developed a native Android application using Kotlin and following Material Design principles.",
+            "Implemented real-time video calling system using Sinch SDK.",
+            "Integrated Firebase for user management, instant messaging, and data storage.",
+            "Designed a matching algorithm based on user preferences and location.",
+            "Implemented push notification system to keep users updated."
           ]
         }
       ]
