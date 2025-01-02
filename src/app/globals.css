@@ -16,4 +16,16 @@ body {
   padding: 0;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
 } 
