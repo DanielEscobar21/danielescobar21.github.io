@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar';
 import { useTheme } from '../context/ThemeContext';
 import Image from 'next/image';
 import { texts } from '../content/texts';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Estilo común para las secciones
 const sectionClass = "min-h-screen flex flex-col justify-center items-center py-20 px-4";
@@ -147,6 +147,32 @@ export default function Home() {
   const { language } = useTheme();
   const currentContent = texts[language];
   const [showNotification, setShowNotification] = useState(false);
+  const [currentProject, setCurrentProject] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [totalPages, setTotalPages] = useState(Math.ceil(currentContent.projects.cards.length / 2));
+  const [autoPlay, setAutoPlay] = useState(true);
+  const [openSkill, setOpenSkill] = useState<string | null>(null);
+  const [openTechSkill, setOpenTechSkill] = useState<string>(currentContent.about.skills.technical.items[0].name);
+  const [openSoftSkill, setOpenSoftSkill] = useState<string>(currentContent.about.skills.soft.items[0].name);
+  const [openLanguageSkill, setOpenLanguageSkill] = useState<string>(currentContent.about.skills.languages.items[0].name);
+
+  // Efecto para el autoplay del carrusel
+  useEffect(() => {
+    let interval;
+    
+    if (autoPlay) {
+      interval = setInterval(() => {
+        setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+      }, 10000); // Cambiado de 5000 a 8000 para que dure 8 segundos
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [autoPlay, totalPages]);
 
   // Función para manejar el copiado
   const handleCopyEmail = async () => {
@@ -158,6 +184,50 @@ export default function Home() {
       console.error('Error al copiar el email:', err);
     }
   };
+
+  // Funciones para el carrusel
+  const nextPage = () => {
+    setAutoPlay(false);
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  };
+
+  const prevPage = () => {
+    setAutoPlay(false);
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
+
+  const goToPage = (page: number) => {
+    setAutoPlay(false);
+    setCurrentPage(page);
+  };
+
+  // Funciones separadas para manejar cada tipo de skill
+  const handleTechSkillClick = (skillName: string) => {
+    setOpenTechSkill(openTechSkill === skillName ? skillName : skillName);
+  };
+
+  const handleSoftSkillClick = (skillName: string) => {
+    setOpenSoftSkill(openSoftSkill === skillName ? skillName : skillName);
+  };
+
+  const handleLanguageSkillClick = (skillName: string) => {
+    setOpenLanguageSkill(openLanguageSkill === skillName ? skillName : skillName);
+  };
+
+  // Efecto para manejar el responsive
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      setTotalPages(Math.ceil(currentContent.projects.cards.length / (window.innerWidth >= 768 ? 2 : 1)));
+    };
+
+    // Comprobar inicialmente
+    checkMobile();
+
+    // Añadir listener para cambios de tamaño
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [currentContent.projects.cards.length]);
 
   return (
     <main className="min-h-screen bg-white dark:bg-black">
@@ -189,7 +259,7 @@ export default function Home() {
           </motion.span>
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-extralight mb-4 sm:mb-6 text-neutral-900 dark:text-neutral-100 leading-tight"
+            className="text-5xl md:text-7xl font-extralight mb-6 text-neutral-900 dark:text-neutral-100 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -400,38 +470,72 @@ export default function Home() {
               <h3 className="text-2xl font-light mb-8 text-neutral-900 dark:text-neutral-100">
                 {currentContent.about.skills.technical.title}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {currentContent.about.skills.technical.items.map(
-                  (category, index) => (
-                    <motion.div
-                      key={category.name}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className={cardClass}
+              <div className="space-y-2">
+                {currentContent.about.skills.technical.items.map((category, index) => (
+                  <motion.div
+                    key={category.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`${cardClass} overflow-hidden`}
+                  >
+                    <button
+                      onClick={() => handleTechSkillClick(category.name)}
+                      className="w-full flex items-center justify-between p-2.5 text-left"
                     >
-                      <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
+                      <h4 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
                         {category.name}
                       </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
-                                   text-neutral-500 dark:text-neutral-400 
-                                   border border-neutral-200/10 dark:border-neutral-700/10
-                                   hover:text-neutral-900 dark:hover:text-neutral-100
-                                   hover:border-neutral-300 dark:hover:border-neutral-600 
-                                   transition-colors duration-300"
-                          >
-                            {skill}
-                          </span>
-                        ))}
+                      <motion.svg
+                        className="w-5 h-5 text-neutral-500"
+                        animate={{ rotate: openTechSkill === category.name ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </motion.svg>
+                    </button>
+                    
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: openTechSkill === category.name ? "auto" : 0,
+                        opacity: openTechSkill === category.name ? 1 : 0
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut"
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-2.5 pt-0">
+                        <div className="flex flex-wrap gap-1.5">
+                          {category.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-0.5 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
+                                       text-neutral-500 dark:text-neutral-400 
+                                       border border-neutral-200/10 dark:border-neutral-700/10
+                                       hover:text-neutral-900 dark:hover:text-neutral-100
+                                       hover:border-neutral-300 dark:hover:border-neutral-600 
+                                       transition-colors duration-300"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </motion.div>
-                  )
-                )}
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
@@ -444,7 +548,7 @@ export default function Home() {
               <h3 className="text-2xl font-light mb-8 text-neutral-900 dark:text-neutral-100">
                 {currentContent.about.skills.soft.title}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
                 {currentContent.about.skills.soft.items.map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -452,14 +556,50 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className={cardClass}
+                    className={`${cardClass}`}
                   >
-                    <h4 className="text-lg font-medium mb-3 text-neutral-900 dark:text-neutral-100">
-                      {skill.name}
-                    </h4>
-                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                      {skill.description}
-                    </p>
+                    <button
+                      onClick={() => handleSoftSkillClick(skill.name)}
+                      className="w-full flex items-center justify-between p-2.5 text-left"
+                    >
+                      <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+                        {skill.name}
+                      </h4>
+                      <motion.svg
+                        className="w-5 h-5 text-neutral-500"
+                        animate={{ rotate: openSoftSkill === skill.name ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </motion.svg>
+                    </button>
+                    
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: openSoftSkill === skill.name ? "auto" : 0,
+                        opacity: openSoftSkill === skill.name ? 1 : 0
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        ease: "easeInOut"
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-2.5 pt-0">
+                        <p className="text-neutral-600 dark:text-neutral-400">
+                          {skill.description}
+                        </p>
+                      </div>
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
@@ -555,38 +695,34 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className={`${cardClass} p-4 sm:p-8`}>
-                  {/* Header con logo y detalles */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
-                    <div className="flex items-start sm:items-center gap-3 sm:gap-4">
-                      {/* Company Logo - ajustado para móvil */}
-                      <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 flex items-center justify-center shadow-md hover:shadow-lg transition-shadow duration-300 flex-shrink-0">
+                <div className={`${cardClass} p-8`}>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                    <div className="flex items-center gap-4 mb-4 md:mb-0">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800">
                         {item.logo ? (
                           <Image
                             src={item.logo}
                             alt={`${item.company} logo`}
                             fill
-                            className="object-cover hover:scale-105 transition-transform duration-300"
-                            sizes="(max-width: 768px) 48px, 64px"
+                            className="object-cover"
                           />
                         ) : (
-                          <span className="text-xl sm:text-2xl font-medium text-neutral-400">
+                          <span className="text-2xl font-medium text-neutral-400">
                             {item.company.charAt(0)}
                           </span>
                         )}
                       </div>
 
-                      {/* Información de la empresa */}
-                      <div className="space-y-1 min-w-0">
-                        <h3 className="text-lg sm:text-xl font-medium text-neutral-900 dark:text-neutral-100 line-clamp-2">
+                      <div className="space-y-1">
+                        <h3 className="text-xl font-medium text-neutral-900 dark:text-neutral-100">
                           {item.role}
                         </h3>
-                        <div className="flex flex-wrap items-center gap-2 text-neutral-600 dark:text-neutral-400">
-                          <span className="font-medium truncate">{item.company}</span>
+                        <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                          <span className="font-medium">{item.company}</span>
                           {item.location && (
                             <>
-                              <span className="text-neutral-400 hidden sm:inline">•</span>
-                              <span className="text-sm text-neutral-500 block sm:inline">
+                              <span className="text-neutral-400">•</span>
+                              <span className="text-sm text-neutral-500">
                                 {item.location}
                               </span>
                             </>
@@ -595,14 +731,12 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Fecha */}
-                    <span className="inline-block px-3 py-1 text-sm font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full self-start sm:self-center">
+                    <span className="inline-block px-3 py-1 text-sm font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full">
                       {item.date}
                     </span>
                   </div>
 
-                  {/* Descripción */}
-                  <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+                  <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
                     {item.description}
                   </p>
 
@@ -614,19 +748,19 @@ export default function Home() {
                           key={i}
                           className="flex items-start gap-3 text-neutral-600 dark:text-neutral-400"
                         >
-                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0" />
-                          <span className="text-xs sm:text-sm leading-relaxed">{achievement}</span>
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0" />
+                          <span className="text-sm leading-relaxed">{achievement}</span>
                         </div>
                       ))}
                     </div>
                   )}
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {item.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
+                        className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
                                  text-neutral-500 dark:text-neutral-400 
                                  border border-neutral-200/10 dark:border-neutral-700/10
                                  hover:text-neutral-900 dark:hover:text-neutral-100
@@ -655,46 +789,216 @@ export default function Home() {
       >
         <div className="absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]" />
         <motion.div
-          className="max-w-6xl mx-auto py-20"
+          className="max-w-7xl mx-auto py-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <h2 className={titleClass}>{currentContent.projects.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentContent.projects.cards.map((project, index) => (
-              <motion.div
-                key={index}
-                className={`${cardClass} rounded-xl`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
+
+          {/* Projects Grid Container - Añadimos padding-x para los botones */}
+          <div 
+            className="relative px-8 md:px-16"
+            onMouseEnter={() => setAutoPlay(false)}
+            onMouseLeave={() => setAutoPlay(true)}
+          >
+            {/* Projects Grid */}
+            <div className="max-w-5xl mx-auto">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                key={currentPage}
+                transition={{ duration: 0.5 }}
               >
-                <h3 className="text-xl mb-3 text-neutral-900 dark:text-neutral-100">
-                  {project.title}
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
-                               text-neutral-600 dark:text-neutral-400 
-                               border border-neutral-200 dark:border-neutral-700
-                               hover:border-primary-300 dark:hover:border-primary-700 
-                               hover:text-primary-600 dark:hover:text-primary-400
-                               transition-colors duration-300"
+                {currentContent.projects.cards
+                  .slice(currentPage * (isMobile ? 1 : 2), 
+                         currentPage * (isMobile ? 1 : 2) + (isMobile ? 1 : 2))
+                  .map((project, index) => (
+                    <motion.div
+                      key={index}
+                      className={`${cardClass} group/card overflow-hidden md:max-w-lg w-full h-full`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ 
+                        duration: 0.4,
+                        delay: index * 0.15,
+                        ease: "easeOut"
+                      }}
+                      whileHover={{ 
+                        transition: {
+                          duration: 0.2
+                        }
+                      }}
                     >
-                      #{tech}
-                    </span>
+                      <motion.div 
+                        className="p-4 md:p-6 flex flex-col h-full relative"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ 
+                          duration: 0.3,
+                          delay: index * 0.15 + 0.2
+                        }}
+                      >
+                        {/* Project Header */}
+                        <div className="mb-6">
+                          <h3 className="text-xl font-medium mb-3 text-neutral-900 dark:text-neutral-100 group-hover/card:text-neutral-800 dark:group-hover/card:text-white transition-colors">
+                            {project.title}
+                          </h3>
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+                              {project.type}
+                            </span>
+                            {project.company && (
+                              <span className="text-sm text-neutral-500 dark:text-neutral-500">
+                                @ {project.company}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-base text-neutral-600 dark:text-neutral-400">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        {/* Technologies */}
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {project.tech.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
+                                       text-neutral-600 dark:text-neutral-400 
+                                       border border-neutral-200/10 dark:border-neutral-700/10
+                                       hover:text-neutral-900 dark:hover:text-neutral-100
+                                       hover:border-neutral-300 dark:hover:border-neutral-600 
+                                       transition-colors duration-300"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Achievements */}
+                        {project.achievements && project.achievements.length > 0 && (
+                          <div className="flex-grow mb-6">
+                            <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
+                              {language === 'es' ? 'Logros' : 'Achievements'}
+                            </h4>
+                            <div className="space-y-3">
+                              {project.achievements.map((achievement, i) => (
+                                <div
+                                  key={i}
+                                  className="flex items-start gap-3"
+                                >
+                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600 shrink-0" />
+                                  <span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                    {achievement}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Project Link */}
+                        {project.url && (
+                          <motion.a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 
+                                     hover:text-neutral-900 dark:hover:text-neutral-100 
+                                     transition-colors mt-auto group/link"
+                            whileHover={{ x: 5 }}
+                          >
+                            {language === 'es' ? 'Ver proyecto' : 'View project'}
+                            <svg
+                              className="w-4 h-4 transform transition-transform group-hover/link:translate-x-1"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              />
+                            </svg>
+                          </motion.a>
+                        )}
+                      </motion.div>
+                    </motion.div>
                   ))}
-                </div>
               </motion.div>
-            ))}
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 
+                             ${index === currentPage ? 
+                               'bg-neutral-900 dark:bg-neutral-100 w-4' : 
+                               'bg-neutral-300 dark:bg-neutral-700'}`}
+                  onClick={() => goToPage(index)}
+                  aria-label={`Go to page ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Navigation Arrows - Ajustamos la posición */}
+            {totalPages > 1 && (
+              <>
+                <button
+                  className="absolute -left-4 top-1/2 -translate-y-1/2 
+                             text-neutral-400 dark:text-neutral-600
+                             hover:text-neutral-900 dark:hover:text-neutral-100
+                             transition-colors duration-300
+                             focus:outline-none"
+                  onClick={prevPage}
+                  aria-label="Previous page"
+                >
+                  <svg
+                    className="w-6 h-6 rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+
+                <button
+                  className="absolute -right-4 top-1/2 -translate-y-1/2 
+                             text-neutral-400 dark:text-neutral-600
+                             hover:text-neutral-900 dark:hover:text-neutral-100
+                             transition-colors duration-300
+                             focus:outline-none"
+                  onClick={nextPage}
+                  aria-label="Next page"
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </>
+            )}
           </div>
         </motion.div>
         <SectionNavigation
@@ -756,7 +1060,7 @@ export default function Home() {
 
             {/* Social media and CV buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center gap-4 mt-8"
               animate={{
                 y: showNotification ? 40 : 0,
                 transition: { type: "spring", stiffness: 200, damping: 20 },
@@ -882,33 +1186,23 @@ export default function Home() {
               <p className="text-xs text-neutral-500 dark:text-neutral-500">
                 {language === "es" ? "Hecho con" : "Built with"}
               </p>
-              <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 px-4 text-sm sm:text-base text-neutral-400 dark:text-neutral-600">
-                <div className="flex items-center gap-3">
-                  <span>Next.js</span>
-                  <span className="hidden sm:inline">•</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span>React</span>
-                  <span className="hidden sm:inline">•</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span>TypeScript</span>
-                  <span className="hidden sm:inline">•</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span>Tailwind</span>
-                  <span className="hidden sm:inline">•</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span>Framer Motion</span>
-                </div>
+              <div className="flex flex-wrap justify-center gap-2 text-xs text-neutral-400 dark:text-neutral-600 max-w-[280px] md:max-w-none">
+                <span className="flex items-center">Next.js</span>
+                <span className="hidden md:block">•</span>
+                <span className="flex items-center">React</span>
+                <span className="hidden md:block">•</span>
+                <span className="flex items-center">TypeScript</span>
+                <span className="hidden md:block">•</span>
+                <span className="flex items-center">Tailwind</span>
+                <span className="hidden md:block">•</span>
+                <span className="flex items-center">Framer Motion</span>
               </div>
             </motion.div>
           </div>
         </motion.div>
 
         {/* Navegación de sección y Back to top */}
-        <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 flex justify-center items-center gap-4 sm:gap-8">
+        <div className="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8">
           <motion.button
             onClick={() => scrollToSection("proyectos")}
             className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"

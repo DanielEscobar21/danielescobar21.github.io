@@ -23,7 +23,7 @@ export const texts = {
           title: "Habilidades Técnicas",
           items: [
             {
-              name: "Lenguajes",
+              name: "Lenguajes de Programación",
               skills: [
                 "Python",
                 "Java",
@@ -36,6 +36,7 @@ export const texts = {
                 "HTML/CSS",
                 "SQL",
                 "Shell Scripting",
+                "y más"
               ],
             },
             {
@@ -45,8 +46,15 @@ export const texts = {
                 "Angular",
                 "Vue.js",
                 "Redux",
+                "Next.js",
+                "Tailwind CSS",
+                "Material UI",
+                "Framer Motion",
                 "Bootstrap",
                 "Sass/LESS",
+                "Webpack",
+                "Vite",
+                "y más"
               ],
             },
             {
@@ -58,24 +66,51 @@ export const texts = {
                 "Laravel",
                 "ASP.NET",
                 "Node.js",
+                "GraphQL",
+                "REST APIs",
+                "Microservices",
+                "Socket.io",
+                "y más"
               ],
             },
             {
               name: "Mobile",
-              skills: ["Android SDK", "iOS SDK", "React Native", "Kotlin"],
+              skills: [
+                "Android SDK",
+                "iOS SDK",
+                "React Native",
+                "Kotlin",
+                "y más"
+              ],
             },
             {
               name: "Cloud & DevOps",
-              skills: ["AWS", "Docker", "Firebase", "GIT", "CI/CD"],
+              skills: [
+                "AWS",
+                "Docker",
+                "Kubernetes",
+                "Firebase",
+                "GIT",
+                "CI/CD",
+                "Jenkins",
+                "GitHub Actions",
+                "Terraform",
+                "Nginx",
+                "y más"
+              ],
             },
             {
               name: "Bases de Datos & APIs",
               skills: [
                 "PostgreSQL",
+                "MongoDB",
+                "Redis",
+                "MySQL",
                 "OpenAI API",
                 "Stripe API",
                 "Websockets",
                 "Django Channels",
+                "y más"
               ],
             },
           ],
@@ -83,6 +118,10 @@ export const texts = {
         soft: {
           title: "Habilidades Blandas",
           items: [
+            {
+              name: "Idiomas",
+              description: "Español: Nativo | Inglés: Profesional",
+            },
             {
               name: "Liderazgo",
               description:
@@ -115,6 +154,21 @@ export const texts = {
             },
           ],
         },
+        languages: {
+          title: "Idiomas",
+          items: [
+            {
+              name: "Español",
+              level: "Nativo",
+              description: "Lengua materna"
+            },
+            {
+              name: "Inglés",
+              level: "Profesional",
+              description: "Nivel profesional hablado y escrito"
+            }
+          ]
+        }
       },
       images: [
         {
@@ -125,23 +179,91 @@ export const texts = {
     },
     projects: {
       title: "Proyectos",
+      summary: {
+        title: "Resumen de Logros",
+        points: [
+          "Desarrollo de aplicaciones móviles y web de alta calidad utilizando tecnologías modernas como React Native, React.js y Django.",
+          "Integración exitosa de servicios de IA y procesamiento de pagos, mejorando la experiencia del usuario y la funcionalidad del negocio.",
+          "Implementación de arquitecturas escalables y seguras, manejando datos sensibles y alto tráfico de usuarios.",
+          "Creación de interfaces intuitivas y responsivas, resultando en una alta satisfacción del usuario y retención de clientes.",
+          "Gestión eficiente de bases de datos y APIs, optimizando el rendimiento y la seguridad de las aplicaciones."
+        ]
+      },
       cards: [
         {
-          title: "Proyecto 1",
-          description: "Aplicación web moderna con Next.js y TypeScript",
-          tech: ["Next.js", "TypeScript", "Tailwind"],
+          title: "Zplendid",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Aplicación móvil y plataforma web para clínica bariátrica",
+          longDescription: "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.",
+          url: "https://zplendid.com",
+          tech: [
+            "React.js",
+            "React Native",
+            "Redux",
+            "TypeScript",
+            "Django",
+            "Python",
+            "Firebase",
+            "OpenAI",
+            "Stripe",
+            "PostgreSQL"
+          ],
+          achievements: [
+            "Desarrollé una aplicación móvil con React Native, Redux y TypeScript para gestión integral de pacientes.",
+            "Integré modelos de OpenAI para brindar soporte impulsado por IA a los usuarios.",
+            "Creé interfaces intuitivas con enfoque en UX y acceso basado en roles.",
+            "Construí el backend con Django REST Framework, gestionando usuarios, roles, notificaciones, chat, cronjobs y pagos a través de Stripe.",
+            "Desarrollé dos sitios web con React: uno informativo y otro como panel de administración."
+          ]
         },
         {
-          title: "Proyecto 2",
-          description: "Sistema de gestión empresarial",
-          tech: ["React", "Node.js", "MongoDB"],
+          title: "Kouchea",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Plataforma de enseñanza de matemáticas en línea",
+          longDescription: "Desarrollo de una plataforma educativa para la enseñanza de matemáticas con sistema de suscripciones, pagos y gestión de contenido.",
+          url: "https://kouchea.com",
+          tech: [
+            "Laravel",
+            "PHP",
+            "Bootstrap",
+            "SASS",
+            "Stripe",
+            "MySQL"
+          ],
+          achievements: [
+            "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel.",
+            "Facilité más de 1,000 sesiones de aprendizaje con una plataforma Laravel responsive y segura.",
+            "Diseñé la plataforma usando Bootstrap y Sass, asegurando un diseño responsive y atractivo.",
+            "Implementé control de acceso basado en roles y permisos usando Laravel."
+          ]
         },
         {
-          title: "Proyecto 3",
-          description: "Plataforma de comercio electrónico",
-          tech: ["Next.js", "Prisma", "PostgreSQL"],
-        },
-      ],
+          title: "Pideisa",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Plataforma de medición y calibración de temperaturas para metales",
+          longDescription: "Desarrollo de una plataforma especializada para la medición y calibración precisa de temperaturas en procesos metalúrgicos, facilitando el control de calidad y la documentación de procesos.",
+          tech: [
+            "Django",
+            "Vue.js",
+            "Python",
+            "PostgreSQL",
+            "Docker",
+            "Bootstrap",
+            "REST APIs",
+            "Celery"
+          ],
+          achievements: [
+            "Desarrollé una plataforma web completa para la medición y calibración de temperaturas en procesos metalúrgicos.",
+            "Implementé algoritmos de cálculo y validación para asegurar mediciones precisas.",
+            "Creé un sistema de reportes automatizados para documentación y control de calidad.",
+            "Integré funcionalidades de exportación de datos en múltiples formatos.",
+            "Diseñé una interfaz intuitiva para la visualización de datos y tendencias de temperatura."
+          ]
+        }
+      ]
     },
     contact: {
       title: "Contacto",
@@ -268,7 +390,7 @@ export const texts = {
           title: "Technical Skills",
           items: [
             {
-              name: "Languages",
+              name: "Programming Languages",
               skills: [
                 "Python",
                 "Java",
@@ -281,6 +403,7 @@ export const texts = {
                 "HTML/CSS",
                 "SQL",
                 "Shell Scripting",
+                "and more"
               ],
             },
             {
@@ -290,8 +413,14 @@ export const texts = {
                 "Angular",
                 "Vue.js",
                 "Redux",
+                "Next.js",
+                "Tailwind CSS",
+                "Material UI",
+                "Framer Motion",
                 "Bootstrap",
                 "Sass/LESS",
+                "Webpack",
+                "and more"
               ],
             },
             {
@@ -303,24 +432,51 @@ export const texts = {
                 "Laravel",
                 "ASP.NET",
                 "Node.js",
+                "GraphQL",
+                "REST APIs",
+                "Microservices",
+                "Socket.io",
+                "and more"
               ],
             },
             {
               name: "Mobile",
-              skills: ["Android SDK", "iOS SDK", "React Native", "Kotlin"],
+              skills: [
+                "Android SDK",
+                "iOS SDK",
+                "React Native",
+                "Kotlin",
+                "and more"
+              ],
             },
             {
               name: "Cloud & DevOps",
-              skills: ["AWS", "Docker", "Firebase", "GIT", "CI/CD"],
+              skills: [
+                "AWS",
+                "Docker",
+                "Kubernetes",
+                "Firebase",
+                "GIT",
+                "CI/CD",
+                "Jenkins",
+                "GitHub Actions",
+                "Terraform",
+                "Nginx",
+                "and more"
+              ],
             },
             {
               name: "Databases & APIs",
               skills: [
                 "PostgreSQL",
+                "MongoDB",
+                "Redis",
+                "MySQL",
                 "OpenAI API",
                 "Stripe API",
                 "Websockets",
                 "Django Channels",
+                "and more"
               ],
             },
           ],
@@ -328,6 +484,10 @@ export const texts = {
         soft: {
           title: "Soft Skills",
           items: [
+            {
+              name: "Languages",
+              description: "Spanish: Native | English: Professional",
+            },
             {
               name: "Leadership",
               description: "Ability to effectively lead teams and projects",
@@ -357,6 +517,21 @@ export const texts = {
             },
           ],
         },
+        languages: {
+          title: "Languages",
+          items: [
+            {
+              name: "Spanish",
+              level: "Native",
+              description: "Native language"
+            },
+            {
+              name: "English",
+              level: "Professional",
+              description: "Professional working proficiency"
+            }
+          ]
+        }
       },
       images: [
         {
@@ -367,23 +542,91 @@ export const texts = {
     },
     projects: {
       title: "Projects",
+      summary: {
+        title: "Achievement Summary",
+        points: [
+          "Development of high-quality mobile and web applications using modern technologies like React Native, React.js, and Django.",
+          "Successful integration of AI services and payment processing, enhancing user experience and business functionality.",
+          "Implementation of scalable and secure architectures, handling sensitive data and high user traffic.",
+          "Creation of intuitive and responsive interfaces, resulting in high user satisfaction and client retention.",
+          "Efficient management of databases and APIs, optimizing application performance and security."
+        ]
+      },
       cards: [
         {
-          title: "Project 1",
-          description: "Modern web application with Next.js and TypeScript",
-          tech: ["Next.js", "TypeScript", "Tailwind"],
+          title: "Zplendid",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Mobile app and web platform for bariatric clinic",
+          longDescription: "Development of a comprehensive mobile app for a bariatric clinic managing appointments, payments, patient progress, and dietary plans. Includes AI integration and a web admin panel.",
+          url: "https://zplendid.com",
+          tech: [
+            "React.js",
+            "React Native",
+            "Redux",
+            "TypeScript",
+            "Django",
+            "Python",
+            "Firebase",
+            "OpenAI",
+            "Stripe",
+            "PostgreSQL"
+          ],
+          achievements: [
+            "Developed a mobile app for a bariatric clinic to manage appointments, payments, patient progress, and dietary plans using React Native, Redux and TypeScript.",
+            "Integrated OpenAI models to provide AI-driven support for users.",
+            "Created user-friendly interfaces with a strong focus on UX and role-based access.",
+            "Built a backend with Django REST Framework, managing users, roles, notifications, chat, cronjobs, and payments through Stripe.",
+            "Developed two websites with React: one for app information and the other as an admin dashboard for managing content and users."
+          ]
         },
         {
-          title: "Project 2",
-          description: "Business management system",
-          tech: ["React", "Node.js", "MongoDB"],
+          title: "Kouchea",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Online mathematics teaching platform",
+          longDescription: "Development of an educational platform for teaching mathematics with subscription system, payments, and content management.",
+          url: "https://kouchea.com",
+          tech: [
+            "Laravel",
+            "PHP",
+            "Bootstrap",
+            "SASS",
+            "Stripe",
+            "MySQL"
+          ],
+          achievements: [
+            "Developed an online platform for teaching mathematics using Laravel, with features for subscriptions, payments, discounts, and coupons managed through Stripe.",
+            "Facilitated over 1,000 learning sessions with a responsive and secure Laravel platform",
+            "Styled the platform using Bootstrap and Sass, ensuring a responsive and visually appealing design.",
+            "Implemented role-based access control and permissions using Laravel."
+          ]
         },
         {
-          title: "Project 3",
-          description: "E-commerce platform",
-          tech: ["Next.js", "Prisma", "PostgreSQL"],
-        },
-      ],
+          title: "Pideisa",
+          type: "Professional",
+          company: "Alluxi",
+          description: "Metal temperature measurement and calibration platform",
+          longDescription: "Development of a specialized platform for precise temperature measurement and calibration in metallurgical processes, facilitating quality control and process documentation.",
+          tech: [
+            "Django",
+            "Vue.js",
+            "Python",
+            "PostgreSQL",
+            "Docker",
+            "Bootstrap",
+            "REST APIs",
+            "Celery"
+          ],
+          achievements: [
+            "Developed a complete web platform for temperature measurement and calibration in metallurgical processes.",
+            "Implemented calculation and validation algorithms to ensure accurate measurements.",
+            "Created an automated reporting system for documentation and quality control.",
+            "Integrated data export functionality in multiple formats.",
+            "Designed an intuitive interface for data visualization and temperature trends."
+          ]
+        }
+      ]
     },
     contact: {
       title: "Contact",
