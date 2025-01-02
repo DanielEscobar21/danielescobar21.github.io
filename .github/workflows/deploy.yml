@@ -20,6 +20,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Clean cache
+        run: |
+          rm -rf .next
+          rm -rf out
+
       - name: Install dependencies 📦
         run: npm ci
 
