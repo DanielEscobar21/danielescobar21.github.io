@@ -47,7 +47,7 @@ Object.defineProperty(exports, "addBasePath", ({
 }));
 const _addpathprefix = __webpack_require__(8498);
 const _normalizetrailingslash = __webpack_require__(8521);
-const basePath = "/portafolio" || 0;
+const basePath =  false || "";
 function addBasePath(path, required) {
     return (0, _normalizetrailingslash.normalizePathTrailingSlash)( false ? 0 : (0, _addpathprefix.addPathPrefix)(path, basePath));
 }
@@ -6630,7 +6630,7 @@ Object.defineProperty(exports, "hasBasePath", ({
     }
 }));
 const _pathhasprefix = __webpack_require__(580);
-const basePath = "/portafolio" || 0;
+const basePath =  false || "";
 function hasBasePath(path) {
     return (0, _pathhasprefix.pathHasPrefix)(path, basePath);
 }
@@ -6731,7 +6731,7 @@ Object.defineProperty(exports, "removeBasePath", ({
     }
 }));
 const _hasbasepath = __webpack_require__(1283);
-const basePath = "/portafolio" || 0;
+const basePath =  false || "";
 function removeBasePath(path) {
     if (false) {}
     // Can't trim the basePath if it has zero length!

@@ -42,7 +42,7 @@ const _warnonce = __webpack_require__(1765);
 const _routercontextsharedruntime = __webpack_require__(5523);
 const _imageloader = /*#__PURE__*/ _interop_require_default._(__webpack_require__(5084));
 // This is replaced by webpack define plugin
-const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/portafolio/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true};
+const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true};
 if (typeof window === "undefined") {
     globalThis.__NEXT_IMAGE_IMPORTED = true;
 }
@@ -979,7 +979,7 @@ function getImageProps(imgProps) {
     const { props } = (0, _getimgprops.getImgProps)(imgProps, {
         defaultLoader: _imageloader.default,
         // This is replaced by webpack define plugin
-        imgConf: {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/portafolio/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true}
+        imgConf: {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true}
     });
     // Normally we don't care about undefined props because we pass to JSX,
     // but this exported function could be used by the end user for anything
