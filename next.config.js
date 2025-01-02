@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    domains: [],
-    unoptimized: false,
-  },
-  webpack(config) {
-    return config;
+    unoptimized: true,
   },
 }
 
