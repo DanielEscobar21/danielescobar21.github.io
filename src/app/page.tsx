@@ -24,6 +24,125 @@ const cardClass = `
   relative group
 `;
 
+// Array con el orden de las secciones
+const sections = ['inicio', 'sobre-mi', 'skills', 'educacion', 'experiencia', 'proyectos', 'contacto'];
+
+// Mover la función scrollToSection fuera de los componentes
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  element?.scrollIntoView({ behavior: 'smooth' });
+};
+
+// Componente de navegación entre secciones
+const SectionNavigation = ({ currentSection, language }: { currentSection: string, language: string }) => {
+  const currentIndex = sections.indexOf(currentSection);
+  const prevSection = currentIndex > 0 ? sections[currentIndex - 1] : null;
+  const nextSection = currentIndex < sections.length - 1 ? sections[currentIndex + 1] : null;
+  const isHome = currentSection === 'inicio';
+
+  const sectionNames = {
+    es: {
+      inicio: 'Inicio',
+      'sobre-mi': 'Sobre Mí',
+      skills: 'Habilidades',
+      educacion: 'Formación',
+      experiencia: 'Experiencia',
+      proyectos: 'Proyectos',
+      contacto: 'Contacto'
+    },
+    en: {
+      inicio: 'Home',
+      'sobre-mi': 'About',
+      skills: 'Skills',
+      educacion: 'Education',
+      experiencia: 'Experience',
+      proyectos: 'Projects',
+      contacto: 'Contact'
+    }
+  };
+
+  return (
+    <div className="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8">
+      {!isHome && prevSection && (
+        <motion.button
+          onClick={() => scrollToSection(prevSection)}
+          className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+          whileHover={{ y: -3 }}
+        >
+          <svg 
+            className="w-4 h-4 rotate-180"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+          {sectionNames[language][prevSection]}
+        </motion.button>
+      )}
+
+      {nextSection && (
+        <motion.button
+          onClick={() => scrollToSection(nextSection)}
+          className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+          whileHover={{ y: 3 }}
+        >
+          {sectionNames[language][nextSection]}
+          <svg 
+            className="w-4 h-4"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </motion.button>
+      )}
+    </div>
+  );
+};
+
+// Función para scroll to top
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Primero, actualizar el componente ScrollToTop para que coincida con el estilo del ScrollIndicator
+const ScrollToTop = ({ language }: { language: string }) => (
+  <motion.div
+    className="absolute bottom-12 left-0 right-0 mx-auto flex flex-col items-center gap-2"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+  >
+    <motion.button
+      onClick={scrollToTop}
+      className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+      whileHover={{ y: -3 }}
+    >
+      {language === 'es' ? 'Volver arriba' : 'Back to top'}
+      <div className="flex flex-col -space-y-1">
+        <svg 
+          className="w-4 h-4 rotate-180"
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+        <svg 
+          className="w-4 h-4 rotate-180"
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </motion.button>
+  </motion.div>
+);
+
 export default function Home() {
   const { language } = useTheme();
   const currentContent = texts[language];
@@ -92,33 +211,26 @@ export default function Home() {
             {currentContent.hero.subtitle}
           </motion.p>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            className="absolute bottom-12 left-0 right-0 mx-auto flex flex-col items-center gap-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <span className="text-sm text-neutral-500 dark:text-neutral-400 tracking-wider">
-              {language === "es" ? "Desliza para más" : "Scroll for more"}
-            </span>
-            <motion.div
-              className="w-6 h-10 border-2 border-neutral-400 dark:border-neutral-600 rounded-full p-1"
-              initial={{ y: 0 }}
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.5,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="w-1.5 h-1.5 bg-neutral-400 dark:bg-neutral-600 rounded-full" />
-            </motion.div>
-          </motion.div>
-
           {/* Background Decoration */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-100/50 dark:to-neutral-900/50 pointer-events-none" />
         </motion.div>
+        <div className="absolute bottom-12 left-0 right-0 flex justify-center">
+          <motion.button
+            onClick={() => scrollToSection('sobre-mi')}
+            className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+            whileHover={{ y: 3 }}
+          >
+            {language === 'es' ? 'Sobre Mí' : 'About'}
+            <svg 
+              className="w-4 h-4 rotate-90" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </motion.button>
+        </div>
       </section>
 
       {/* About Section */}
@@ -134,51 +246,77 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className={titleClass}>{currentContent.about.title}</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ x: -50 }}
               whileInView={{ x: 0 }}
               viewport={{ once: true }}
+              className="space-y-6"
             >
-              <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                {currentContent.about.description}
-              </p>
+              {currentContent.about.description.split('\n\n').map((paragraph, index) => (
+                <p 
+                  key={index}
+                  className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify"
+                >
+                  {paragraph}
+                </p>
+              ))}
             </motion.div>
 
             <motion.div
               initial={{ x: 50 }}
               whileInView={{ x: 0 }}
               viewport={{ once: true }}
-              className="relative h-[400px] w-full rounded-lg overflow-hidden"
+              className="relative aspect-square max-w-md mx-auto lg:max-w-none w-full"
             >
-              <Image
-                src={currentContent.about.images[0].src}
-                alt={currentContent.about.images[0].alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/30 opacity-0 transition-opacity duration-300 hover:opacity-100">
-                <p className="absolute bottom-4 left-4 text-white text-sm font-light">
-                  {currentContent.about.images[0].alt}
-                </p>
+              <div className="relative h-full w-full rounded-2xl overflow-hidden group">
+                <Image
+                  src={currentContent.about.images[0].src}
+                  alt={currentContent.about.images[0].alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="absolute bottom-6 left-6 text-white text-lg font-light">
+                    {currentContent.about.images[0].alt}
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
+        </motion.div>
+        <SectionNavigation currentSection="sobre-mi" language={language} />
+      </section>
 
-          {/* About Section - Skills */}
+      {/* Skills Section */}
+      <section
+        id="skills"
+        className={`${sectionClass} relative bg-gradient-to-tr from-light-base via-light-elevated to-light-base dark:from-dark-base dark:via-dark-elevated dark:to-dark-base overflow-hidden`}
+      >
+        <div className="absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]" />
+        <motion.div
+          className="w-full max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className={titleClass}>
+            {language === 'es' ? 'Habilidades' : 'Skills'}
+          </h2>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Technical Skills Column */}
+            {/* Technical Skills */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-light mb-8 text-neutral-900 dark:text-neutral-100">
                 {currentContent.about.skills.technical.title}
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentContent.about.skills.technical.items.map((category, index) => (
                   <motion.div
                     key={category.name}
@@ -211,16 +349,16 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Soft Skills Column */}
+            {/* Soft Skills */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-light mb-8 text-neutral-900 dark:text-neutral-100">
                 {currentContent.about.skills.soft.title}
               </h3>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentContent.about.skills.soft.items.map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -242,6 +380,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+        <SectionNavigation currentSection="skills" language={language} />
       </section>
 
       {/* Education Section */}
@@ -298,6 +437,7 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
+        <SectionNavigation currentSection="educacion" language={language} />
       </section>
 
       {/* Experience Section */}
@@ -362,6 +502,7 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
+        <SectionNavigation currentSection="experiencia" language={language} />
       </section>
 
       {/* Projects Section */}
@@ -413,6 +554,7 @@ export default function Home() {
             ))}
           </div>
         </motion.div>
+        <SectionNavigation currentSection="proyectos" language={language} />
       </section>
 
       {/* Contact Section */}
@@ -508,6 +650,50 @@ export default function Home() {
                 </svg>
               </motion.a>
             </motion.div>
+          </div>
+
+          <div className="absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8">
+            <motion.button
+              onClick={() => scrollToSection('proyectos')}
+              className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+              whileHover={{ y: -3 }}
+            >
+              <svg 
+                className="w-4 h-4 rotate-180"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+              {language === 'es' ? 'Proyectos' : 'Projects'}
+            </motion.button>
+
+            <motion.button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group"
+              whileHover={{ y: -3 }}
+            >
+              {language === 'es' ? 'Volver arriba' : 'Back to top'}
+              <div className="flex flex-col -space-y-1">
+                <svg 
+                  className="w-4 h-4 rotate-180"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <svg 
+                  className="w-4 h-4 rotate-180"
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </motion.button>
           </div>
 
           <motion.p

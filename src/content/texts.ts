@@ -9,8 +9,11 @@ export const texts = {
     },
     about: {
       title: "Sobre Mí",
-      description:
-        "Ingeniero de Software Full Stack con más de 2 años de experiencia en el desarrollo de soluciones escalables y centradas en el usuario para aplicaciones web y móviles. Experto en React, Django y plataformas cloud como AWS, con un fuerte enfoque en el uso de tecnologías modernas para resolver desafíos complejos. Capacidad demostrada para liderar equipos multifuncionales, optimizar el rendimiento e integrar funcionalidades basadas en IA en productos reales, logrando un impacto empresarial medible. Competente en la gestión del ciclo completo de desarrollo de software, garantizando entregables de alta calidad mediante metodologías ágiles y mejores prácticas en ingeniería de software.",
+      description: `Soy un Ingeniero de Software Full Stack apasionado por crear soluciones digitales innovadoras y escalables. Con más de 2 años de experiencia, me especializo en el desarrollo de aplicaciones web y móviles utilizando tecnologías modernas.
+
+      Mi experiencia abarca desde el desarrollo frontend con React y TypeScript hasta la implementación de soluciones backend robustas con Django y Node.js. Me destaco en la integración de servicios cloud y la optimización de rendimiento, siempre enfocado en crear experiencias de usuario excepcionales.
+
+      Disfruto especialmente trabajando en proyectos desafiantes que requieren pensamiento creativo y soluciones técnicas innovadoras. Mi objetivo es seguir creciendo como desarrollador mientras contribuyo a proyectos que generen un impacto positivo.`,
       skills: {
         technical: {
           title: "Habilidades Técnicas",
@@ -208,8 +211,11 @@ export const texts = {
     },
     about: {
       title: "About Me",
-      description:
-        "Full Stack Software Engineer with 2+ years of experience delivering scalable and user-centric solutions for web and mobile applications. Expert in React, Django, and cloud platforms like AWS, with a strong focus on leveraging modern technologies to solve complex challenges. Proven ability to lead cross-functional teams, optimize performance, and integrate AI-driven functionalities into real-world products, resulting in measurable business impact. Adept at managing the complete software development lifecycle, ensuring high-quality deliverables through agile methodologies and best practices in software engineering.",
+      description: `I am a Full Stack Software Engineer passionate about creating innovative and scalable digital solutions. With over 2 years of experience, I specialize in developing web and mobile applications using modern technologies.
+
+      My expertise ranges from frontend development with React and TypeScript to implementing robust backend solutions with Django and Node.js. I excel at cloud service integration and performance optimization, always focused on creating exceptional user experiences.
+
+      I particularly enjoy working on challenging projects that require creative thinking and innovative technical solutions. My goal is to continue growing as a developer while contributing to projects that make a positive impact.`,
       skills: {
         technical: {
           title: "Technical Skills",

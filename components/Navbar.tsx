@@ -18,7 +18,7 @@ const Navbar = () => {
   // Detectar sección activa durante el scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'sobre-mi', 'educacion', 'experiencia', 'proyectos', 'contacto'];
+      const sections = ['inicio', 'sobre-mi', 'skills', 'educacion', 'experiencia', 'proyectos', 'contacto'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -38,6 +38,7 @@ const Navbar = () => {
     es: {
       inicio: 'Inicio',
       sobreMi: 'Sobre Mí',
+      skills: 'Habilidades',
       educacion: 'Formación',
       experiencia: 'Experiencia',
       proyectos: 'Proyectos',
@@ -46,6 +47,7 @@ const Navbar = () => {
     en: {
       inicio: 'Home',
       sobreMi: 'About',
+      skills: 'Skills',
       educacion: 'Education',
       experiencia: 'Experience',
       proyectos: 'Projects',
