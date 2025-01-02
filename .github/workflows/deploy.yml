@@ -18,26 +18,27 @@ jobs:
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v3
         with:
-          node-version: '18.17.0'
+          node-version: '18.20.5'
           cache: 'npm'
 
-      - name: Clean cache and directories
+      - name: Install specific npm version
         run: |
-          rm -rf .next
-          rm -rf out
-          rm -rf node_modules
-          npm cache clean --force
+          npm install -g npm@10.7.0
+          npm --version
 
       - name: Install dependencies 📦
-        run: npm install
+        run: |
+          npm cache clean --force
+          npm install
 
       - name: Build project 🛠️
+        env:
+          NODE_ENV: production
+          CI: false
         run: |
-          echo "Node version:"
+          echo "Environment check:"
           node --version
-          echo "NPM version:"
           npm --version
-          echo "Starting build..."
           npm run build
 
       - name: Add .nojekyll file

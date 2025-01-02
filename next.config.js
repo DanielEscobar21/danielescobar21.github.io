@@ -5,6 +5,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  webpack: (config) => {
+    config.optimization.minimize = false;
+    return config;
+  },
+  experimental: {
+    optimizeCss: false
+  }
 }
 
 module.exports = nextConfig 
