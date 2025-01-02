@@ -18,7 +18,7 @@ const Navbar = () => {
   // Detectar sección activa durante el scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'contacto'];
+      const sections = ['inicio', 'sobre-mi', 'educacion', 'experiencia', 'proyectos', 'contacto'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -38,6 +38,7 @@ const Navbar = () => {
     es: {
       inicio: 'Inicio',
       sobreMi: 'Sobre Mí',
+      educacion: 'Formación',
       experiencia: 'Experiencia',
       proyectos: 'Proyectos',
       contacto: 'Contacto'
@@ -45,6 +46,7 @@ const Navbar = () => {
     en: {
       inicio: 'Home',
       sobreMi: 'About',
+      educacion: 'Education',
       experiencia: 'Experience',
       proyectos: 'Projects',
       contacto: 'Contact'
@@ -56,12 +58,12 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-sm"
+      className="fixed top-0 left-0 w-full z-50 bg-light-base/80 dark:bg-dark-base/80 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.span 
-            className="text-lg font-light text-gray-900 dark:text-white cursor-pointer font-mono"
+            className="text-lg font-light cursor-pointer font-mono text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection('inicio')}
           >
@@ -80,8 +82,8 @@ const Navbar = () => {
                   onClick={() => scrollToSection(sectionId)}
                   className={`text-sm transition-colors relative ${
                     isActive 
-                      ? 'text-gray-900 dark:text-white' 
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                      ? 'text-primary-600 dark:text-primary-400' 
+                      : 'text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -89,7 +91,7 @@ const Navbar = () => {
                   {value}
                   {isActive && (
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gray-900 dark:bg-white"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-600 dark:bg-primary-400"
                       layoutId="underline"
                     />
                   )}
@@ -99,7 +101,7 @@ const Navbar = () => {
             
             <motion.button
               onClick={toggleTheme}
-              className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              className="p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -110,7 +112,7 @@ const Navbar = () => {
             <motion.select
               value={language}
               onChange={(e) => setLanguage(e.target.value as 'es' | 'en')}
-              className="bg-transparent text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none cursor-pointer"
+              className="bg-transparent text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none cursor-pointer"
               whileHover={{ scale: 1.05 }}
             >
               <option value="en">EN</option>

@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // tu configuración aquí
+  images: {
+    domains: [],
+    unoptimized: false,
+  },
+  webpack(config) {
+    return config;
+  },
 }
 
 module.exports = nextConfig 

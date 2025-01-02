@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className="scroll-smooth dark">
-      <body className="min-h-screen bg-light-base dark:bg-dark-base text-gray-900 dark:text-gray-100">
+    <html lang="es" className="scroll-smooth">
+      <body className="min-h-screen bg-light-base dark:bg-dark-base text-neutral-900 dark:text-neutral-100 selection:bg-primary-200 dark:selection:bg-primary-900 selection:text-primary-900 dark:selection:text-primary-100">
         <ThemeProvider>
           {children}
         </ThemeProvider>
