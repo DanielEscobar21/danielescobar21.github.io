@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: '',
+  assetPrefix: 'https://descoba.dev',
   webpack: (config) => {
     config.optimization.minimize = false;
     return config;
