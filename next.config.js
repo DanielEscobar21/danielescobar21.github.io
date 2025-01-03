@@ -12,7 +12,8 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: false
-  }
+  },
+  distDir: 'out'
 }
 
 module.exports = nextConfig 
