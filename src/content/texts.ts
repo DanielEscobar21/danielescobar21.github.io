@@ -197,8 +197,7 @@ export const texts = {
           description:
             "Aplicación móvil y plataforma web para clínica bariátrica",
           longDescription:
-            "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.",
-          url: "https://zplendid.com",
+            "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.", 
           tech: [
             "React.js",
             "React Native",
@@ -655,7 +654,6 @@ export const texts = {
           description: "Mobile app and web platform for bariatric clinic",
           longDescription:
             "Development of a comprehensive mobile app for a bariatric clinic managing appointments, payments, patient progress, and dietary plans. Includes AI integration and a web admin panel.",
-          url: "https://zplendid.com",
           tech: [
             "React.js",
             "React Native",
