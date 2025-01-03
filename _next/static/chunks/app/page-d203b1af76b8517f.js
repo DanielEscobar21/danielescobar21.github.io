@@ -466,7 +466,6 @@ const texts = {
                     company: "Alluxi",
                     description: "Aplicaci\xf3n m\xf3vil y plataforma web para cl\xednica bari\xe1trica",
                     longDescription: "Desarrollo de una aplicaci\xf3n m\xf3vil completa para una cl\xednica bari\xe1trica que gestiona citas, pagos, progreso de pacientes y planes diet\xe9ticos. Incluye integraci\xf3n con IA y un panel de administraci\xf3n web.",
-                    url: "https://zplendid.com",
                     tech: [
                         "React.js",
                         "React Native",
@@ -908,7 +907,6 @@ const texts = {
                     company: "Alluxi",
                     description: "Mobile app and web platform for bariatric clinic",
                     longDescription: "Development of a comprehensive mobile app for a bariatric clinic managing appointments, payments, patient progress, and dietary plans. Includes AI integration and a web admin panel.",
-                    url: "https://zplendid.com",
                     tech: [
                         "React.js",
                         "React Native",
