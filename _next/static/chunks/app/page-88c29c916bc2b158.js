@@ -1,15 +1,75 @@
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[931],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[974],{
 
-/***/ 974:
-/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+/***/ 1754:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9804));
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   D: () => (/* binding */ useTheme),
+/* harmony export */   ThemeProvider: () => (/* binding */ ThemeProvider)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5155);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2115);
+/* __next_internal_client_entry_do_not_use__ ThemeProvider,useTheme auto */ 
+
+const ThemeContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)(undefined);
+function ThemeProvider(param) {
+    let { children } = param;
+    const [theme, setTheme] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('dark');
+    const [language, setLanguage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)('en');
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        const savedTheme = localStorage.getItem('theme');
+        const savedLanguage = localStorage.getItem('language');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+        if (savedLanguage) {
+            setLanguage(savedLanguage);
+        }
+    }, []);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', theme);
+    }, [
+        theme
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        localStorage.setItem('language', language);
+    }, [
+        language
+    ]);
+    const toggleTheme = ()=>{
+        setTheme(theme === 'light' ? 'dark' : 'light');
+    };
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(ThemeContext.Provider, {
+        value: {
+            theme,
+            toggleTheme,
+            language,
+            setLanguage
+        },
+        children: children
+    });
+}
+function useTheme() {
+    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(ThemeContext);
+    if (context === undefined) {
+        throw new Error('useTheme must be used within a ThemeProvider');
+    }
+    return context;
+}
 
 
 /***/ }),
 
-/***/ 9804:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ 3256:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 // ESM COMPAT FLAG
@@ -17,32 +77,32 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ Home; }
+  "default": () => (/* binding */ Home)
 });
 
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(7437);
+var jsx_runtime = __webpack_require__(5155);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs + 233 modules
-var proxy = __webpack_require__(7500);
+var proxy = __webpack_require__(4218);
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/index.js
-var react = __webpack_require__(2265);
+var react = __webpack_require__(2115);
 // EXTERNAL MODULE: ./src/context/ThemeContext.tsx
-var ThemeContext = __webpack_require__(2025);
+var ThemeContext = __webpack_require__(1754);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs + 3 modules
-var AnimatePresence = __webpack_require__(8614);
-;// CONCATENATED MODULE: ./components/Navbar.tsx
+var AnimatePresence = __webpack_require__(1408);
+;// ./components/Navbar.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
 
 const Navbar = ()=>{
     const [isMenuOpen, setIsMenuOpen] = (0,react.useState)(false);
-    const [activeSection, setActiveSection] = (0,react.useState)("inicio");
-    const { theme, toggleTheme, language, setLanguage } = (0,ThemeContext/* useTheme */.F)();
+    const [activeSection, setActiveSection] = (0,react.useState)('inicio');
+    const { theme, toggleTheme, language, setLanguage } = (0,ThemeContext/* useTheme */.D)();
     const scrollToSection = (sectionId)=>{
         const element = document.getElementById(sectionId);
         element === null || element === void 0 ? void 0 : element.scrollIntoView({
-            behavior: "smooth"
+            behavior: 'smooth'
         });
         setIsMenuOpen(false);
     };
@@ -50,13 +110,13 @@ const Navbar = ()=>{
     (0,react.useEffect)(()=>{
         const handleScroll = ()=>{
             const sections = [
-                "inicio",
-                "sobre-mi",
-                "skills",
-                "educacion",
-                "experiencia",
-                "proyectos",
-                "contacto"
+                'inicio',
+                'sobre-mi',
+                'skills',
+                'educacion',
+                'experiencia',
+                'proyectos',
+                'contacto'
             ];
             const current = sections.find((section)=>{
                 const element = document.getElementById(section);
@@ -68,30 +128,30 @@ const Navbar = ()=>{
             });
             if (current) setActiveSection(current);
         };
-        window.addEventListener("scroll", handleScroll);
-        return ()=>window.removeEventListener("scroll", handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return ()=>window.removeEventListener('scroll', handleScroll);
     }, []);
     const menuItems = {
         es: {
-            inicio: "Inicio",
-            sobreMi: "Sobre M\xed",
-            skills: "Habilidades",
-            educacion: "Formaci\xf3n",
-            experiencia: "Experiencia",
-            proyectos: "Proyectos",
-            contacto: "Contacto"
+            inicio: 'Inicio',
+            sobreMi: 'Sobre Mí',
+            skills: 'Habilidades',
+            educacion: 'Formación',
+            experiencia: 'Experiencia',
+            proyectos: 'Proyectos',
+            contacto: 'Contacto'
         },
         en: {
-            inicio: "Home",
-            sobreMi: "About",
-            skills: "Skills",
-            educacion: "Education",
-            experiencia: "Experience",
-            proyectos: "Projects",
-            contacto: "Contact"
+            inicio: 'Home',
+            sobreMi: 'About',
+            skills: 'Skills',
+            educacion: 'Education',
+            experiencia: 'Experience',
+            proyectos: 'Projects',
+            contacto: 'Contact'
         }
     };
-    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.nav, {
+    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.nav, {
         initial: {
             y: -100
         },
@@ -110,12 +170,12 @@ const Navbar = ()=>{
                 children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                     className: "flex items-center justify-between h-16",
                     children: [
-                        /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.span, {
+                        /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.span, {
                             className: "text-lg font-light cursor-pointer font-mono text-neutral-900 dark:text-neutral-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors",
                             whileHover: {
                                 scale: 1.05
                             },
-                            onClick: ()=>scrollToSection("inicio"),
+                            onClick: ()=>scrollToSection('inicio'),
                             children: "descoba.dev"
                         }),
                         /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
@@ -123,11 +183,11 @@ const Navbar = ()=>{
                             children: [
                                 Object.entries(menuItems[language]).map((param)=>{
                                     let [key, value] = param;
-                                    const sectionId = key === "sobreMi" ? "sobre-mi" : key;
+                                    const sectionId = key === 'sobreMi' ? 'sobre-mi' : key;
                                     const isActive = activeSection === sectionId;
-                                    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+                                    return /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                                         onClick: ()=>scrollToSection(sectionId),
-                                        className: "text-sm transition-colors relative ".concat(isActive ? "text-primary-600 dark:text-primary-400" : "text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"),
+                                        className: "text-sm transition-colors relative ".concat(isActive ? 'text-primary-600 dark:text-primary-400' : 'text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400'),
                                         whileHover: {
                                             scale: 1.05
                                         },
@@ -136,14 +196,14 @@ const Navbar = ()=>{
                                         },
                                         children: [
                                             value,
-                                            isActive && /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                            isActive && /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                                 className: "absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-600 dark:bg-primary-400",
                                                 layoutId: "underline"
                                             })
                                         ]
                                     }, key);
                                 }),
-                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.button, {
+                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.button, {
                                     onClick: toggleTheme,
                                     className: "p-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors",
                                     whileHover: {
@@ -158,9 +218,9 @@ const Navbar = ()=>{
                                         stiffness: 400,
                                         damping: 17
                                     },
-                                    children: theme === "light" ? "◐" : "◑"
+                                    children: theme === 'light' ? '◐' : '◑'
                                 }),
-                                /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.select, {
+                                /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.select, {
                                     value: language,
                                     onChange: (e)=>setLanguage(e.target.value),
                                     className: "bg-transparent text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none cursor-pointer",
@@ -183,7 +243,7 @@ const Navbar = ()=>{
                         /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                             className: "md:hidden flex items-center space-x-4",
                             children: [
-                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.button, {
+                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.button, {
                                     onClick: toggleTheme,
                                     className: "p-2 text-gray-600 dark:text-gray-400",
                                     whileHover: {
@@ -193,9 +253,9 @@ const Navbar = ()=>{
                                     whileTap: {
                                         scale: 0.9
                                     },
-                                    children: theme === "light" ? "◐" : "◑"
+                                    children: theme === 'light' ? '◐' : '◑'
                                 }),
-                                /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.select, {
+                                /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.select, {
                                     value: language,
                                     onChange: (e)=>setLanguage(e.target.value),
                                     className: "bg-transparent text-sm text-gray-600 dark:text-gray-400",
@@ -213,7 +273,7 @@ const Navbar = ()=>{
                                         })
                                     ]
                                 }),
-                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.button, {
+                                /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.button, {
                                     onClick: ()=>setIsMenuOpen(!isMenuOpen),
                                     className: "text-gray-600 dark:text-gray-400 text-2xl",
                                     whileHover: {
@@ -222,22 +282,22 @@ const Navbar = ()=>{
                                     whileTap: {
                                         scale: 0.9
                                     },
-                                    children: isMenuOpen ? "\xd7" : "≡"
+                                    children: isMenuOpen ? '×' : '≡'
                                 })
                             ]
                         })
                     ]
                 })
             }),
-            /*#__PURE__*/ (0,jsx_runtime.jsx)(AnimatePresence/* AnimatePresence */.M, {
-                children: isMenuOpen && /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+            /*#__PURE__*/ (0,jsx_runtime.jsx)(AnimatePresence/* AnimatePresence */.N, {
+                children: isMenuOpen && /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                     initial: {
                         opacity: 0,
                         height: 0
                     },
                     animate: {
                         opacity: 1,
-                        height: "auto"
+                        height: 'auto'
                     },
                     exit: {
                         opacity: 0,
@@ -253,11 +313,11 @@ const Navbar = ()=>{
                         className: "px-4 py-2 space-y-1",
                         children: Object.entries(menuItems[language]).map((param)=>{
                             let [key, value] = param;
-                            const sectionId = key === "sobreMi" ? "sobre-mi" : key;
+                            const sectionId = key === 'sobreMi' ? 'sobre-mi' : key;
                             const isActive = activeSection === sectionId;
-                            return /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.button, {
+                            return /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.button, {
                                 onClick: ()=>scrollToSection(sectionId),
-                                className: "block w-full text-left py-2 ".concat(isActive ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400"),
+                                className: "block w-full text-left py-2 ".concat(isActive ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'),
                                 whileHover: {
                                     x: 10
                                 },
@@ -273,11 +333,11 @@ const Navbar = ()=>{
         ]
     });
 };
-/* harmony default export */ var components_Navbar = (Navbar);
+/* harmony default export */ const components_Navbar = (Navbar);
 
 // EXTERNAL MODULE: ./node_modules/next/dist/api/image.js
-var api_image = __webpack_require__(3145);
-;// CONCATENATED MODULE: ./src/content/texts.ts
+var api_image = __webpack_require__(5239);
+;// ./src/content/texts.ts
 const texts = {
     es: {
         hero: {
@@ -285,21 +345,21 @@ const texts = {
             name: "Daniel Escobar Araujo",
             title: "Ingeniero de Software",
             subtitle: "Creando soluciones digitales innovadoras",
-            scrollText: "Desliza para m\xe1s",
+            scrollText: "Desliza para más",
             buttons: {
                 resume: "Descargar CV",
                 linkedin: "Visitar LinkedIn"
             }
         },
         about: {
-            title: "Sobre M\xed",
+            title: "Sobre Mí",
             description: "Soy un Ingeniero de Software Full Stack apasionado por crear soluciones digitales innovadoras y escalables. Con m\xe1s de 2 a\xf1os de experiencia, me especializo en el desarrollo de aplicaciones web y m\xf3viles utilizando tecnolog\xedas modernas.\n\n      Mi experiencia abarca desde el desarrollo frontend con React y TypeScript hasta la implementaci\xf3n de soluciones backend robustas con Django y Node.js. Me destaco en la integraci\xf3n de servicios cloud y la optimizaci\xf3n de rendimiento, siempre enfocado en crear experiencias de usuario excepcionales.\n\n      Disfruto especialmente trabajando en proyectos desafiantes que requieren pensamiento creativo y soluciones t\xe9cnicas innovadoras. Mi objetivo es seguir creciendo como desarrollador mientras contribuyo a proyectos que generen un impacto positivo.",
             skills: {
                 technical: {
-                    title: "Habilidades T\xe9cnicas",
+                    title: "Habilidades Técnicas",
                     items: [
                         {
-                            name: "Lenguajes de Programaci\xf3n",
+                            name: "Lenguajes de Programación",
                             skills: [
                                 "Python",
                                 "Java",
@@ -312,7 +372,7 @@ const texts = {
                                 "HTML/CSS",
                                 "SQL",
                                 "Shell Scripting",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         },
                         {
@@ -330,7 +390,7 @@ const texts = {
                                 "Sass/LESS",
                                 "Webpack",
                                 "Vite",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         },
                         {
@@ -346,7 +406,7 @@ const texts = {
                                 "REST APIs",
                                 "Microservices",
                                 "Socket.io",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         },
                         {
@@ -356,7 +416,7 @@ const texts = {
                                 "iOS SDK",
                                 "React Native",
                                 "Kotlin",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         },
                         {
@@ -372,7 +432,7 @@ const texts = {
                                 "GitHub Actions",
                                 "Terraform",
                                 "Nginx",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         },
                         {
@@ -386,7 +446,7 @@ const texts = {
                                 "Stripe API",
                                 "Websockets",
                                 "Django Channels",
-                                "y m\xe1s"
+                                "y más"
                             ]
                         }
                     ]
@@ -396,31 +456,31 @@ const texts = {
                     items: [
                         {
                             name: "Idiomas",
-                            description: "Espa\xf1ol: Nativo | Ingl\xe9s: Profesional"
+                            description: "Español: Nativo | Inglés: Profesional"
                         },
                         {
                             name: "Liderazgo",
                             description: "Capacidad para dirigir equipos y proyectos de manera efectiva"
                         },
                         {
-                            name: "Comunicaci\xf3n",
-                            description: "Excelente comunicaci\xf3n verbal y escrita en entornos profesionales"
+                            name: "Comunicación",
+                            description: "Excelente comunicación verbal y escrita en entornos profesionales"
                         },
                         {
                             name: "Trabajo en Equipo",
-                            description: "Colaboraci\xf3n efectiva y construcci\xf3n de relaciones positivas"
+                            description: "Colaboración efectiva y construcción de relaciones positivas"
                         },
                         {
                             name: "Adaptabilidad",
-                            description: "Flexibilidad para adaptarse a nuevos desaf\xedos y tecnolog\xedas"
+                            description: "Flexibilidad para adaptarse a nuevos desafíos y tecnologías"
                         },
                         {
-                            name: "Pensamiento Cr\xedtico",
-                            description: "An\xe1lisis profundo y resoluci\xf3n efectiva de problemas"
+                            name: "Pensamiento Crítico",
+                            description: "Análisis profundo y resolución efectiva de problemas"
                         },
                         {
-                            name: "Gesti\xf3n de Proyectos",
-                            description: "Planificaci\xf3n, ejecuci\xf3n y seguimiento de proyectos"
+                            name: "Gestión de Proyectos",
+                            description: "Planificación, ejecución y seguimiento de proyectos"
                         }
                     ]
                 },
@@ -428,12 +488,12 @@ const texts = {
                     title: "Idiomas",
                     items: [
                         {
-                            name: "Espa\xf1ol",
+                            name: "Español",
                             level: "Nativo",
                             description: "Lengua materna"
                         },
                         {
-                            name: "Ingl\xe9s",
+                            name: "Inglés",
                             level: "Profesional",
                             description: "Nivel profesional hablado y escrito"
                         }
@@ -452,11 +512,11 @@ const texts = {
             summary: {
                 title: "Resumen de Logros",
                 points: [
-                    "Desarrollo de aplicaciones m\xf3viles y web de alta calidad utilizando tecnolog\xedas modernas como React Native, React.js y Django.",
-                    "Integraci\xf3n exitosa de servicios de IA y procesamiento de pagos, mejorando la experiencia del usuario y la funcionalidad del negocio.",
-                    "Implementaci\xf3n de arquitecturas escalables y seguras, manejando datos sensibles y alto tr\xe1fico de usuarios.",
-                    "Creaci\xf3n de interfaces intuitivas y responsivas, resultando en una alta satisfacci\xf3n del usuario y retenci\xf3n de clientes.",
-                    "Gesti\xf3n eficiente de bases de datos y APIs, optimizando el rendimiento y la seguridad de las aplicaciones."
+                    "Desarrollo de aplicaciones móviles y web de alta calidad utilizando tecnologías modernas como React Native, React.js y Django.",
+                    "Integración exitosa de servicios de IA y procesamiento de pagos, mejorando la experiencia del usuario y la funcionalidad del negocio.",
+                    "Implementación de arquitecturas escalables y seguras, manejando datos sensibles y alto tráfico de usuarios.",
+                    "Creación de interfaces intuitivas y responsivas, resultando en una alta satisfacción del usuario y retención de clientes.",
+                    "Gestión eficiente de bases de datos y APIs, optimizando el rendimiento y la seguridad de las aplicaciones."
                 ]
             },
             cards: [
@@ -464,8 +524,8 @@ const texts = {
                     title: "Zplendid",
                     type: "Professional",
                     company: "Alluxi",
-                    description: "Aplicaci\xf3n m\xf3vil y plataforma web para cl\xednica bari\xe1trica",
-                    longDescription: "Desarrollo de una aplicaci\xf3n m\xf3vil completa para una cl\xednica bari\xe1trica que gestiona citas, pagos, progreso de pacientes y planes diet\xe9ticos. Incluye integraci\xf3n con IA y un panel de administraci\xf3n web.",
+                    description: "Aplicación móvil y plataforma web para clínica bariátrica",
+                    longDescription: "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.",
                     tech: [
                         "React.js",
                         "React Native",
@@ -479,19 +539,19 @@ const texts = {
                         "PostgreSQL"
                     ],
                     achievements: [
-                        "Desarroll\xe9 una aplicaci\xf3n m\xf3vil con React Native, Redux y TypeScript para gesti\xf3n integral de pacientes.",
-                        "Integr\xe9 modelos de OpenAI para brindar soporte impulsado por IA a los usuarios.",
-                        "Cre\xe9 interfaces intuitivas con enfoque en UX y acceso basado en roles.",
-                        "Constru\xed el backend con Django REST Framework, gestionando usuarios, roles, notificaciones, chat, cronjobs y pagos a trav\xe9s de Stripe.",
-                        "Desarroll\xe9 dos sitios web con React: uno informativo y otro como panel de administraci\xf3n."
+                        "Desarrollé una aplicación móvil con React Native, Redux y TypeScript para gestión integral de pacientes.",
+                        "Integré modelos de OpenAI para brindar soporte impulsado por IA a los usuarios.",
+                        "Creé interfaces intuitivas con enfoque en UX y acceso basado en roles.",
+                        "Construí el backend con Django REST Framework, gestionando usuarios, roles, notificaciones, chat, cronjobs y pagos a través de Stripe.",
+                        "Desarrollé dos sitios web con React: uno informativo y otro como panel de administración."
                     ]
                 },
                 {
                     title: "Kouchea",
                     type: "Professional",
                     company: "Alluxi",
-                    description: "Plataforma de ense\xf1anza de matem\xe1ticas en l\xednea",
-                    longDescription: "Desarrollo de una plataforma educativa para la ense\xf1anza de matem\xe1ticas con sistema de suscripciones, pagos y gesti\xf3n de contenido.",
+                    description: "Plataforma de enseñanza de matemáticas en línea",
+                    longDescription: "Desarrollo de una plataforma educativa para la enseñanza de matemáticas con sistema de suscripciones, pagos y gestión de contenido.",
                     url: "https://kouchea.com",
                     tech: [
                         "Laravel",
@@ -502,18 +562,18 @@ const texts = {
                         "MySQL"
                     ],
                     achievements: [
-                        "Desarroll\xe9 una plataforma en l\xednea para ense\xf1anza de matem\xe1ticas usando Laravel.",
-                        "Facilit\xe9 m\xe1s de 1,000 sesiones de aprendizaje con una plataforma Laravel responsive y segura.",
-                        "Dise\xf1\xe9 la plataforma usando Bootstrap y Sass, asegurando un dise\xf1o responsive y atractivo.",
-                        "Implement\xe9 control de acceso basado en roles y permisos usando Laravel."
+                        "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel.",
+                        "Facilité más de 1,000 sesiones de aprendizaje con una plataforma Laravel responsive y segura.",
+                        "Diseñé la plataforma usando Bootstrap y Sass, asegurando un diseño responsive y atractivo.",
+                        "Implementé control de acceso basado en roles y permisos usando Laravel."
                     ]
                 },
                 {
                     title: "Pideisa",
                     type: "Professional",
                     company: "Alluxi",
-                    description: "Plataforma de medici\xf3n y calibraci\xf3n de temperaturas para metales",
-                    longDescription: "Desarrollo de una plataforma especializada para la medici\xf3n y calibraci\xf3n precisa de temperaturas en procesos metal\xfargicos, facilitando el control de calidad y la documentaci\xf3n de procesos.",
+                    description: "Plataforma de medición y calibración de temperaturas para metales",
+                    longDescription: "Desarrollo de una plataforma especializada para la medición y calibración precisa de temperaturas en procesos metalúrgicos, facilitando el control de calidad y la documentación de procesos.",
                     tech: [
                         "Django",
                         "Vue.js",
@@ -525,19 +585,19 @@ const texts = {
                         "Celery"
                     ],
                     achievements: [
-                        "Desarroll\xe9 una plataforma web completa para la medici\xf3n y calibraci\xf3n de temperaturas en procesos metal\xfargicos.",
-                        "Implement\xe9 algoritmos de c\xe1lculo y validaci\xf3n para asegurar mediciones precisas.",
-                        "Cre\xe9 un sistema de reportes automatizados para documentaci\xf3n y control de calidad.",
-                        "Integr\xe9 funcionalidades de exportaci\xf3n de datos en m\xfaltiples formatos.",
-                        "Dise\xf1\xe9 una interfaz intuitiva para la visualizaci\xf3n de datos y tendencias de temperatura."
+                        "Desarrollé una plataforma web completa para la medición y calibración de temperaturas en procesos metalúrgicos.",
+                        "Implementé algoritmos de cálculo y validación para asegurar mediciones precisas.",
+                        "Creé un sistema de reportes automatizados para documentación y control de calidad.",
+                        "Integré funcionalidades de exportación de datos en múltiples formatos.",
+                        "Diseñé una interfaz intuitiva para la visualización de datos y tendencias de temperatura."
                     ]
                 },
                 {
-                    title: "Sistema de Gesti\xf3n Gubernamental",
+                    title: "Sistema de Gestión Gubernamental",
                     type: "Professional",
                     company: "BIIDA Technology",
-                    description: "Plataforma para la gesti\xf3n y administraci\xf3n de empresas y multas de cumplimiento gubernamental",
-                    longDescription: "Desarrollo de un sistema integral para una entidad gubernamental que permite la gesti\xf3n, seguimiento y administraci\xf3n de empresas registradas, as\xed como el control y monitoreo de multas y cumplimiento normativo.",
+                    description: "Plataforma para la gestión y administración de empresas y multas de cumplimiento gubernamental",
+                    longDescription: "Desarrollo de un sistema integral para una entidad gubernamental que permite la gestión, seguimiento y administración de empresas registradas, así como el control y monitoreo de multas y cumplimiento normativo.",
                     tech: [
                         "Java",
                         "JavaScript",
@@ -549,18 +609,18 @@ const texts = {
                         "Apache Tomcat"
                     ],
                     achievements: [
-                        "Desarroll\xe9 una plataforma web completa para la gesti\xf3n de registros empresariales y seguimiento de multas.",
-                        "Implement\xe9 un sistema de autenticaci\xf3n y autorizaci\xf3n basado en roles para diferentes niveles de usuarios gubernamentales.",
-                        "Dise\xf1\xe9 e implement\xe9 una base de datos relacional para el manejo eficiente de registros empresariales y multas.",
-                        "Cre\xe9 interfaces intuitivas para la gesti\xf3n de documentos y seguimiento de casos.",
-                        "Integr\xe9 funcionalidades de generaci\xf3n de reportes y estad\xedsticas para el an\xe1lisis de cumplimiento."
+                        "Desarrollé una plataforma web completa para la gestión de registros empresariales y seguimiento de multas.",
+                        "Implementé un sistema de autenticación y autorización basado en roles para diferentes niveles de usuarios gubernamentales.",
+                        "Diseñé e implementé una base de datos relacional para el manejo eficiente de registros empresariales y multas.",
+                        "Creé interfaces intuitivas para la gestión de documentos y seguimiento de casos.",
+                        "Integré funcionalidades de generación de reportes y estadísticas para el análisis de cumplimiento."
                     ]
                 },
                 {
                     title: "Farmacia Naturista Vida",
                     type: "Personal",
-                    description: "Sistema de administraci\xf3n de medicamentos y recetas para farmacia naturista",
-                    longDescription: "Desarrollo de una plataforma web para la gesti\xf3n integral de una farmacia naturista, incluyendo control de inventario de medicamentos, generaci\xf3n de recetas m\xe9dicas, sistema de impresi\xf3n y administraci\xf3n de usuarios con diferentes niveles de acceso.",
+                    description: "Sistema de administración de medicamentos y recetas para farmacia naturista",
+                    longDescription: "Desarrollo de una plataforma web para la gestión integral de una farmacia naturista, incluyendo control de inventario de medicamentos, generación de recetas médicas, sistema de impresión y administración de usuarios con diferentes niveles de acceso.",
                     url: "https://github.com/DanielEscobar21/VIDAinfo.git",
                     tech: [
                         "Laravel",
@@ -574,19 +634,19 @@ const texts = {
                         "DomPDF"
                     ],
                     achievements: [
-                        "Desarroll\xe9 un sistema completo de gesti\xf3n de inventario para medicamentos naturistas.",
-                        "Implement\xe9 un m\xf3dulo de generaci\xf3n e impresi\xf3n de recetas m\xe9dicas con PDF personalizado.",
-                        "Cre\xe9 un sistema de autenticaci\xf3n y autorizaci\xf3n con diferentes roles de usuario.",
-                        "Dise\xf1\xe9 una interfaz intuitiva para la gesti\xf3n de medicamentos y recetas.",
-                        "Integr\xe9 funcionalidades de b\xfasqueda y filtrado avanzado de medicamentos."
+                        "Desarrollé un sistema completo de gestión de inventario para medicamentos naturistas.",
+                        "Implementé un módulo de generación e impresión de recetas médicas con PDF personalizado.",
+                        "Creé un sistema de autenticación y autorización con diferentes roles de usuario.",
+                        "Diseñé una interfaz intuitiva para la gestión de medicamentos y recetas.",
+                        "Integré funcionalidades de búsqueda y filtrado avanzado de medicamentos."
                     ]
                 },
                 {
                     title: "Express Dating",
                     type: "Professional",
                     company: "Alluxi",
-                    description: "Aplicaci\xf3n m\xf3vil de citas con videollamadas y mensajer\xeda en tiempo real",
-                    longDescription: "Desarrollo de una aplicaci\xf3n m\xf3vil nativa de Android para citas que incluye funcionalidades de videollamadas, mensajer\xeda instant\xe1nea, matching de usuarios y perfiles personalizados.",
+                    description: "Aplicación móvil de citas con videollamadas y mensajería en tiempo real",
+                    longDescription: "Desarrollo de una aplicación móvil nativa de Android para citas que incluye funcionalidades de videollamadas, mensajería instantánea, matching de usuarios y perfiles personalizados.",
                     url: "https://play.google.com/store/apps/details?id=com.globalsoftm.gs_app_express_dating&pcampaignid=web_share",
                     tech: [
                         "Kotlin",
@@ -601,18 +661,18 @@ const texts = {
                         "Push Notifications"
                     ],
                     achievements: [
-                        "Desarroll\xe9 una aplicaci\xf3n nativa de Android usando Kotlin y siguiendo los principios de Material Design.",
-                        "Implement\xe9 un sistema de videollamadas en tiempo real utilizando el SDK de Sinch.",
-                        "Integr\xe9 Firebase para la gesti\xf3n de usuarios, mensajer\xeda instant\xe1nea y almacenamiento de datos.",
-                        "Dise\xf1\xe9 un algoritmo de matching basado en preferencias y ubicaci\xf3n de usuarios.",
-                        "Implement\xe9 un sistema de notificaciones push para mantener a los usuarios actualizados."
+                        "Desarrollé una aplicación nativa de Android usando Kotlin y siguiendo los principios de Material Design.",
+                        "Implementé un sistema de videollamadas en tiempo real utilizando el SDK de Sinch.",
+                        "Integré Firebase para la gestión de usuarios, mensajería instantánea y almacenamiento de datos.",
+                        "Diseñé un algoritmo de matching basado en preferencias y ubicación de usuarios.",
+                        "Implementé un sistema de notificaciones push para mantener a los usuarios actualizados."
                     ]
                 }
             ]
         },
         contact: {
             title: "Contacto",
-            subtitle: "\xbfTienes un proyecto en mente? \xa1Hablemos!",
+            subtitle: "¿Tienes un proyecto en mente? ¡Hablemos!",
             email: "danesc21@gmail.com"
         },
         experience: {
@@ -624,7 +684,7 @@ const texts = {
                     company: "Alluxi",
                     logo: "/img/companies/alluxi.png",
                     location: "Remoto",
-                    description: "Desarrollo full-stack y liderazgo t\xe9cnico de equipos en proyectos empresariales.",
+                    description: "Desarrollo full-stack y liderazgo técnico de equipos en proyectos empresariales.",
                     tech: [
                         "JS",
                         "TS",
@@ -646,10 +706,10 @@ const texts = {
                         "Tailwind CSS"
                     ],
                     achievements: [
-                        "Lider\xe9 equipos multifuncionales para implementar m\xe1s de 3 proyectos full-stack, reduciendo el tiempo de implementaci\xf3n en un 20%.",
-                        "Optimic\xe9 implementaciones en AWS, logrando tiempos de carga 30% m\xe1s r\xe1pidos y mayor tiempo de actividad de las aplicaciones.",
-                        "Desarroll\xe9 y mantuve aplicaciones multiplataforma utilizando frameworks modernos.",
-                        "Apliqu\xe9 metodolog\xedas \xe1giles y herramientas como Jira para la gesti\xf3n de proyectos."
+                        "Lideré equipos multifuncionales para implementar más de 3 proyectos full-stack, reduciendo el tiempo de implementación en un 20%.",
+                        "Optimicé implementaciones en AWS, logrando tiempos de carga 30% más rápidos y mayor tiempo de actividad de las aplicaciones.",
+                        "Desarrollé y mantuve aplicaciones multiplataforma utilizando frameworks modernos.",
+                        "Apliqué metodologías ágiles y herramientas como Jira para la gestión de proyectos."
                     ]
                 },
                 {
@@ -657,8 +717,8 @@ const texts = {
                     role: "Software Developer",
                     company: "BIIDA Technology",
                     logo: "/img/companies/biida.png",
-                    location: "Le\xf3n, Guanajuato",
-                    description: "Desarrollo full-stack y optimizaci\xf3n de aplicaciones web empresariales.",
+                    location: "León, Guanajuato",
+                    description: "Desarrollo full-stack y optimización de aplicaciones web empresariales.",
                     tech: [
                         "JS",
                         "TS",
@@ -675,47 +735,47 @@ const texts = {
                         "Git"
                     ],
                     achievements: [
-                        "Dise\xf1\xe9 interfaces de usuario responsivas, mejorando la participaci\xf3n de usuarios en un 15%.",
-                        "Optimic\xe9 integraciones de API, reduciendo tiempos de respuesta en un 25%.",
-                        "Mejor\xe9 el rendimiento de bases de datos en un 20% mediante t\xe9cnicas de optimizaci\xf3n.",
-                        "Contribu\xed al ciclo completo de desarrollo de software, colaborando en equipos \xe1giles."
+                        "Diseñé interfaces de usuario responsivas, mejorando la participación de usuarios en un 15%.",
+                        "Optimicé integraciones de API, reduciendo tiempos de respuesta en un 25%.",
+                        "Mejoré el rendimiento de bases de datos en un 20% mediante técnicas de optimización.",
+                        "Contribuí al ciclo completo de desarrollo de software, colaborando en equipos ágiles."
                     ]
                 }
             ]
         },
         education: {
-            title: "Formaci\xf3n",
+            title: "Formación",
             timeline: [
                 {
                     date: "2023",
                     degree: "Especialidad en Desarrollo de Aplicaciones Empresariales",
-                    institution: "Instituto Tecnol\xf3gico Nacional de M\xe9xico",
-                    description: "Especializaci\xf3n en arquitecturas empresariales y desarrollo de aplicaciones escalables.",
+                    institution: "Instituto Tecnológico Nacional de México",
+                    description: "Especialización en arquitecturas empresariales y desarrollo de aplicaciones escalables.",
                     achievements: [
-                        "Patrones de dise\xf1o empresariales",
+                        "Patrones de diseño empresariales",
                         "Arquitecturas distribuidas y microservicios",
-                        "Integraci\xf3n de sistemas empresariales",
-                        "Gesti\xf3n de proyectos de software"
+                        "Integración de sistemas empresariales",
+                        "Gestión de proyectos de software"
                     ]
                 },
                 {
                     date: "2018 - 2023",
-                    degree: "Ingenier\xeda en Sistemas Computacionales",
-                    institution: "Instituto Tecnol\xf3gico Nacional de M\xe9xico",
-                    description: "Especializaci\xf3n en desarrollo de software, bases de datos y computaci\xf3n en la nube.",
+                    degree: "Ingeniería en Sistemas Computacionales",
+                    institution: "Instituto Tecnológico Nacional de México",
+                    description: "Especialización en desarrollo de software, bases de datos y computación en la nube.",
                     achievements: [
                         "Promedio General: 93/100",
-                        "Cursos Relevantes: Estructuras de Datos (Java), Probabilidad y Estad\xedstica (Python)",
-                        "Programaci\xf3n Orientada a Objetos (Java), Simulaci\xf3n (Python)",
-                        "Bases de Datos Avanzadas (SQL), Ingenier\xeda de Software",
-                        "Computaci\xf3n en la Nube (AWS), Ciencia de Datos"
+                        "Cursos Relevantes: Estructuras de Datos (Java), Probabilidad y Estadística (Python)",
+                        "Programación Orientada a Objetos (Java), Simulación (Python)",
+                        "Bases de Datos Avanzadas (SQL), Ingeniería de Software",
+                        "Computación en la Nube (AWS), Ciencia de Datos"
                     ]
                 },
                 {
                     date: "2022",
                     degree: "AWS Cloud Practitioner Essentials",
                     institution: "Amazon Web Services",
-                    description: "Certificaci\xf3n fundamental en servicios y conceptos de AWS Cloud.",
+                    description: "Certificación fundamental en servicios y conceptos de AWS Cloud.",
                     achievements: []
                 }
             ]
@@ -1099,7 +1159,7 @@ const texts = {
                     role: "Software Developer",
                     company: "BIIDA Technology",
                     logo: "/img/companies/biida.png",
-                    location: "Le\xf3n, Guanajuato",
+                    location: "León, Guanajuato",
                     description: "Full-stack development and web application optimization.",
                     tech: [
                         "JS",
@@ -1165,7 +1225,7 @@ const texts = {
     }
 };
 
-;// CONCATENATED MODULE: ./src/app/page.tsx
+;// ./src/app/page.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -1180,19 +1240,19 @@ const titleClass = "text-4xl md:text-5xl font-light mb-16 text-center text-neutr
 const cardClass = "\n  bg-light-base dark:bg-dark-elevated \n  p-6 rounded-lg shadow-soft \n  hover:shadow-soft-lg \n  border border-neutral-200/10 dark:border-neutral-800/10 \n  transition-all duration-300 \n  hover:scale-[1.02] hover:-translate-y-1\n  hover:bg-gradient-to-br hover:from-light-elevated hover:to-light-base\n  dark:hover:from-dark-elevated dark:hover:to-dark-base\n  relative group\n";
 // Array con el orden de las secciones
 const sections = [
-    "inicio",
-    "sobre-mi",
-    "skills",
-    "educacion",
-    "experiencia",
-    "proyectos",
-    "contacto"
+    'inicio',
+    'sobre-mi',
+    'skills',
+    'educacion',
+    'experiencia',
+    'proyectos',
+    'contacto'
 ];
 // Mover la función scrollToSection fuera de los componentes
 const scrollToSection = (sectionId)=>{
     const element = document.getElementById(sectionId);
     element === null || element === void 0 ? void 0 : element.scrollIntoView({
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 };
 // Componente de navegación entre secciones
@@ -1201,31 +1261,31 @@ const SectionNavigation = (param)=>{
     const currentIndex = sections.indexOf(currentSection);
     const prevSection = currentIndex > 0 ? sections[currentIndex - 1] : null;
     const nextSection = currentIndex < sections.length - 1 ? sections[currentIndex + 1] : null;
-    const isHome = currentSection === "inicio";
+    const isHome = currentSection === 'inicio';
     const sectionNames = {
         es: {
-            inicio: "Inicio",
-            "sobre-mi": "Sobre M\xed",
-            skills: "Habilidades",
-            educacion: "Formaci\xf3n",
-            experiencia: "Experiencia",
-            proyectos: "Proyectos",
-            contacto: "Contacto"
+            inicio: 'Inicio',
+            'sobre-mi': 'Sobre Mí',
+            skills: 'Habilidades',
+            educacion: 'Formación',
+            experiencia: 'Experiencia',
+            proyectos: 'Proyectos',
+            contacto: 'Contacto'
         },
         en: {
-            inicio: "Home",
-            "sobre-mi": "About",
-            skills: "Skills",
-            educacion: "Education",
-            experiencia: "Experience",
-            proyectos: "Projects",
-            contacto: "Contact"
+            inicio: 'Home',
+            'sobre-mi': 'About',
+            skills: 'Skills',
+            educacion: 'Education',
+            experiencia: 'Experience',
+            proyectos: 'Projects',
+            contacto: 'Contact'
         }
     };
     return /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
         className: "absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8",
         children: [
-            !isHome && prevSection && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+            !isHome && prevSection && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                 onClick: ()=>scrollToSection(prevSection),
                 className: "flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group",
                 whileHover: {
@@ -1247,7 +1307,7 @@ const SectionNavigation = (param)=>{
                     sectionNames[language][prevSection]
                 ]
             }),
-            nextSection && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+            nextSection && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                 onClick: ()=>scrollToSection(nextSection),
                 className: "flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group",
                 whileHover: {
@@ -1276,7 +1336,7 @@ const SectionNavigation = (param)=>{
 const scrollToTop = ()=>{
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 };
 // Primero, actualizar el componente ScrollToTop para que coincida con el estilo del ScrollIndicator
@@ -1302,7 +1362,7 @@ const ScrollToTop = (param)=>{
                 y: -3
             },
             children: [
-                language === "es" ? "Volver arriba" : "Back to top",
+                language === 'es' ? 'Volver arriba' : 'Back to top',
                 /*#__PURE__*/ _jsxs("div", {
                     className: "flex flex-col -space-y-1",
                     children: [
@@ -1337,7 +1397,7 @@ const ScrollToTop = (param)=>{
     });
 };
 function Home() {
-    const { language } = (0,ThemeContext/* useTheme */.F)();
+    const { language } = (0,ThemeContext/* useTheme */.D)();
     const currentContent = texts[language];
     const [showNotification, setShowNotification] = (0,react.useState)(false);
     const [currentProject, setCurrentProject] = (0,react.useState)(0);
@@ -1373,7 +1433,7 @@ function Home() {
             setShowNotification(true);
             setTimeout(()=>setShowNotification(false), 3000); // Ocultar después de 3 segundos
         } catch (err) {
-            console.error("Error al copiar el email:", err);
+            console.error('Error al copiar el email:', err);
         }
     };
     // Funciones para el carrusel
@@ -1408,8 +1468,8 @@ function Home() {
         // Comprobar inicialmente
         checkMobile();
         // Añadir listener para cambios de tamaño
-        window.addEventListener("resize", checkMobile);
-        return ()=>window.removeEventListener("resize", checkMobile);
+        window.addEventListener('resize', checkMobile);
+        return ()=>window.removeEventListener('resize', checkMobile);
     }, [
         currentContent.projects.cards.length
     ]);
@@ -1427,7 +1487,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-100/50 dark:to-neutral-900/50 pointer-events-none"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "w-full max-w-4xl mx-auto text-center relative z-10",
                         initial: {
                             opacity: 0
@@ -1439,7 +1499,7 @@ function Home() {
                             duration: 1
                         },
                         children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.span, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.span, {
                                 className: "text-sm uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400 mb-6 block",
                                 initial: {
                                     opacity: 0,
@@ -1454,7 +1514,7 @@ function Home() {
                                 },
                                 children: currentContent.hero.welcome
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.h1, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.h1, {
                                 className: "text-5xl md:text-7xl font-extralight mb-6 text-neutral-900 dark:text-neutral-100 leading-tight",
                                 initial: {
                                     opacity: 0,
@@ -1469,7 +1529,7 @@ function Home() {
                                 },
                                 children: currentContent.hero.name
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.h2, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.h2, {
                                 className: "text-3xl md:text-4xl font-extralight mb-8 bg-gradient-to-r from-neutral-900 to-neutral-500 dark:from-neutral-100 dark:to-neutral-400 bg-clip-text text-transparent",
                                 initial: {
                                     opacity: 0,
@@ -1484,7 +1544,7 @@ function Home() {
                                 },
                                 children: currentContent.hero.title
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.p, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.p, {
                                 className: "text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed",
                                 initial: {
                                     opacity: 0,
@@ -1499,7 +1559,7 @@ function Home() {
                                 },
                                 children: currentContent.hero.subtitle
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                 className: "flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 relative z-20",
                                 initial: {
                                     opacity: 0,
@@ -1513,7 +1573,7 @@ function Home() {
                                     delay: 0.5
                                 },
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                         href: "/Daniel_Escobar_Resume_EN.pdf",
                                         download: true,
                                         target: "_blank",
@@ -1541,7 +1601,7 @@ function Home() {
                                             currentContent.hero.buttons.resume
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                         href: "https://www.linkedin.com/in/danielescobar00",
                                         target: "_blank",
                                         rel: "noopener noreferrer",
@@ -1573,14 +1633,14 @@ function Home() {
                     }),
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute bottom-12 left-0 right-0 flex justify-center",
-                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                             onClick: ()=>scrollToSection("sobre-mi"),
                             className: "flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group",
                             whileHover: {
                                 y: 3
                             },
                             children: [
-                                language === "es" ? "Sobre M\xed" : "About",
+                                language === "es" ? "Sobre Mí" : "About",
                                 /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
                                     className: "w-4 h-4",
                                     fill: "none",
@@ -1605,7 +1665,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "w-full max-w-6xl mx-auto",
                         initial: {
                             opacity: 0
@@ -1624,7 +1684,7 @@ function Home() {
                             /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                 className: "grid grid-cols-1 lg:grid-cols-2 gap-16 items-center",
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                         initial: {
                                             x: -50
                                         },
@@ -1640,7 +1700,7 @@ function Home() {
                                                 children: paragraph
                                             }, index))
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                         initial: {
                                             x: 50
                                         },
@@ -1689,7 +1749,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "w-full max-w-6xl mx-auto",
                         initial: {
                             opacity: 0
@@ -1708,7 +1768,7 @@ function Home() {
                             /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                 className: "grid grid-cols-1 lg:grid-cols-2 gap-12",
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                         initial: {
                                             opacity: 0,
                                             x: -50
@@ -1727,7 +1787,7 @@ function Home() {
                                             }),
                                             /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                                 className: "space-y-2",
-                                                children: currentContent.about.skills.technical.items.map((category, index)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                                children: currentContent.about.skills.technical.items.map((category, index)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                                         initial: {
                                                             opacity: 0,
                                                             y: 20
@@ -1752,7 +1812,7 @@ function Home() {
                                                                         className: "text-base font-medium text-neutral-900 dark:text-neutral-100",
                                                                         children: category.name
                                                                     }),
-                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.svg, {
+                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.svg, {
                                                                         className: "w-5 h-5 text-neutral-500",
                                                                         animate: {
                                                                             rotate: openTechSkill === category.name ? 180 : 0
@@ -1772,7 +1832,7 @@ function Home() {
                                                                     })
                                                                 ]
                                                             }),
-                                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                                                 initial: false,
                                                                 animate: {
                                                                     height: openTechSkill === category.name ? "auto" : 0,
@@ -1799,7 +1859,7 @@ function Home() {
                                             })
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                         initial: {
                                             opacity: 0,
                                             x: 50
@@ -1818,7 +1878,7 @@ function Home() {
                                             }),
                                             /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                                 className: "space-y-2",
-                                                children: currentContent.about.skills.soft.items.map((skill, index)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                                children: currentContent.about.skills.soft.items.map((skill, index)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                                         initial: {
                                                             opacity: 0,
                                                             y: 20
@@ -1843,7 +1903,7 @@ function Home() {
                                                                         className: "text-lg font-medium text-neutral-900 dark:text-neutral-100",
                                                                         children: skill.name
                                                                     }),
-                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.svg, {
+                                                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.svg, {
                                                                         className: "w-5 h-5 text-neutral-500",
                                                                         animate: {
                                                                             rotate: openSoftSkill === skill.name ? 180 : 0
@@ -1863,7 +1923,7 @@ function Home() {
                                                                     })
                                                                 ]
                                                             }),
-                                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                                                 initial: false,
                                                                 animate: {
                                                                     height: openSoftSkill === skill.name ? "auto" : 0,
@@ -1904,7 +1964,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "w-full max-w-5xl mx-auto py-20 px-4",
                         initial: {
                             opacity: 0
@@ -1922,7 +1982,7 @@ function Home() {
                             }),
                             /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                 className: "space-y-8",
-                                children: currentContent.education.timeline.map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                children: currentContent.education.timeline.map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                         className: "relative",
                                         initial: {
                                             opacity: 0,
@@ -2002,7 +2062,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03] pointer-events-none"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "max-w-5xl mx-auto py-20",
                         initial: {
                             opacity: 0
@@ -2020,7 +2080,7 @@ function Home() {
                             }),
                             /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                 className: "space-y-8",
-                                children: currentContent.experience.timeline.map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                children: currentContent.experience.timeline.map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                         className: "relative",
                                         initial: {
                                             opacity: 0,
@@ -2140,7 +2200,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03]"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "max-w-7xl mx-auto py-20",
                         initial: {
                             opacity: 0
@@ -2163,7 +2223,7 @@ function Home() {
                                 children: [
                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                         className: "max-w-5xl mx-auto",
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                             className: "grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr",
                                             initial: {
                                                 opacity: 0
@@ -2174,7 +2234,7 @@ function Home() {
                                             transition: {
                                                 duration: 0.5
                                             },
-                                            children: currentContent.projects.cards.slice(currentPage * (isMobile ? 1 : 2), currentPage * (isMobile ? 1 : 2) + (isMobile ? 1 : 2)).map((project, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                            children: currentContent.projects.cards.slice(currentPage * (isMobile ? 1 : 2), currentPage * (isMobile ? 1 : 2) + (isMobile ? 1 : 2)).map((project, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                                     className: "".concat(cardClass, " group/card overflow-hidden md:max-w-lg w-full h-full"),
                                                     initial: {
                                                         opacity: 0
@@ -2192,7 +2252,7 @@ function Home() {
                                                             duration: 0.2
                                                         }
                                                     },
-                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                                    children: /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                                         className: "p-4 md:p-6 flex flex-col h-full relative",
                                                         initial: {
                                                             opacity: 0
@@ -2246,7 +2306,7 @@ function Home() {
                                                                 children: [
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("h4", {
                                                                         className: "text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100",
-                                                                        children: language === "es" ? "Logros" : "Achievements"
+                                                                        children: language === 'es' ? 'Logros' : 'Achievements'
                                                                     }),
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                                                         className: "space-y-3",
@@ -2265,7 +2325,7 @@ function Home() {
                                                                     })
                                                                 ]
                                                             }),
-                                                            project.url && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                                            project.url && /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                                                 href: project.url,
                                                                 target: "_blank",
                                                                 rel: "noopener noreferrer",
@@ -2274,7 +2334,7 @@ function Home() {
                                                                     x: 5
                                                                 },
                                                                 children: [
-                                                                    language === "es" ? "Ver proyecto" : "View project",
+                                                                    language === 'es' ? 'Ver proyecto' : 'View project',
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
                                                                         className: "w-4 h-4 transform transition-transform group-hover/link:translate-x-1",
                                                                         fill: "none",
@@ -2299,7 +2359,7 @@ function Home() {
                                         children: Array.from({
                                             length: totalPages
                                         }).map((_, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
-                                                className: "w-2 h-2 rounded-full transition-all duration-300 \n                             ".concat(index === currentPage ? "bg-neutral-900 dark:bg-neutral-100 w-4" : "bg-neutral-300 dark:bg-neutral-700"),
+                                                className: "w-2 h-2 rounded-full transition-all duration-300 \n                             ".concat(index === currentPage ? 'bg-neutral-900 dark:bg-neutral-100 w-4' : 'bg-neutral-300 dark:bg-neutral-700'),
                                                 onClick: ()=>goToPage(index),
                                                 "aria-label": "Go to page ".concat(index + 1)
                                             }, index))
@@ -2359,7 +2419,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03] pointer-events-none"
                     }),
-                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                         className: "max-w-3xl mx-auto py-20 text-center relative z-10",
                         initial: {
                             opacity: 0
@@ -2385,7 +2445,7 @@ function Home() {
                                     /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                         className: "relative flex flex-col items-center mb-8",
                                         children: [
-                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.button, {
+                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.button, {
                                                 onClick: handleCopyEmail,
                                                 className: "group relative px-8 py-3 border border-neutral-200/50 dark:border-neutral-800/50  rounded-full text-neutral-600 dark:text-neutral-400  hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors duration-300",
                                                 whileHover: {
@@ -2396,7 +2456,7 @@ function Home() {
                                                 },
                                                 children: currentContent.contact.email
                                             }),
-                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.E.div, {
+                                            /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
                                                 initial: {
                                                     opacity: 0,
                                                     y: 10
@@ -2410,7 +2470,7 @@ function Home() {
                                             })
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                         className: "flex flex-col sm:flex-row items-center gap-4 mt-8",
                                         animate: {
                                             y: showNotification ? 40 : 0,
@@ -2421,7 +2481,7 @@ function Home() {
                                             }
                                         },
                                         children: [
-                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                                 href: "/Daniel_Escobar_Resume_EN.pdf",
                                                 download: true,
                                                 target: "_blank",
@@ -2449,7 +2509,7 @@ function Home() {
                                                     currentContent.hero.buttons.resume
                                                 ]
                                             }),
-                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                                 href: "https://www.linkedin.com/in/danielescobar00",
                                                 target: "_blank",
                                                 rel: "noopener noreferrer",
@@ -2472,7 +2532,7 @@ function Home() {
                                                     currentContent.hero.buttons.linkedin
                                                 ]
                                             }),
-                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.a, {
+                                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
                                                 href: "https://github.com/DanielEscobar21",
                                                 target: "_blank",
                                                 rel: "noopener noreferrer",
@@ -2502,7 +2562,7 @@ function Home() {
                             /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                                 className: "flex flex-col items-center gap-4 mt-24",
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.p, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.p, {
                                         className: "text-sm text-neutral-500 dark:text-neutral-500",
                                         initial: {
                                             opacity: 0
@@ -2525,7 +2585,7 @@ function Home() {
                                             "."
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.div, {
+                                    /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
                                         className: "flex flex-col items-center gap-2",
                                         initial: {
                                             opacity: 0
@@ -2594,7 +2654,7 @@ function Home() {
                     /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                         className: "absolute bottom-12 left-0 right-0 flex justify-center items-center gap-8",
                         children: [
-                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                                 onClick: ()=>scrollToSection("proyectos"),
                                 className: "flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group",
                                 whileHover: {
@@ -2616,7 +2676,7 @@ function Home() {
                                     language === "es" ? "Proyectos" : "Projects"
                                 ]
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.E.button, {
+                            /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.button, {
                                 onClick: scrollToTop,
                                 className: "flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group",
                                 whileHover: {
@@ -2666,78 +2726,18 @@ function Home() {
 
 /***/ }),
 
-/***/ 2025:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ 9387:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   F: function() { return /* binding */ useTheme; },
-/* harmony export */   ThemeProvider: function() { return /* binding */ ThemeProvider; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7437);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2265);
-/* __next_internal_client_entry_do_not_use__ ThemeProvider,useTheme auto */ 
-
-const ThemeContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.createContext)(undefined);
-function ThemeProvider(param) {
-    let { children } = param;
-    const [theme, setTheme] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("dark");
-    const [language, setLanguage] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("en");
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        const savedTheme = localStorage.getItem("theme");
-        const savedLanguage = localStorage.getItem("language");
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else {
-            document.documentElement.classList.add("dark");
-        }
-        if (savedLanguage) {
-            setLanguage(savedLanguage);
-        }
-    }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-        localStorage.setItem("theme", theme);
-    }, [
-        theme
-    ]);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        localStorage.setItem("language", language);
-    }, [
-        language
-    ]);
-    const toggleTheme = ()=>{
-        setTheme(theme === "light" ? "dark" : "light");
-    };
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(ThemeContext.Provider, {
-        value: {
-            theme,
-            toggleTheme,
-            language,
-            setLanguage
-        },
-        children: children
-    });
-}
-function useTheme() {
-    const context = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(ThemeContext);
-    if (context === undefined) {
-        throw new Error("useTheme must be used within a ThemeProvider");
-    }
-    return context;
-}
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 3256));
 
 
 /***/ })
 
 },
-/******/ function(__webpack_require__) { // webpackRuntimeModules
-/******/ var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-/******/ __webpack_require__.O(0, [745,971,117,744], function() { return __webpack_exec__(974); });
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ __webpack_require__.O(0, [111,441,255,358], () => (__webpack_exec__(9387)));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ _N_E = __webpack_exports__;
 /******/ }

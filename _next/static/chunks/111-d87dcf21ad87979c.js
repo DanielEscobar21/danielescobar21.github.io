@@ -1,299 +1,22 @@
 "use strict";
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[745],{
+(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([[111],{
 
-/***/ 3145:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ 296:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* reexport default from dynamic */ _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0___default.a; }
+/* harmony export */   L: () => (/* binding */ LayoutGroupContext)
 /* harmony export */ });
-/* harmony import */ var _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8461);
-/* harmony import */ var _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2115);
+/* __next_internal_client_entry_do_not_use__ LayoutGroupContext auto */ 
+const LayoutGroupContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
 
-
-
-//# sourceMappingURL=image.js.map
-
-/***/ }),
-
-/***/ 5878:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* __next_internal_client_entry_do_not_use__  cjs */ 
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "Image", ({
-    enumerable: true,
-    get: function() {
-        return Image;
-    }
-}));
-const _interop_require_default = __webpack_require__(7043);
-const _interop_require_wildcard = __webpack_require__(3099);
-const _jsxruntime = __webpack_require__(7437);
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(2265));
-const _reactdom = /*#__PURE__*/ _interop_require_default._(__webpack_require__(4887));
-const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(8293));
-const _getimgprops = __webpack_require__(5346);
-const _imageconfig = __webpack_require__(128);
-const _imageconfigcontextsharedruntime = __webpack_require__(2589);
-const _warnonce = __webpack_require__(1765);
-const _routercontextsharedruntime = __webpack_require__(5523);
-const _imageloader = /*#__PURE__*/ _interop_require_default._(__webpack_require__(5084));
-// This is replaced by webpack define plugin
-const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true};
-if (typeof window === "undefined") {
-    globalThis.__NEXT_IMAGE_IMPORTED = true;
-}
-// See https://stackoverflow.com/q/39777833/266535 for why we use this ref
-// handler instead of the img's onLoad attribute.
-function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput) {
-    const src = img == null ? void 0 : img.src;
-    if (!img || img["data-loaded-src"] === src) {
-        return;
-    }
-    img["data-loaded-src"] = src;
-    const p = "decode" in img ? img.decode() : Promise.resolve();
-    p.catch(()=>{}).then(()=>{
-        if (!img.parentElement || !img.isConnected) {
-            // Exit early in case of race condition:
-            // - onload() is called
-            // - decode() is called but incomplete
-            // - unmount is called
-            // - decode() completes
-            return;
-        }
-        if (placeholder !== "empty") {
-            setBlurComplete(true);
-        }
-        if (onLoadRef == null ? void 0 : onLoadRef.current) {
-            // Since we don't have the SyntheticEvent here,
-            // we must create one with the same shape.
-            // See https://reactjs.org/docs/events.html
-            const event = new Event("load");
-            Object.defineProperty(event, "target", {
-                writable: false,
-                value: img
-            });
-            let prevented = false;
-            let stopped = false;
-            onLoadRef.current({
-                ...event,
-                nativeEvent: event,
-                currentTarget: img,
-                target: img,
-                isDefaultPrevented: ()=>prevented,
-                isPropagationStopped: ()=>stopped,
-                persist: ()=>{},
-                preventDefault: ()=>{
-                    prevented = true;
-                    event.preventDefault();
-                },
-                stopPropagation: ()=>{
-                    stopped = true;
-                    event.stopPropagation();
-                }
-            });
-        }
-        if (onLoadingCompleteRef == null ? void 0 : onLoadingCompleteRef.current) {
-            onLoadingCompleteRef.current(img);
-        }
-        if (false) {}
-    });
-}
-function getDynamicProps(fetchPriority) {
-    if (Boolean(_react.use)) {
-        // In React 19.0.0 or newer, we must use camelCase
-        // prop to avoid "Warning: Invalid DOM property".
-        // See https://github.com/facebook/react/pull/25927
-        return {
-            fetchPriority
-        };
-    }
-    // In React 18.2.0 or older, we must use lowercase prop
-    // to avoid "Warning: Invalid DOM property".
-    return {
-        fetchpriority: fetchPriority
-    };
-}
-const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)((param, forwardedRef)=>{
-    let { src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest } = param;
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)("img", {
-        ...rest,
-        ...getDynamicProps(fetchPriority),
-        // It's intended to keep `loading` before `src` because React updates
-        // props in order which causes Safari/Firefox to not lazy load properly.
-        // See https://github.com/facebook/react/issues/25883
-        loading: loading,
-        width: width,
-        height: height,
-        decoding: decoding,
-        "data-nimg": fill ? "fill" : "1",
-        className: className,
-        style: style,
-        // It's intended to keep `src` the last attribute because React updates
-        // attributes in order. If we keep `src` the first one, Safari will
-        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
-        // updated by React. That causes multiple unnecessary requests if `srcSet`
-        // and `sizes` are defined.
-        // This bug cannot be reproduced in Chrome or Firefox.
-        sizes: sizes,
-        srcSet: srcSet,
-        src: src,
-        ref: (0, _react.useCallback)((img)=>{
-            if (forwardedRef) {
-                if (typeof forwardedRef === "function") forwardedRef(img);
-                else if (typeof forwardedRef === "object") {
-                    // @ts-ignore - .current is read only it's usually assigned by react internally
-                    forwardedRef.current = img;
-                }
-            }
-            if (!img) {
-                return;
-            }
-            if (onError) {
-                // If the image has an error before react hydrates, then the error is lost.
-                // The workaround is to wait until the image is mounted which is after hydration,
-                // then we set the src again to trigger the error handler (if there was an error).
-                // eslint-disable-next-line no-self-assign
-                img.src = img.src;
-            }
-            if (false) {}
-            if (img.complete) {
-                handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
-            }
-        }, [
-            src,
-            placeholder,
-            onLoadRef,
-            onLoadingCompleteRef,
-            setBlurComplete,
-            onError,
-            unoptimized,
-            sizesInput,
-            forwardedRef
-        ]),
-        onLoad: (event)=>{
-            const img = event.currentTarget;
-            handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
-        },
-        onError: (event)=>{
-            // if the real image fails to load, this will ensure "alt" is visible
-            setShowAltText(true);
-            if (placeholder !== "empty") {
-                // If the real image fails to load, this will still remove the placeholder.
-                setBlurComplete(true);
-            }
-            if (onError) {
-                onError(event);
-            }
-        }
-    });
-});
-function ImagePreload(param) {
-    let { isAppRouter, imgAttributes } = param;
-    const opts = {
-        as: "image",
-        imageSrcSet: imgAttributes.srcSet,
-        imageSizes: imgAttributes.sizes,
-        crossOrigin: imgAttributes.crossOrigin,
-        referrerPolicy: imgAttributes.referrerPolicy,
-        ...getDynamicProps(imgAttributes.fetchPriority)
-    };
-    if (isAppRouter && _reactdom.default.preload) {
-        // See https://github.com/facebook/react/pull/26940
-        _reactdom.default.preload(imgAttributes.src, opts);
-        return null;
-    }
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_head.default, {
-        children: /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
-            rel: "preload",
-            // Note how we omit the `href` attribute, as it would only be relevant
-            // for browsers that do not support `imagesrcset`, and in those cases
-            // it would cause the incorrect image to be preloaded.
-            //
-            // https://html.spec.whatwg.org/multipage/semantics.html#attr-link-imagesrcset
-            href: imgAttributes.srcSet ? undefined : imgAttributes.src,
-            ...opts
-        }, "__nimg-" + imgAttributes.src + imgAttributes.srcSet + imgAttributes.sizes)
-    });
-}
-const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
-    const pagesRouter = (0, _react.useContext)(_routercontextsharedruntime.RouterContext);
-    // We're in the app directory if there is no pages router.
-    const isAppRouter = !pagesRouter;
-    const configContext = (0, _react.useContext)(_imageconfigcontextsharedruntime.ImageConfigContext);
-    const config = (0, _react.useMemo)(()=>{
-        const c = configEnv || configContext || _imageconfig.imageConfigDefault;
-        const allSizes = [
-            ...c.deviceSizes,
-            ...c.imageSizes
-        ].sort((a, b)=>a - b);
-        const deviceSizes = c.deviceSizes.sort((a, b)=>a - b);
-        return {
-            ...c,
-            allSizes,
-            deviceSizes
-        };
-    }, [
-        configContext
-    ]);
-    const { onLoad, onLoadingComplete } = props;
-    const onLoadRef = (0, _react.useRef)(onLoad);
-    (0, _react.useEffect)(()=>{
-        onLoadRef.current = onLoad;
-    }, [
-        onLoad
-    ]);
-    const onLoadingCompleteRef = (0, _react.useRef)(onLoadingComplete);
-    (0, _react.useEffect)(()=>{
-        onLoadingCompleteRef.current = onLoadingComplete;
-    }, [
-        onLoadingComplete
-    ]);
-    const [blurComplete, setBlurComplete] = (0, _react.useState)(false);
-    const [showAltText, setShowAltText] = (0, _react.useState)(false);
-    const { props: imgAttributes, meta: imgMeta } = (0, _getimgprops.getImgProps)(props, {
-        defaultLoader: _imageloader.default,
-        imgConf: config,
-        blurComplete,
-        showAltText
-    });
-    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
-        children: [
-            /*#__PURE__*/ (0, _jsxruntime.jsx)(ImageElement, {
-                ...imgAttributes,
-                unoptimized: imgMeta.unoptimized,
-                placeholder: imgMeta.placeholder,
-                fill: imgMeta.fill,
-                onLoadRef: onLoadRef,
-                onLoadingCompleteRef: onLoadingCompleteRef,
-                setBlurComplete: setBlurComplete,
-                setShowAltText: setShowAltText,
-                sizesInput: props.sizes,
-                ref: forwardedRef
-            }),
-            imgMeta.priority ? /*#__PURE__*/ (0, _jsxruntime.jsx)(ImagePreload, {
-                isAppRouter: isAppRouter,
-                imgAttributes: imgAttributes
-            }) : null
-        ]
-    });
-});
-if ((typeof exports.default === "function" || typeof exports.default === "object" && exports.default !== null) && typeof exports.default.__esModule === "undefined") {
-    Object.defineProperty(exports.default, "__esModule", {
-        value: true
-    });
-    Object.assign(exports.default, exports);
-    module.exports = exports.default;
-} //# sourceMappingURL=image-component.js.map
 
 
 /***/ }),
 
-/***/ 1436:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ 737:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -305,582 +28,16 @@ Object.defineProperty(exports, "AmpStateContext", ({
         return AmpStateContext;
     }
 }));
-const _interop_require_default = __webpack_require__(7043);
-const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2265));
+const _interop_require_default = __webpack_require__(8140);
+const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2115));
 const AmpStateContext = _react.default.createContext({});
 if (false) {} //# sourceMappingURL=amp-context.shared-runtime.js.map
 
 
 /***/ }),
 
-/***/ 3964:
-/***/ (function(__unused_webpack_module, exports) {
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "isInAmpMode", ({
-    enumerable: true,
-    get: function() {
-        return isInAmpMode;
-    }
-}));
-function isInAmpMode(param) {
-    let { ampFirst = false, hybrid = false, hasQuery = false } = param === void 0 ? {} : param;
-    return ampFirst || hybrid && hasQuery;
-} //# sourceMappingURL=amp-mode.js.map
-
-
-/***/ }),
-
-/***/ 5346:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "getImgProps", ({
-    enumerable: true,
-    get: function() {
-        return getImgProps;
-    }
-}));
-const _warnonce = __webpack_require__(1765);
-const _imageblursvg = __webpack_require__(6496);
-const _imageconfig = __webpack_require__(128);
-const VALID_LOADING_VALUES = (/* unused pure expression or super */ null && ([
-    "lazy",
-    "eager",
-    undefined
-]));
-function isStaticRequire(src) {
-    return src.default !== undefined;
-}
-function isStaticImageData(src) {
-    return src.src !== undefined;
-}
-function isStaticImport(src) {
-    return typeof src === "object" && (isStaticRequire(src) || isStaticImageData(src));
-}
-const allImgs = new Map();
-let perfObserver;
-function getInt(x) {
-    if (typeof x === "undefined") {
-        return x;
-    }
-    if (typeof x === "number") {
-        return Number.isFinite(x) ? x : NaN;
-    }
-    if (typeof x === "string" && /^[0-9]+$/.test(x)) {
-        return parseInt(x, 10);
-    }
-    return NaN;
-}
-function getWidths(param, width, sizes) {
-    let { deviceSizes, allSizes } = param;
-    if (sizes) {
-        // Find all the "vw" percent sizes used in the sizes prop
-        const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
-        const percentSizes = [];
-        for(let match; match = viewportWidthRe.exec(sizes); match){
-            percentSizes.push(parseInt(match[2]));
-        }
-        if (percentSizes.length) {
-            const smallestRatio = Math.min(...percentSizes) * 0.01;
-            return {
-                widths: allSizes.filter((s)=>s >= deviceSizes[0] * smallestRatio),
-                kind: "w"
-            };
-        }
-        return {
-            widths: allSizes,
-            kind: "w"
-        };
-    }
-    if (typeof width !== "number") {
-        return {
-            widths: deviceSizes,
-            kind: "w"
-        };
-    }
-    const widths = [
-        ...new Set(// > are actually 3x in the green color, but only 1.5x in the red and
-        // > blue colors. Showing a 3x resolution image in the app vs a 2x
-        // > resolution image will be visually the same, though the 3x image
-        // > takes significantly more data. Even true 3x resolution screens are
-        // > wasteful as the human eye cannot see that level of detail without
-        // > something like a magnifying glass.
-        // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
-        [
-            width,
-            width * 2 /*, width * 3*/ 
-        ].map((w)=>allSizes.find((p)=>p >= w) || allSizes[allSizes.length - 1]))
-    ];
-    return {
-        widths,
-        kind: "x"
-    };
-}
-function generateImgAttrs(param) {
-    let { config, src, unoptimized, width, quality, sizes, loader } = param;
-    if (unoptimized) {
-        return {
-            src,
-            srcSet: undefined,
-            sizes: undefined
-        };
-    }
-    const { widths, kind } = getWidths(config, width, sizes);
-    const last = widths.length - 1;
-    return {
-        sizes: !sizes && kind === "w" ? "100vw" : sizes,
-        srcSet: widths.map((w, i)=>loader({
-                config,
-                src,
-                quality,
-                width: w
-            }) + " " + (kind === "w" ? w : i + 1) + kind).join(", "),
-        // It's intended to keep `src` the last attribute because React updates
-        // attributes in order. If we keep `src` the first one, Safari will
-        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
-        // updated by React. That causes multiple unnecessary requests if `srcSet`
-        // and `sizes` are defined.
-        // This bug cannot be reproduced in Chrome or Firefox.
-        src: loader({
-            config,
-            src,
-            quality,
-            width: widths[last]
-        })
-    };
-}
-function getImgProps(param, _state) {
-    let { src, sizes, unoptimized = false, priority = false, loading, className, quality, width, height, fill = false, style, overrideSrc, onLoad, onLoadingComplete, placeholder = "empty", blurDataURL, fetchPriority, decoding = "async", layout, objectFit, objectPosition, lazyBoundary, lazyRoot, ...rest } = param;
-    const { imgConf, showAltText, blurComplete, defaultLoader } = _state;
-    let config;
-    let c = imgConf || _imageconfig.imageConfigDefault;
-    if ("allSizes" in c) {
-        config = c;
-    } else {
-        const allSizes = [
-            ...c.deviceSizes,
-            ...c.imageSizes
-        ].sort((a, b)=>a - b);
-        const deviceSizes = c.deviceSizes.sort((a, b)=>a - b);
-        config = {
-            ...c,
-            allSizes,
-            deviceSizes
-        };
-    }
-    if (typeof defaultLoader === "undefined") {
-        throw new Error("images.loaderFile detected but the file is missing default export.\nRead more: https://nextjs.org/docs/messages/invalid-images-config");
-    }
-    let loader = rest.loader || defaultLoader;
-    // Remove property so it's not spread on <img> element
-    delete rest.loader;
-    delete rest.srcSet;
-    // This special value indicates that the user
-    // didn't define a "loader" prop or "loader" config.
-    const isDefaultLoader = "__next_img_default" in loader;
-    if (isDefaultLoader) {
-        if (config.loader === "custom") {
-            throw new Error('Image with src "' + src + '" is missing "loader" prop.' + "\nRead more: https://nextjs.org/docs/messages/next-image-missing-loader");
-        }
-    } else {
-        // The user defined a "loader" prop or config.
-        // Since the config object is internal only, we
-        // must not pass it to the user-defined "loader".
-        const customImageLoader = loader;
-        loader = (obj)=>{
-            const { config: _, ...opts } = obj;
-            return customImageLoader(opts);
-        };
-    }
-    if (layout) {
-        if (layout === "fill") {
-            fill = true;
-        }
-        const layoutToStyle = {
-            intrinsic: {
-                maxWidth: "100%",
-                height: "auto"
-            },
-            responsive: {
-                width: "100%",
-                height: "auto"
-            }
-        };
-        const layoutToSizes = {
-            responsive: "100vw",
-            fill: "100vw"
-        };
-        const layoutStyle = layoutToStyle[layout];
-        if (layoutStyle) {
-            style = {
-                ...style,
-                ...layoutStyle
-            };
-        }
-        const layoutSizes = layoutToSizes[layout];
-        if (layoutSizes && !sizes) {
-            sizes = layoutSizes;
-        }
-    }
-    let staticSrc = "";
-    let widthInt = getInt(width);
-    let heightInt = getInt(height);
-    let blurWidth;
-    let blurHeight;
-    if (isStaticImport(src)) {
-        const staticImageData = isStaticRequire(src) ? src.default : src;
-        if (!staticImageData.src) {
-            throw new Error("An object should only be passed to the image component src parameter if it comes from a static image import. It must include src. Received " + JSON.stringify(staticImageData));
-        }
-        if (!staticImageData.height || !staticImageData.width) {
-            throw new Error("An object should only be passed to the image component src parameter if it comes from a static image import. It must include height and width. Received " + JSON.stringify(staticImageData));
-        }
-        blurWidth = staticImageData.blurWidth;
-        blurHeight = staticImageData.blurHeight;
-        blurDataURL = blurDataURL || staticImageData.blurDataURL;
-        staticSrc = staticImageData.src;
-        if (!fill) {
-            if (!widthInt && !heightInt) {
-                widthInt = staticImageData.width;
-                heightInt = staticImageData.height;
-            } else if (widthInt && !heightInt) {
-                const ratio = widthInt / staticImageData.width;
-                heightInt = Math.round(staticImageData.height * ratio);
-            } else if (!widthInt && heightInt) {
-                const ratio = heightInt / staticImageData.height;
-                widthInt = Math.round(staticImageData.width * ratio);
-            }
-        }
-    }
-    src = typeof src === "string" ? src : staticSrc;
-    let isLazy = !priority && (loading === "lazy" || typeof loading === "undefined");
-    if (!src || src.startsWith("data:") || src.startsWith("blob:")) {
-        // https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
-        unoptimized = true;
-        isLazy = false;
-    }
-    if (config.unoptimized) {
-        unoptimized = true;
-    }
-    if (isDefaultLoader && src.endsWith(".svg") && !config.dangerouslyAllowSVG) {
-        // Special case to make svg serve as-is to avoid proxying
-        // through the built-in Image Optimization API.
-        unoptimized = true;
-    }
-    if (priority) {
-        fetchPriority = "high";
-    }
-    const qualityInt = getInt(quality);
-    if (false) {}
-    const imgStyle = Object.assign(fill ? {
-        position: "absolute",
-        height: "100%",
-        width: "100%",
-        left: 0,
-        top: 0,
-        right: 0,
-        bottom: 0,
-        objectFit,
-        objectPosition
-    } : {}, showAltText ? {} : {
-        color: "transparent"
-    }, style);
-    const backgroundImage = !blurComplete && placeholder !== "empty" ? placeholder === "blur" ? 'url("data:image/svg+xml;charset=utf-8,' + (0, _imageblursvg.getImageBlurSvg)({
-        widthInt,
-        heightInt,
-        blurWidth,
-        blurHeight,
-        blurDataURL: blurDataURL || "",
-        objectFit: imgStyle.objectFit
-    }) + '")' : 'url("' + placeholder + '")' // assume `data:image/`
-     : null;
-    let placeholderStyle = backgroundImage ? {
-        backgroundSize: imgStyle.objectFit || "cover",
-        backgroundPosition: imgStyle.objectPosition || "50% 50%",
-        backgroundRepeat: "no-repeat",
-        backgroundImage
-    } : {};
-    if (false) {}
-    const imgAttributes = generateImgAttrs({
-        config,
-        src,
-        unoptimized,
-        width: widthInt,
-        quality: qualityInt,
-        sizes,
-        loader
-    });
-    if (false) {}
-    const props = {
-        ...rest,
-        loading: isLazy ? "lazy" : loading,
-        fetchPriority,
-        width: widthInt,
-        height: heightInt,
-        decoding,
-        className,
-        style: {
-            ...imgStyle,
-            ...placeholderStyle
-        },
-        sizes: imgAttributes.sizes,
-        srcSet: imgAttributes.srcSet,
-        src: overrideSrc || imgAttributes.src
-    };
-    const meta = {
-        unoptimized,
-        priority,
-        placeholder,
-        fill
-    };
-    return {
-        props,
-        meta
-    };
-} //# sourceMappingURL=get-img-props.js.map
-
-
-/***/ }),
-
-/***/ 8293:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* __next_internal_client_entry_do_not_use__  cjs */ 
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-0 && (0);
-function _export(target, all) {
-    for(var name in all)Object.defineProperty(target, name, {
-        enumerable: true,
-        get: all[name]
-    });
-}
-_export(exports, {
-    default: function() {
-        return _default;
-    },
-    defaultHead: function() {
-        return defaultHead;
-    }
-});
-const _interop_require_default = __webpack_require__(7043);
-const _interop_require_wildcard = __webpack_require__(3099);
-const _jsxruntime = __webpack_require__(7437);
-const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(2265));
-const _sideeffect = /*#__PURE__*/ _interop_require_default._(__webpack_require__(7421));
-const _ampcontextsharedruntime = __webpack_require__(1436);
-const _headmanagercontextsharedruntime = __webpack_require__(8701);
-const _ampmode = __webpack_require__(3964);
-const _warnonce = __webpack_require__(1765);
-function defaultHead(inAmpMode) {
-    if (inAmpMode === void 0) inAmpMode = false;
-    const head = [
-        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
-            charSet: "utf-8"
-        })
-    ];
-    if (!inAmpMode) {
-        head.push(/*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
-            name: "viewport",
-            content: "width=device-width"
-        }));
-    }
-    return head;
-}
-function onlyReactElement(list, child) {
-    // React children can be "string" or "number" in this case we ignore them for backwards compat
-    if (typeof child === "string" || typeof child === "number") {
-        return list;
-    }
-    // Adds support for React.Fragment
-    if (child.type === _react.default.Fragment) {
-        return list.concat(_react.default.Children.toArray(child.props.children).reduce((fragmentList, fragmentChild)=>{
-            if (typeof fragmentChild === "string" || typeof fragmentChild === "number") {
-                return fragmentList;
-            }
-            return fragmentList.concat(fragmentChild);
-        }, []));
-    }
-    return list.concat(child);
-}
-const METATYPES = [
-    "name",
-    "httpEquiv",
-    "charSet",
-    "itemProp"
-];
-/*
- returns a function for filtering head child elements
- which shouldn't be duplicated, like <title/>
- Also adds support for deduplicated `key` properties
-*/ function unique() {
-    const keys = new Set();
-    const tags = new Set();
-    const metaTypes = new Set();
-    const metaCategories = {};
-    return (h)=>{
-        let isUnique = true;
-        let hasKey = false;
-        if (h.key && typeof h.key !== "number" && h.key.indexOf("$") > 0) {
-            hasKey = true;
-            const key = h.key.slice(h.key.indexOf("$") + 1);
-            if (keys.has(key)) {
-                isUnique = false;
-            } else {
-                keys.add(key);
-            }
-        }
-        // eslint-disable-next-line default-case
-        switch(h.type){
-            case "title":
-            case "base":
-                if (tags.has(h.type)) {
-                    isUnique = false;
-                } else {
-                    tags.add(h.type);
-                }
-                break;
-            case "meta":
-                for(let i = 0, len = METATYPES.length; i < len; i++){
-                    const metatype = METATYPES[i];
-                    if (!h.props.hasOwnProperty(metatype)) continue;
-                    if (metatype === "charSet") {
-                        if (metaTypes.has(metatype)) {
-                            isUnique = false;
-                        } else {
-                            metaTypes.add(metatype);
-                        }
-                    } else {
-                        const category = h.props[metatype];
-                        const categories = metaCategories[metatype] || new Set();
-                        if ((metatype !== "name" || !hasKey) && categories.has(category)) {
-                            isUnique = false;
-                        } else {
-                            categories.add(category);
-                            metaCategories[metatype] = categories;
-                        }
-                    }
-                }
-                break;
-        }
-        return isUnique;
-    };
-}
-/**
- *
- * @param headChildrenElements List of children of <Head>
- */ function reduceComponents(headChildrenElements, props) {
-    const { inAmpMode } = props;
-    return headChildrenElements.reduce(onlyReactElement, []).reverse().concat(defaultHead(inAmpMode).reverse()).filter(unique()).reverse().map((c, i)=>{
-        const key = c.key || i;
-        if ( true && !inAmpMode) {
-            if (c.type === "link" && c.props["href"] && // TODO(prateekbh@): Replace this with const from `constants` when the tree shaking works.
-            [
-                "https://fonts.googleapis.com/css",
-                "https://use.typekit.net/"
-            ].some((url)=>c.props["href"].startsWith(url))) {
-                const newProps = {
-                    ...c.props || {}
-                };
-                newProps["data-href"] = newProps["href"];
-                newProps["href"] = undefined;
-                // Add this attribute to make it easy to identify optimized tags
-                newProps["data-optimized-fonts"] = true;
-                return /*#__PURE__*/ _react.default.cloneElement(c, newProps);
-            }
-        }
-        if (false) {}
-        return /*#__PURE__*/ _react.default.cloneElement(c, {
-            key
-        });
-    });
-}
-/**
- * This component injects elements to `<head>` of your page.
- * To avoid duplicated `tags` in `<head>` you can use the `key` property, which will make sure every tag is only rendered once.
- */ function Head(param) {
-    let { children } = param;
-    const ampState = (0, _react.useContext)(_ampcontextsharedruntime.AmpStateContext);
-    const headManager = (0, _react.useContext)(_headmanagercontextsharedruntime.HeadManagerContext);
-    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_sideeffect.default, {
-        reduceComponentsToState: reduceComponents,
-        headManager: headManager,
-        inAmpMode: (0, _ampmode.isInAmpMode)(ampState),
-        children: children
-    });
-}
-const _default = Head;
-if ((typeof exports.default === "function" || typeof exports.default === "object" && exports.default !== null) && typeof exports.default.__esModule === "undefined") {
-    Object.defineProperty(exports.default, "__esModule", {
-        value: true
-    });
-    Object.assign(exports.default, exports);
-    module.exports = exports.default;
-} //# sourceMappingURL=head.js.map
-
-
-/***/ }),
-
-/***/ 6496:
-/***/ (function(__unused_webpack_module, exports) {
-
-/**
- * A shared function, used on both client and server, to generate a SVG blur placeholder.
- */ 
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "getImageBlurSvg", ({
-    enumerable: true,
-    get: function() {
-        return getImageBlurSvg;
-    }
-}));
-function getImageBlurSvg(param) {
-    let { widthInt, heightInt, blurWidth, blurHeight, blurDataURL, objectFit } = param;
-    const std = 20;
-    const svgWidth = blurWidth ? blurWidth * 40 : widthInt;
-    const svgHeight = blurHeight ? blurHeight * 40 : heightInt;
-    const viewBox = svgWidth && svgHeight ? "viewBox='0 0 " + svgWidth + " " + svgHeight + "'" : "";
-    const preserveAspectRatio = viewBox ? "none" : objectFit === "contain" ? "xMidYMid" : objectFit === "cover" ? "xMidYMid slice" : "none";
-    return "%3Csvg xmlns='http://www.w3.org/2000/svg' " + viewBox + "%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='" + std + "'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='" + std + "'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='" + preserveAspectRatio + "' style='filter: url(%23b);' href='" + blurDataURL + "'/%3E%3C/svg%3E";
-} //# sourceMappingURL=image-blur-svg.js.map
-
-
-/***/ }),
-
-/***/ 2589:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "ImageConfigContext", ({
-    enumerable: true,
-    get: function() {
-        return ImageConfigContext;
-    }
-}));
-const _interop_require_default = __webpack_require__(7043);
-const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2265));
-const _imageconfig = __webpack_require__(128);
-const ImageConfigContext = _react.default.createContext(_imageconfig.imageConfigDefault);
-if (false) {} //# sourceMappingURL=image-config-context.shared-runtime.js.map
-
-
-/***/ }),
-
-/***/ 128:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ 821:
+/***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -902,11 +59,11 @@ _export(exports, {
     }
 });
 const VALID_LOADERS = [
-    "default",
-    "imgix",
-    "cloudinary",
-    "akamai",
-    "custom"
+    'default',
+    'imgix',
+    'cloudinary',
+    'akamai',
+    'custom'
 ];
 const imageConfigDefault = {
     deviceSizes: [
@@ -929,77 +86,50 @@ const imageConfigDefault = {
         256,
         384
     ],
-    path: "/_next/image",
-    loader: "default",
-    loaderFile: "",
+    path: '/_next/image',
+    loader: 'default',
+    loaderFile: '',
     domains: [],
     disableStaticImages: false,
     minimumCacheTTL: 60,
     formats: [
-        "image/webp"
+        'image/webp'
     ],
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "script-src 'none'; frame-src 'none'; sandbox;",
-    contentDispositionType: "inline",
+    contentDispositionType: 'attachment',
     localPatterns: undefined,
     remotePatterns: [],
+    qualities: undefined,
     unoptimized: false
 }; //# sourceMappingURL=image-config.js.map
 
 
 /***/ }),
 
-/***/ 8461:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ 861:
+/***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
-0 && (0);
-function _export(target, all) {
-    for(var name in all)Object.defineProperty(target, name, {
-        enumerable: true,
-        get: all[name]
-    });
-}
-_export(exports, {
-    default: function() {
-        return _default;
-    },
-    getImageProps: function() {
-        return getImageProps;
+Object.defineProperty(exports, "isInAmpMode", ({
+    enumerable: true,
+    get: function() {
+        return isInAmpMode;
     }
-});
-const _interop_require_default = __webpack_require__(7043);
-const _getimgprops = __webpack_require__(5346);
-const _imagecomponent = __webpack_require__(5878);
-const _imageloader = /*#__PURE__*/ _interop_require_default._(__webpack_require__(5084));
-function getImageProps(imgProps) {
-    const { props } = (0, _getimgprops.getImgProps)(imgProps, {
-        defaultLoader: _imageloader.default,
-        // This is replaced by webpack define plugin
-        imgConf: {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true}
-    });
-    // Normally we don't care about undefined props because we pass to JSX,
-    // but this exported function could be used by the end user for anything
-    // so we delete undefined props to clean it up a little.
-    for (const [key, value] of Object.entries(props)){
-        if (value === undefined) {
-            delete props[key];
-        }
-    }
-    return {
-        props
-    };
-}
-const _default = _imagecomponent.Image; //# sourceMappingURL=image-external.js.map
+}));
+function isInAmpMode(param) {
+    let { ampFirst = false, hybrid = false, hasQuery = false } = param === void 0 ? {} : param;
+    return ampFirst || hybrid && hasQuery;
+} //# sourceMappingURL=amp-mode.js.map
 
 
 /***/ }),
 
-/***/ 5084:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ 1124:
+/***/ ((__unused_webpack_module, exports) => {
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -1011,10 +141,13 @@ Object.defineProperty(exports, "default", ({
         return _default;
     }
 }));
+const DEFAULT_Q = 75;
 function defaultLoader(param) {
     let { config, src, width, quality } = param;
+    var _config_qualities;
     if (false) {}
-    return config.path + "?url=" + encodeURIComponent(src) + "&w=" + width + "&q=" + (quality || 75) + ( false ? 0 : "");
+    const q = quality || ((_config_qualities = config.qualities) == null ? void 0 : _config_qualities.reduce((prev, cur)=>Math.abs(cur - DEFAULT_Q) < Math.abs(prev - DEFAULT_Q) ? cur : prev)) || DEFAULT_Q;
+    return config.path + "?url=" + encodeURIComponent(src) + "&w=" + width + "&q=" + q + (src.startsWith('/_next/static/media/') && false ? 0 : '');
 }
 // We use this to determine if the import is the default loader
 // or a custom loader defined by the user in next.config.js
@@ -1024,29 +157,8 @@ const _default = defaultLoader; //# sourceMappingURL=image-loader.js.map
 
 /***/ }),
 
-/***/ 5523:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "RouterContext", ({
-    enumerable: true,
-    get: function() {
-        return RouterContext;
-    }
-}));
-const _interop_require_default = __webpack_require__(7043);
-const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2265));
-const RouterContext = _react.default.createContext(null);
-if (false) {} //# sourceMappingURL=router-context.shared-runtime.js.map
-
-
-/***/ }),
-
-/***/ 7421:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ 1262:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({
@@ -1058,8 +170,8 @@ Object.defineProperty(exports, "default", ({
         return SideEffect;
     }
 }));
-const _react = __webpack_require__(2265);
-const isServer = typeof window === "undefined";
+const _react = __webpack_require__(2115);
+const isServer = "object" === 'undefined';
 const useClientOnlyLayoutEffect = isServer ? ()=>{} : _react.useLayoutEffect;
 const useClientOnlyEffect = isServer ? ()=>{} : _react.useEffect;
 function SideEffect(props) {
@@ -1116,26 +228,297 @@ function SideEffect(props) {
 
 /***/ }),
 
-/***/ 8614:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 1356:
+/***/ ((module, exports, __webpack_require__) => {
+
+/* __next_internal_client_entry_do_not_use__  cjs */ 
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "Image", ({
+    enumerable: true,
+    get: function() {
+        return Image;
+    }
+}));
+const _interop_require_default = __webpack_require__(8140);
+const _interop_require_wildcard = __webpack_require__(9417);
+const _jsxruntime = __webpack_require__(5155);
+const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(2115));
+const _reactdom = /*#__PURE__*/ _interop_require_default._(__webpack_require__(7650));
+const _head = /*#__PURE__*/ _interop_require_default._(__webpack_require__(4841));
+const _getimgprops = __webpack_require__(5040);
+const _imageconfig = __webpack_require__(821);
+const _imageconfigcontextsharedruntime = __webpack_require__(3455);
+const _warnonce = __webpack_require__(4781);
+const _routercontextsharedruntime = __webpack_require__(9862);
+const _imageloader = /*#__PURE__*/ _interop_require_default._(__webpack_require__(1124));
+const _usemergedref = __webpack_require__(3011);
+// This is replaced by webpack define plugin
+const configEnv = {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true};
+if (false) {}
+// See https://stackoverflow.com/q/39777833/266535 for why we use this ref
+// handler instead of the img's onLoad attribute.
+function handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput) {
+    const src = img == null ? void 0 : img.src;
+    if (!img || img['data-loaded-src'] === src) {
+        return;
+    }
+    img['data-loaded-src'] = src;
+    const p = 'decode' in img ? img.decode() : Promise.resolve();
+    p.catch(()=>{}).then(()=>{
+        if (!img.parentElement || !img.isConnected) {
+            // Exit early in case of race condition:
+            // - onload() is called
+            // - decode() is called but incomplete
+            // - unmount is called
+            // - decode() completes
+            return;
+        }
+        if (placeholder !== 'empty') {
+            setBlurComplete(true);
+        }
+        if (onLoadRef == null ? void 0 : onLoadRef.current) {
+            // Since we don't have the SyntheticEvent here,
+            // we must create one with the same shape.
+            // See https://reactjs.org/docs/events.html
+            const event = new Event('load');
+            Object.defineProperty(event, 'target', {
+                writable: false,
+                value: img
+            });
+            let prevented = false;
+            let stopped = false;
+            onLoadRef.current({
+                ...event,
+                nativeEvent: event,
+                currentTarget: img,
+                target: img,
+                isDefaultPrevented: ()=>prevented,
+                isPropagationStopped: ()=>stopped,
+                persist: ()=>{},
+                preventDefault: ()=>{
+                    prevented = true;
+                    event.preventDefault();
+                },
+                stopPropagation: ()=>{
+                    stopped = true;
+                    event.stopPropagation();
+                }
+            });
+        }
+        if (onLoadingCompleteRef == null ? void 0 : onLoadingCompleteRef.current) {
+            onLoadingCompleteRef.current(img);
+        }
+        if (false) {}
+    });
+}
+function getDynamicProps(fetchPriority) {
+    if (Boolean(_react.use)) {
+        // In React 19.0.0 or newer, we must use camelCase
+        // prop to avoid "Warning: Invalid DOM property".
+        // See https://github.com/facebook/react/pull/25927
+        return {
+            fetchPriority
+        };
+    }
+    // In React 18.2.0 or older, we must use lowercase prop
+    // to avoid "Warning: Invalid DOM property".
+    return {
+        fetchpriority: fetchPriority
+    };
+}
+const ImageElement = /*#__PURE__*/ (0, _react.forwardRef)((param, forwardedRef)=>{
+    let { src, srcSet, sizes, height, width, decoding, className, style, fetchPriority, placeholder, loading, unoptimized, fill, onLoadRef, onLoadingCompleteRef, setBlurComplete, setShowAltText, sizesInput, onLoad, onError, ...rest } = param;
+    const ownRef = (0, _react.useCallback)((img)=>{
+        if (!img) {
+            return;
+        }
+        if (onError) {
+            // If the image has an error before react hydrates, then the error is lost.
+            // The workaround is to wait until the image is mounted which is after hydration,
+            // then we set the src again to trigger the error handler (if there was an error).
+            // eslint-disable-next-line no-self-assign
+            img.src = img.src;
+        }
+        if (false) {}
+        if (img.complete) {
+            handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
+        }
+    }, [
+        src,
+        placeholder,
+        onLoadRef,
+        onLoadingCompleteRef,
+        setBlurComplete,
+        onError,
+        unoptimized,
+        sizesInput
+    ]);
+    const ref = (0, _usemergedref.useMergedRef)(forwardedRef, ownRef);
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)("img", {
+        ...rest,
+        ...getDynamicProps(fetchPriority),
+        // It's intended to keep `loading` before `src` because React updates
+        // props in order which causes Safari/Firefox to not lazy load properly.
+        // See https://github.com/facebook/react/issues/25883
+        loading: loading,
+        width: width,
+        height: height,
+        decoding: decoding,
+        "data-nimg": fill ? 'fill' : '1',
+        className: className,
+        style: style,
+        // It's intended to keep `src` the last attribute because React updates
+        // attributes in order. If we keep `src` the first one, Safari will
+        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
+        // updated by React. That causes multiple unnecessary requests if `srcSet`
+        // and `sizes` are defined.
+        // This bug cannot be reproduced in Chrome or Firefox.
+        sizes: sizes,
+        srcSet: srcSet,
+        src: src,
+        ref: ref,
+        onLoad: (event)=>{
+            const img = event.currentTarget;
+            handleLoading(img, placeholder, onLoadRef, onLoadingCompleteRef, setBlurComplete, unoptimized, sizesInput);
+        },
+        onError: (event)=>{
+            // if the real image fails to load, this will ensure "alt" is visible
+            setShowAltText(true);
+            if (placeholder !== 'empty') {
+                // If the real image fails to load, this will still remove the placeholder.
+                setBlurComplete(true);
+            }
+            if (onError) {
+                onError(event);
+            }
+        }
+    });
+});
+function ImagePreload(param) {
+    let { isAppRouter, imgAttributes } = param;
+    const opts = {
+        as: 'image',
+        imageSrcSet: imgAttributes.srcSet,
+        imageSizes: imgAttributes.sizes,
+        crossOrigin: imgAttributes.crossOrigin,
+        referrerPolicy: imgAttributes.referrerPolicy,
+        ...getDynamicProps(imgAttributes.fetchPriority)
+    };
+    if (isAppRouter && _reactdom.default.preload) {
+        _reactdom.default.preload(imgAttributes.src, opts);
+        return null;
+    }
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_head.default, {
+        children: /*#__PURE__*/ (0, _jsxruntime.jsx)("link", {
+            rel: "preload",
+            // Note how we omit the `href` attribute, as it would only be relevant
+            // for browsers that do not support `imagesrcset`, and in those cases
+            // it would cause the incorrect image to be preloaded.
+            //
+            // https://html.spec.whatwg.org/multipage/semantics.html#attr-link-imagesrcset
+            href: imgAttributes.srcSet ? undefined : imgAttributes.src,
+            ...opts
+        }, '__nimg-' + imgAttributes.src + imgAttributes.srcSet + imgAttributes.sizes)
+    });
+}
+const Image = /*#__PURE__*/ (0, _react.forwardRef)((props, forwardedRef)=>{
+    const pagesRouter = (0, _react.useContext)(_routercontextsharedruntime.RouterContext);
+    // We're in the app directory if there is no pages router.
+    const isAppRouter = !pagesRouter;
+    const configContext = (0, _react.useContext)(_imageconfigcontextsharedruntime.ImageConfigContext);
+    const config = (0, _react.useMemo)(()=>{
+        var _c_qualities;
+        const c = configEnv || configContext || _imageconfig.imageConfigDefault;
+        const allSizes = [
+            ...c.deviceSizes,
+            ...c.imageSizes
+        ].sort((a, b)=>a - b);
+        const deviceSizes = c.deviceSizes.sort((a, b)=>a - b);
+        const qualities = (_c_qualities = c.qualities) == null ? void 0 : _c_qualities.sort((a, b)=>a - b);
+        return {
+            ...c,
+            allSizes,
+            deviceSizes,
+            qualities
+        };
+    }, [
+        configContext
+    ]);
+    const { onLoad, onLoadingComplete } = props;
+    const onLoadRef = (0, _react.useRef)(onLoad);
+    (0, _react.useEffect)(()=>{
+        onLoadRef.current = onLoad;
+    }, [
+        onLoad
+    ]);
+    const onLoadingCompleteRef = (0, _react.useRef)(onLoadingComplete);
+    (0, _react.useEffect)(()=>{
+        onLoadingCompleteRef.current = onLoadingComplete;
+    }, [
+        onLoadingComplete
+    ]);
+    const [blurComplete, setBlurComplete] = (0, _react.useState)(false);
+    const [showAltText, setShowAltText] = (0, _react.useState)(false);
+    const { props: imgAttributes, meta: imgMeta } = (0, _getimgprops.getImgProps)(props, {
+        defaultLoader: _imageloader.default,
+        imgConf: config,
+        blurComplete,
+        showAltText
+    });
+    return /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+        children: [
+            /*#__PURE__*/ (0, _jsxruntime.jsx)(ImageElement, {
+                ...imgAttributes,
+                unoptimized: imgMeta.unoptimized,
+                placeholder: imgMeta.placeholder,
+                fill: imgMeta.fill,
+                onLoadRef: onLoadRef,
+                onLoadingCompleteRef: onLoadingCompleteRef,
+                setBlurComplete: setBlurComplete,
+                setShowAltText: setShowAltText,
+                sizesInput: props.sizes,
+                ref: forwardedRef
+            }),
+            imgMeta.priority ? /*#__PURE__*/ (0, _jsxruntime.jsx)(ImagePreload, {
+                isAppRouter: isAppRouter,
+                imgAttributes: imgAttributes
+            }) : null
+        ]
+    });
+});
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=image-component.js.map
+
+
+/***/ }),
+
+/***/ 1408:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  M: function() { return /* binding */ AnimatePresence; }
+  N: () => (/* binding */ AnimatePresence)
 });
 
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(7437);
+var jsx_runtime = __webpack_require__(5155);
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/index.js
-var react = __webpack_require__(2265);
+var react = __webpack_require__(2115);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/PresenceContext.mjs
-var PresenceContext = __webpack_require__(4252);
+var PresenceContext = __webpack_require__(9686);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/utils/use-constant.mjs
-var use_constant = __webpack_require__(3576);
+var use_constant = __webpack_require__(4416);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
-var MotionConfigContext = __webpack_require__(5750);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
+var MotionConfigContext = __webpack_require__(3127);
+;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/PopChild.mjs
 /* __next_internal_client_entry_do_not_use__ PopChild auto */ 
 
 
@@ -1172,7 +555,7 @@ function PopChild(param) {
         top: 0,
         left: 0
     });
-    const { nonce } = (0,react.useContext)(MotionConfigContext/* MotionConfigContext */._);
+    const { nonce } = (0,react.useContext)(MotionConfigContext/* MotionConfigContext */.Q);
     /**
      * We create and inject a style block so we can apply this explicit
      * sizing in a non-destructive manner by just deleting the style block.
@@ -1208,7 +591,7 @@ function PopChild(param) {
 }
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
+;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/PresenceChild.mjs
 /* __next_internal_client_entry_do_not_use__ PresenceChild auto */ 
 
 
@@ -1217,7 +600,7 @@ function PopChild(param) {
 
 const PresenceChild = (param)=>{
     let { children, initial, isPresent, onExitComplete, custom, presenceAffectsLayout, mode } = param;
-    const presenceChildren = (0,use_constant/* useConstant */.h)(newChildrenMap);
+    const presenceChildren = (0,use_constant/* useConstant */.M)(newChildrenMap);
     const id = (0,react.useId)();
     const memoizedOnExitComplete = (0,react.useCallback)((childId)=>{
         presenceChildren.set(childId, true);
@@ -1269,7 +652,7 @@ const PresenceChild = (param)=>{
             children: children
         });
     }
-    return (0,jsx_runtime.jsx)(PresenceContext/* PresenceContext */.O.Provider, {
+    return (0,jsx_runtime.jsx)(PresenceContext/* PresenceContext */.t.Provider, {
         value: context,
         children: children
     });
@@ -1280,10 +663,10 @@ function newChildrenMap() {
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
-var LayoutGroupContext = __webpack_require__(8881);
+var LayoutGroupContext = __webpack_require__(296);
 // EXTERNAL MODULE: ./node_modules/motion-utils/dist/es/errors.mjs
-var errors = __webpack_require__(2035);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs
+var errors = __webpack_require__(8041);
+;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/utils.mjs
 
 
 const getChildKey = (child) => child.key || "";
@@ -1300,8 +683,8 @@ function onlyElements(children) {
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var use_isomorphic_effect = __webpack_require__(1534);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
+var use_isomorphic_effect = __webpack_require__(6553);
+;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs
 /* __next_internal_client_entry_do_not_use__ AnimatePresence auto */ 
 
 
@@ -1344,7 +727,7 @@ var use_isomorphic_effect = __webpack_require__(1534);
  * @public
  */ const AnimatePresence = (param)=>{
     let { children, exitBeforeEnter, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync" } = param;
-    (0,errors/* invariant */.k)(!exitBeforeEnter, "Replace exitBeforeEnter with mode='wait'");
+    (0,errors/* invariant */.V)(!exitBeforeEnter, "Replace exitBeforeEnter with mode='wait'");
     /**
      * Filter any children that aren't ReactElements. We can only track components
      * between renders with a props.key.
@@ -1365,13 +748,13 @@ var use_isomorphic_effect = __webpack_require__(1534);
      */ const pendingPresentChildren = (0,react.useRef)(presentChildren);
     /**
      * Track which exiting children have finished animating out.
-     */ const exitComplete = (0,use_constant/* useConstant */.h)(()=>new Map());
+     */ const exitComplete = (0,use_constant/* useConstant */.M)(()=>new Map());
     /**
      * Save children to render as React state. To ensure this component is concurrent-safe,
      * we check for exiting children via an effect.
      */ const [diffedChildren, setDiffedChildren] = (0,react.useState)(presentChildren);
     const [renderedChildren, setRenderedChildren] = (0,react.useState)(presentChildren);
-    (0,use_isomorphic_effect/* useIsomorphicLayoutEffect */.L)(()=>{
+    (0,use_isomorphic_effect/* useIsomorphicLayoutEffect */.E)(()=>{
         isInitialRender.current = false;
         pendingPresentChildren.current = presentChildren;
         /**
@@ -1425,7 +808,7 @@ var use_isomorphic_effect = __webpack_require__(1534);
      * If we've been provided a forceRender function by the LayoutGroupContext,
      * we can use it to force a re-render amongst all surrounding components once
      * all components have finished animating out.
-     */ const { forceRender } = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.p);
+     */ const { forceRender } = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.L);
     return (0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
         children: renderedChildren.map((child)=>{
             const key = getChildKey(child);
@@ -1463,27 +846,88 @@ var use_isomorphic_effect = __webpack_require__(1534);
 
 /***/ }),
 
-/***/ 8881:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 3011:
+/***/ ((module, exports, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   p: function() { return /* binding */ LayoutGroupContext; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2265);
-/* __next_internal_client_entry_do_not_use__ LayoutGroupContext auto */ 
-const LayoutGroupContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
 
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "useMergedRef", ({
+    enumerable: true,
+    get: function() {
+        return useMergedRef;
+    }
+}));
+const _react = __webpack_require__(2115);
+function useMergedRef(refA, refB) {
+    const cleanupA = (0, _react.useRef)(null);
+    const cleanupB = (0, _react.useRef)(null);
+    // NOTE: In theory, we could skip the wrapping if only one of the refs is non-null.
+    // (this happens often if the user doesn't pass a ref to Link/Form/Image)
+    // But this can cause us to leak a cleanup-ref into user code (e.g. via `<Link legacyBehavior>`),
+    // and the user might pass that ref into ref-merging library that doesn't support cleanup refs
+    // (because it hasn't been updated for React 19)
+    // which can then cause things to blow up, because a cleanup-returning ref gets called with `null`.
+    // So in practice, it's safer to be defensive and always wrap the ref, even on React 19.
+    return (0, _react.useCallback)((current)=>{
+        if (current === null) {
+            const cleanupFnA = cleanupA.current;
+            if (cleanupFnA) {
+                cleanupA.current = null;
+                cleanupFnA();
+            }
+            const cleanupFnB = cleanupB.current;
+            if (cleanupFnB) {
+                cleanupB.current = null;
+                cleanupFnB();
+            }
+        } else {
+            if (refA) {
+                cleanupA.current = applyRef(refA, current);
+            }
+            if (refB) {
+                cleanupB.current = applyRef(refB, current);
+            }
+        }
+    }, [
+        refA,
+        refB
+    ]);
+}
+function applyRef(refA, current) {
+    if (typeof refA === 'function') {
+        const cleanup = refA(current);
+        if (typeof cleanup === 'function') {
+            return cleanup;
+        } else {
+            return ()=>refA(null);
+        }
+    } else {
+        refA.current = current;
+        return ()=>{
+            refA.current = null;
+        };
+    }
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=use-merged-ref.js.map
 
 
 /***/ }),
 
-/***/ 5750:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 3127:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   _: function() { return /* binding */ MotionConfigContext; }
+/* harmony export */   Q: () => (/* binding */ MotionConfigContext)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2265);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2115);
 /* __next_internal_client_entry_do_not_use__ MotionConfigContext auto */ 
 /**
  * @public
@@ -1497,32 +941,92 @@ const LayoutGroupContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.c
 
 /***/ }),
 
-/***/ 4252:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 3455:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "ImageConfigContext", ({
+    enumerable: true,
+    get: function() {
+        return ImageConfigContext;
+    }
+}));
+const _interop_require_default = __webpack_require__(8140);
+const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2115));
+const _imageconfig = __webpack_require__(821);
+const ImageConfigContext = _react.default.createContext(_imageconfig.imageConfigDefault);
+if (false) {} //# sourceMappingURL=image-config-context.shared-runtime.js.map
+
+
+/***/ }),
+
+/***/ 3577:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   O: function() { return /* binding */ PresenceContext; }
+/* harmony export */   B: () => (/* binding */ isBrowser)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2265);
-/* __next_internal_client_entry_do_not_use__ PresenceContext auto */ 
-/**
- * @public
- */ const PresenceContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
+const isBrowser = typeof window !== "undefined";
+
 
 
 
 /***/ }),
 
-/***/ 7500:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 4105:
+/***/ ((__unused_webpack_module, exports) => {
+
+/**
+ * A shared function, used on both client and server, to generate a SVG blur placeholder.
+ */ 
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "getImageBlurSvg", ({
+    enumerable: true,
+    get: function() {
+        return getImageBlurSvg;
+    }
+}));
+function getImageBlurSvg(param) {
+    let { widthInt, heightInt, blurWidth, blurHeight, blurDataURL, objectFit } = param;
+    const std = 20;
+    const svgWidth = blurWidth ? blurWidth * 40 : widthInt;
+    const svgHeight = blurHeight ? blurHeight * 40 : heightInt;
+    const viewBox = svgWidth && svgHeight ? "viewBox='0 0 " + svgWidth + " " + svgHeight + "'" : '';
+    const preserveAspectRatio = viewBox ? 'none' : objectFit === 'contain' ? 'xMidYMid' : objectFit === 'cover' ? 'xMidYMid slice' : 'none';
+    return "%3Csvg xmlns='http://www.w3.org/2000/svg' " + viewBox + "%3E%3Cfilter id='b' color-interpolation-filters='sRGB'%3E%3CfeGaussianBlur stdDeviation='" + std + "'/%3E%3CfeColorMatrix values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 100 -1' result='s'/%3E%3CfeFlood x='0' y='0' width='100%25' height='100%25'/%3E%3CfeComposite operator='out' in='s'/%3E%3CfeComposite in2='SourceGraphic'/%3E%3CfeGaussianBlur stdDeviation='" + std + "'/%3E%3C/filter%3E%3Cimage width='100%25' height='100%25' x='0' y='0' preserveAspectRatio='" + preserveAspectRatio + "' style='filter: url(%23b);' href='" + blurDataURL + "'/%3E%3C/svg%3E";
+} //# sourceMappingURL=image-blur-svg.js.map
+
+
+/***/ }),
+
+/***/ 4119:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   l: () => (/* binding */ noop)
+/* harmony export */ });
+const noop = (any) => any;
+
+
+
+
+/***/ }),
+
+/***/ 4218:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  E: function() { return /* binding */ motion; }
+  P: () => (/* binding */ motion)
 });
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/components/create-proxy.mjs
+;// ./node_modules/framer-motion/dist/es/render/components/create-proxy.mjs
 
 
 function createDOMMotionComponentProxy(componentFactory) {
@@ -1560,7 +1064,7 @@ function createDOMMotionComponentProxy(componentFactory) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-animation-controls.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/is-animation-controls.mjs
 function isAnimationControls(v) {
     return (v !== null &&
         typeof v === "object" &&
@@ -1569,14 +1073,14 @@ function isAnimationControls(v) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-keyframes-target.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/is-keyframes-target.mjs
 const isKeyframesTarget = (v) => {
     return Array.isArray(v);
 };
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/shallow-compare.mjs
+;// ./node_modules/framer-motion/dist/es/utils/shallow-compare.mjs
 function shallowCompare(next, prev) {
     if (!Array.isArray(prev))
         return false;
@@ -1592,7 +1096,7 @@ function shallowCompare(next, prev) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/is-variant-label.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/is-variant-label.mjs
 /**
  * Decides if the supplied variable is variant label
  */
@@ -1602,7 +1106,7 @@ function isVariantLabel(v) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/resolve-variants.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/resolve-variants.mjs
 function getValueState(visualElement) {
     const state = [{}, {}];
     visualElement === null || visualElement === void 0 ? void 0 : visualElement.values.forEach((value, key) => {
@@ -1640,7 +1144,7 @@ function resolveVariantFromProps(props, definition, custom, visualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/resolve-dynamic-variants.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/resolve-dynamic-variants.mjs
 
 
 function resolveVariant(visualElement, definition, custom) {
@@ -1650,7 +1154,7 @@ function resolveVariant(visualElement, definition, custom) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/variant-props.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/variant-props.mjs
 const variantPriorityOrder = [
     "animate",
     "whileInView",
@@ -1664,7 +1168,7 @@ const variantProps = ["initial", ...variantPriorityOrder];
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/transform.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/transform.mjs
 /**
  * Generate a list of every possible transform key.
  */
@@ -1694,7 +1198,7 @@ const transformProps = new Set(transformPropOrder);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/time-conversion.mjs
+;// ./node_modules/framer-motion/dist/es/utils/time-conversion.mjs
 /**
  * Converts seconds to milliseconds
  *
@@ -1706,7 +1210,7 @@ const millisecondsToSeconds = (milliseconds) => milliseconds / 1000;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/default-transitions.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/default-transitions.mjs
 
 
 const underDampedSpring = {
@@ -1748,7 +1252,7 @@ const getDefaultTransition = (valueKey, { keyframes }) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/get-value-transition.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/get-value-transition.mjs
 function getValueTransition(transition, key) {
     return transition
         ? transition[key] ||
@@ -1759,7 +1263,7 @@ function getValueTransition(transition, key) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/GlobalConfig.mjs
+;// ./node_modules/framer-motion/dist/es/utils/GlobalConfig.mjs
 const MotionGlobalConfig = {
     skipAnimations: false,
     useManualTiming: false,
@@ -1767,14 +1271,14 @@ const MotionGlobalConfig = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/use-instant-transition-state.mjs
+;// ./node_modules/framer-motion/dist/es/utils/use-instant-transition-state.mjs
 const instantAnimationState = {
     current: false,
 };
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/get-final-keyframe.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/get-final-keyframe.mjs
 const isNotNull = (value) => value !== null;
 function getFinalKeyframe(keyframes, { repeat, repeatType = "loop" }, finalKeyframe) {
     const resolvedKeyframes = keyframes.filter(isNotNull);
@@ -1789,8 +1293,8 @@ function getFinalKeyframe(keyframes, { repeat, repeatType = "loop" }, finalKeyfr
 
 
 // EXTERNAL MODULE: ./node_modules/motion-utils/dist/es/noop.mjs
-var noop = __webpack_require__(6277);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/render-step.mjs
+var noop = __webpack_require__(4119);
+;// ./node_modules/framer-motion/dist/es/frameloop/render-step.mjs
 function createRenderStep(runNextFrame) {
     /**
      * We create and reuse two queues, one to queue jobs for the current frame
@@ -1873,7 +1377,7 @@ function createRenderStep(runNextFrame) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/batcher.mjs
+;// ./node_modules/framer-motion/dist/es/frameloop/batcher.mjs
 
 
 
@@ -1949,15 +1453,15 @@ function createRenderBatcher(scheduleNextBatch, allowKeepAlive) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/frame.mjs
+;// ./node_modules/framer-motion/dist/es/frameloop/frame.mjs
 
 
 
-const { schedule: frame_frame, cancel: cancelFrame, state: frameData, steps: frameSteps, } = createRenderBatcher(typeof requestAnimationFrame !== "undefined" ? requestAnimationFrame : noop/* noop */.Z, true);
+const { schedule: frame_frame, cancel: cancelFrame, state: frameData, steps: frameSteps, } = createRenderBatcher(typeof requestAnimationFrame !== "undefined" ? requestAnimationFrame : noop/* noop */.l, true);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/cubic-bezier.mjs
+;// ./node_modules/framer-motion/dist/es/easing/cubic-bezier.mjs
 
 
 /*
@@ -2002,7 +1506,7 @@ function binarySubdivide(x, lowerBound, upperBound, mX1, mX2) {
 function cubicBezier(mX1, mY1, mX2, mY2) {
     // If this is a linear gradient, return linear easing
     if (mX1 === mY1 && mX2 === mY2)
-        return noop/* noop */.Z;
+        return noop/* noop */.l;
     const getTForX = (aX) => binarySubdivide(aX, 0, 1, mX1, mX2);
     // If animation is at start/end, return t without easing
     return (t) => t === 0 || t === 1 ? t : calcBezier(getTForX(t), mY1, mY2);
@@ -2010,21 +1514,21 @@ function cubicBezier(mX1, mY1, mX2, mY2) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/modifiers/mirror.mjs
+;// ./node_modules/framer-motion/dist/es/easing/modifiers/mirror.mjs
 // Accepts an easing function and returns a new one that outputs mirrored values for
 // the second half of the animation. Turns easeIn into easeInOut.
 const mirrorEasing = (easing) => (p) => p <= 0.5 ? easing(2 * p) / 2 : (2 - easing(2 * (1 - p))) / 2;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/modifiers/reverse.mjs
+;// ./node_modules/framer-motion/dist/es/easing/modifiers/reverse.mjs
 // Accepts an easing function and returns a new one that outputs reversed values.
 // Turns easeIn into easeOut.
 const reverseEasing = (easing) => (p) => 1 - easing(1 - p);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/back.mjs
+;// ./node_modules/framer-motion/dist/es/easing/back.mjs
 
 
 
@@ -2035,14 +1539,14 @@ const backInOut = /*@__PURE__*/ mirrorEasing(backIn);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/anticipate.mjs
+;// ./node_modules/framer-motion/dist/es/easing/anticipate.mjs
 
 
 const anticipate = (p) => (p *= 2) < 1 ? 0.5 * backIn(p) : 0.5 * (2 - Math.pow(2, -10 * (p - 1)));
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/circ.mjs
+;// ./node_modules/framer-motion/dist/es/easing/circ.mjs
 
 
 
@@ -2052,7 +1556,7 @@ const circInOut = mirrorEasing(circIn);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-zero-value-string.mjs
+;// ./node_modules/framer-motion/dist/es/utils/is-zero-value-string.mjs
 /**
  * Check if the value is a zero value string like "0px" or "0%"
  */
@@ -2060,7 +1564,7 @@ const isZeroValueString = (v) => /^0[^.\s]+$/u.test(v);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-none.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/is-none.mjs
 
 
 function isNone(value) {
@@ -2078,8 +1582,8 @@ function isNone(value) {
 
 
 // EXTERNAL MODULE: ./node_modules/motion-utils/dist/es/errors.mjs
-var errors = __webpack_require__(2035);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-numerical-string.mjs
+var errors = __webpack_require__(8041);
+;// ./node_modules/framer-motion/dist/es/utils/is-numerical-string.mjs
 /**
  * Check if value is a numerical string, ie a string that is purely a number eg "100" or "-100.1"
  */
@@ -2087,7 +1591,7 @@ const isNumericalString = (v) => /^-?(?:\d+(?:\.\d+)?|\.\d+)$/u.test(v);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-css-variable.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-css-variable.mjs
 const checkStringStartsWith = (token) => (key) => typeof key === "string" && key.startsWith(token);
 const isCSSVariableName = 
 /*@__PURE__*/ checkStringStartsWith("--");
@@ -2104,7 +1608,7 @@ const singleCssVariableRegex = /var\(--(?:[\w-]+\s*|[\w-]+\s*,(?:\s*[^)(\s]|\s*\
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/css-variables-conversion.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/css-variables-conversion.mjs
 
 
 
@@ -2130,7 +1634,7 @@ function parseCSSVariable(current) {
 }
 const maxDepth = 4;
 function getVariableValue(current, element, depth = 1) {
-    (0,errors/* invariant */.k)(depth <= maxDepth, `Max CSS variable fallback depth detected in property "${current}". This may indicate a circular fallback dependency.`);
+    (0,errors/* invariant */.V)(depth <= maxDepth, `Max CSS variable fallback depth detected in property "${current}". This may indicate a circular fallback dependency.`);
     const [token, fallback] = parseCSSVariable(current);
     // No CSS variable detected
     if (!token)
@@ -2148,7 +1652,7 @@ function getVariableValue(current, element, depth = 1) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/clamp.mjs
+;// ./node_modules/framer-motion/dist/es/utils/clamp.mjs
 const clamp = (min, max, v) => {
     if (v > max)
         return max;
@@ -2159,7 +1663,7 @@ const clamp = (min, max, v) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/numbers/index.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/numbers/index.mjs
 
 
 const number = {
@@ -2178,7 +1682,7 @@ const scale = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/numbers/units.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/numbers/units.mjs
 const createUnitType = (unit) => ({
     test: (v) => typeof v === "string" && v.endsWith(unit) && v.split(" ").length === 1,
     parse: parseFloat,
@@ -2197,7 +1701,7 @@ const progressPercentage = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/unit-conversion.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/unit-conversion.mjs
 
 
 
@@ -2264,7 +1768,7 @@ positionalValues.translateY = positionalValues.y;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/test.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/test.mjs
 /**
  * Tests a provided value against a ValueType
  */
@@ -2272,7 +1776,7 @@ const testValueType = (v) => (type) => type.test(v);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/type-auto.mjs
 /**
  * ValueType for "auto"
  */
@@ -2283,7 +1787,7 @@ const auto = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/dimensions.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/dimensions.mjs
 
 
 
@@ -2300,7 +1804,7 @@ const findDimensionValueType = (v) => dimensionValueTypes.find(testValueType(v))
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/KeyframesResolver.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/KeyframesResolver.mjs
 
 
 
@@ -2466,31 +1970,31 @@ class KeyframeResolver {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils/sanitize.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/utils/sanitize.mjs
 // If this number is a decimal, make it just five decimal places
 // to avoid exponents
 const sanitize = (v) => Math.round(v * 100000) / 100000;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils/float-regex.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/utils/float-regex.mjs
 const floatRegex = /-?(?:\d+(?:\.\d+)?|\.\d+)/gu;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils/is-nullish.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/utils/is-nullish.mjs
 function isNullish(v) {
     return v == null;
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils/single-color-regex.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/utils/single-color-regex.mjs
 const singleColorRegex = /^(?:#[\da-f]{3,8}|(?:rgb|hsl)a?\((?:-?[\d.]+%?[,\s]+){2}-?[\d.]+%?\s*(?:[,/]\s*)?(?:\b\d+(?:\.\d+)?|\.\d+)?%?\))$/iu;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/utils.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/color/utils.mjs
 
 
 
@@ -2521,7 +2025,7 @@ const splitColor = (aName, bName, cName) => (v) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/rgba.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/color/rgba.mjs
 
 
 
@@ -2548,7 +2052,7 @@ const rgba = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/hex.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/color/hex.mjs
 
 
 
@@ -2590,7 +2094,7 @@ const hex = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/hsla.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/color/hsla.mjs
 
 
 
@@ -2614,7 +2118,7 @@ const hsla = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/color/index.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/color/index.mjs
 
 
 
@@ -2643,12 +2147,12 @@ const color = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/utils/color-regex.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/utils/color-regex.mjs
 const colorRegex = /(?:#[\da-f]{3,8}|(?:rgb|hsl)a?\((?:-?[\d.]+%?[,\s]+){2}-?[\d.]+%?\s*(?:[,/]\s*)?(?:\b\d+(?:\.\d+)?|\.\d+)?%?\))/giu;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/complex/index.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/complex/index.mjs
 
 
 
@@ -2742,7 +2246,7 @@ const complex = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/types/complex/filter.mjs
+;// ./node_modules/framer-motion/dist/es/value/types/complex/filter.mjs
 
 
 
@@ -2774,7 +2278,7 @@ const filter = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/number-browser.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/number-browser.mjs
 
 
 const browserNumberValueTypes = {
@@ -2817,7 +2321,7 @@ const browserNumberValueTypes = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/transform.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/transform.mjs
 
 
 
@@ -2850,7 +2354,7 @@ const transformValueTypes = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/type-int.mjs
 
 
 const type_int_int = {
@@ -2860,7 +2364,7 @@ const type_int_int = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/number.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/number.mjs
 
 
 
@@ -2880,7 +2384,7 @@ const numberValueTypes = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/defaults.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/defaults.mjs
 
 
 
@@ -2912,7 +2416,7 @@ const getDefaultValueType = (key) => defaultValueTypes[key];
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/animatable-none.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/animatable-none.mjs
 
 
 
@@ -2929,7 +2433,7 @@ function animatable_none_getAnimatableNone(key, value) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/make-none-animatable.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/make-none-animatable.mjs
 
 
 
@@ -2961,7 +2465,7 @@ function makeNoneKeyframesAnimatable(unresolvedKeyframes, noneKeyframeIndexes, n
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/DOMKeyframesResolver.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/DOMKeyframesResolver.mjs
 
 
 
@@ -3093,14 +2597,14 @@ class DOMKeyframesResolver extends KeyframeResolver {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/utils/is-generator.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/utils/is-generator.mjs
 function isGenerator(type) {
     return typeof type === "function";
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/sync-time.mjs
+;// ./node_modules/framer-motion/dist/es/frameloop/sync-time.mjs
 
 
 
@@ -3133,7 +2637,7 @@ const time = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-animatable.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/is-animatable.mjs
 
 
 /**
@@ -3165,7 +2669,7 @@ const isAnimatable = (value, name) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/utils/can-animate.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/utils/can-animate.mjs
 
 
 
@@ -3198,7 +2702,7 @@ function canAnimate(keyframes, name, type, velocity) {
     const targetKeyframe = keyframes[keyframes.length - 1];
     const isOriginAnimatable = isAnimatable(originKeyframe, name);
     const isTargetAnimatable = isAnimatable(targetKeyframe, name);
-    (0,errors/* warning */.K)(isOriginAnimatable === isTargetAnimatable, `You are trying to animate ${name} from "${originKeyframe}" to "${targetKeyframe}". ${originKeyframe} is not an animatable value - to enable this animation set ${originKeyframe} to a value animatable to ${targetKeyframe} via the \`style\` property.`);
+    (0,errors/* warning */.$)(isOriginAnimatable === isTargetAnimatable, `You are trying to animate ${name} from "${originKeyframe}" to "${targetKeyframe}". ${originKeyframe} is not an animatable value - to enable this animation set ${originKeyframe} to a value animatable to ${targetKeyframe} via the \`style\` property.`);
     // Always skip if any of these are true
     if (!isOriginAnimatable || !isTargetAnimatable) {
         return false;
@@ -3209,7 +2713,7 @@ function canAnimate(keyframes, name, type, velocity) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/BaseAnimation.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/BaseAnimation.mjs
 
 
 
@@ -3328,7 +2832,7 @@ class BaseAnimation {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/progress.mjs
+;// ./node_modules/framer-motion/dist/es/utils/progress.mjs
 /*
   Progress within given range
 
@@ -3348,7 +2852,7 @@ const progress = (from, to, value) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/linear.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/linear.mjs
 
 
 const generateLinearEasing = (easing, duration, // as milliseconds
@@ -3364,7 +2868,7 @@ resolution = 10 // as milliseconds
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs
+;// ./node_modules/framer-motion/dist/es/utils/velocity-per-second.mjs
 /*
   Convert velocity into velocity per second
 
@@ -3377,7 +2881,7 @@ function velocityPerSecond(velocity, frameDuration) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/utils/velocity.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/utils/velocity.mjs
 
 
 const velocitySampleDuration = 5; // ms
@@ -3388,7 +2892,7 @@ function calcGeneratorVelocity(resolveValue, t, current) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/spring/defaults.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/spring/defaults.mjs
 const springDefaults = {
     // Default spring physics
     stiffness: 100,
@@ -3417,7 +2921,7 @@ const springDefaults = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/spring/find.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/spring/find.mjs
 
 
 
@@ -3427,7 +2931,7 @@ const safeMin = 0.001;
 function findSpring({ duration = springDefaults.duration, bounce = springDefaults.bounce, velocity = springDefaults.velocity, mass = springDefaults.mass, }) {
     let envelope;
     let derivative;
-    (0,errors/* warning */.K)(duration <= time_conversion_secondsToMilliseconds(springDefaults.maxDuration), "Spring duration must be 10 seconds or less");
+    (0,errors/* warning */.$)(duration <= time_conversion_secondsToMilliseconds(springDefaults.maxDuration), "Spring duration must be 10 seconds or less");
     let dampingRatio = 1 - bounce;
     /**
      * Restrict dampingRatio and duration to within acceptable ranges.
@@ -3505,7 +3009,7 @@ function calcAngularFreq(undampedFreq, dampingRatio) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/utils/calc-duration.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/utils/calc-duration.mjs
 /**
  * Implement a practical max duration for keyframe generation
  * to prevent infinite loops
@@ -3524,7 +3028,7 @@ function calcGeneratorDuration(generator) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/spring/index.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/spring/index.mjs
 
 
 
@@ -3691,7 +3195,7 @@ function spring(optionsOrVisualDuration = springDefaults.visualDuration, bounce 
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/inertia.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/inertia.mjs
 
 
 
@@ -3780,7 +3284,7 @@ function inertia({ keyframes, velocity = 0.0, power = 0.8, timeConstant = 325, b
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/ease.mjs
+;// ./node_modules/framer-motion/dist/es/easing/ease.mjs
 
 
 const easeIn = /*@__PURE__*/ cubicBezier(0.42, 0, 1, 1);
@@ -3789,19 +3293,19 @@ const easeInOut = /*@__PURE__*/ cubicBezier(0.42, 0, 0.58, 1);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/is-easing-array.mjs
+;// ./node_modules/framer-motion/dist/es/easing/utils/is-easing-array.mjs
 const isEasingArray = (ease) => {
     return Array.isArray(ease) && typeof ease[0] !== "number";
 };
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/is-bezier-definition.mjs
+;// ./node_modules/framer-motion/dist/es/easing/utils/is-bezier-definition.mjs
 const isBezierDefinition = (easing) => Array.isArray(easing) && typeof easing[0] === "number";
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/easing/utils/map.mjs
+;// ./node_modules/framer-motion/dist/es/easing/utils/map.mjs
 
 
 
@@ -3811,7 +3315,7 @@ const isBezierDefinition = (easing) => Array.isArray(easing) && typeof easing[0]
 
 
 const easingLookup = {
-    linear: noop/* noop */.Z,
+    linear: noop/* noop */.l,
     easeIn: easeIn,
     easeInOut: easeInOut,
     easeOut: easeOut,
@@ -3826,13 +3330,13 @@ const easingLookup = {
 const easingDefinitionToFunction = (definition) => {
     if (isBezierDefinition(definition)) {
         // If cubic bezier definition, create bezier curve
-        (0,errors/* invariant */.k)(definition.length === 4, `Cubic bezier arrays must contain four numerical values.`);
+        (0,errors/* invariant */.V)(definition.length === 4, `Cubic bezier arrays must contain four numerical values.`);
         const [x1, y1, x2, y2] = definition;
         return cubicBezier(x1, y1, x2, y2);
     }
     else if (typeof definition === "string") {
         // Else lookup from table
-        (0,errors/* invariant */.k)(easingLookup[definition] !== undefined, `Invalid easing type '${definition}'`);
+        (0,errors/* invariant */.V)(easingLookup[definition] !== undefined, `Invalid easing type '${definition}'`);
         return easingLookup[definition];
     }
     return definition;
@@ -3840,7 +3344,7 @@ const easingDefinitionToFunction = (definition) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/pipe.mjs
+;// ./node_modules/framer-motion/dist/es/utils/pipe.mjs
 /**
  * Pipe
  * Compose other transformers to run linearily
@@ -3853,7 +3357,7 @@ const pipe = (...transformers) => transformers.reduce(combineFunctions);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/number.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/number.mjs
 /*
   Value in range from progress
 
@@ -3881,7 +3385,7 @@ const mixNumber = (from, to, progress) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/hsla-to-rgba.mjs
+;// ./node_modules/framer-motion/dist/es/utils/hsla-to-rgba.mjs
 // Adapted from https://gist.github.com/mjackson/5311256
 function hueToRgb(p, q, t) {
     if (t < 0)
@@ -3925,14 +3429,14 @@ function hslaToRgba({ hue, saturation, lightness, alpha }) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/immediate.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/immediate.mjs
 function mixImmediate(a, b) {
     return (p) => (p > 0 ? b : a);
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/color.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/color.mjs
 
 
 
@@ -3953,7 +3457,7 @@ const colorTypes = [hex, rgba, hsla];
 const getColorType = (v) => colorTypes.find((type) => type.test(v));
 function asRGBA(color) {
     const type = getColorType(color);
-    (0,errors/* warning */.K)(Boolean(type), `'${color}' is not an animatable color. Use the equivalent color code instead.`);
+    (0,errors/* warning */.$)(Boolean(type), `'${color}' is not an animatable color. Use the equivalent color code instead.`);
     if (!Boolean(type))
         return false;
     let model = type.parse(color);
@@ -3981,7 +3485,7 @@ const mixColor = (from, to) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/visibility.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/visibility.mjs
 const invisibleValues = new Set(["none", "hidden"]);
 /**
  * Returns a function that, when provided a progress value between 0 and 1,
@@ -3999,7 +3503,7 @@ function mixVisibility(origin, target) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/complex.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/complex.mjs
 
 
 
@@ -4088,14 +3592,14 @@ const mixComplex = (origin, target) => {
         return pipe(mixArray(matchOrder(originStats, targetStats), targetStats.values), template);
     }
     else {
-        (0,errors/* warning */.K)(true, `Complex values '${origin}' and '${target}' too different to mix. Ensure all colors are of the same type, and that each contains the same quantity of number and color values. Falling back to instant transition.`);
+        (0,errors/* warning */.$)(true, `Complex values '${origin}' and '${target}' too different to mix. Ensure all colors are of the same type, and that each contains the same quantity of number and color values. Falling back to instant transition.`);
         return mixImmediate(origin, target);
     }
 };
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/mix/index.mjs
+;// ./node_modules/framer-motion/dist/es/utils/mix/index.mjs
 
 
 
@@ -4111,7 +3615,7 @@ function mix(from, to, p) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/interpolate.mjs
+;// ./node_modules/framer-motion/dist/es/utils/interpolate.mjs
 
 
 
@@ -4125,7 +3629,7 @@ function createMixers(output, ease, customMixer) {
     for (let i = 0; i < numMixers; i++) {
         let mixer = mixerFactory(output[i], output[i + 1]);
         if (ease) {
-            const easingFunction = Array.isArray(ease) ? ease[i] || noop/* noop */.Z : ease;
+            const easingFunction = Array.isArray(ease) ? ease[i] || noop/* noop */.l : ease;
             mixer = pipe(easingFunction, mixer);
         }
         mixers.push(mixer);
@@ -4153,7 +3657,7 @@ function createMixers(output, ease, customMixer) {
  */
 function interpolate(input, output, { clamp: isClamp = true, ease, mixer } = {}) {
     const inputLength = input.length;
-    (0,errors/* invariant */.k)(inputLength === output.length, "Both input and output ranges must be the same length");
+    (0,errors/* invariant */.V)(inputLength === output.length, "Both input and output ranges must be the same length");
     /**
      * If we're only provided a single input, we can just make a function
      * that returns the output.
@@ -4187,7 +3691,7 @@ function interpolate(input, output, { clamp: isClamp = true, ease, mixer } = {})
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/fill.mjs
+;// ./node_modules/framer-motion/dist/es/utils/offsets/fill.mjs
 
 
 
@@ -4201,7 +3705,7 @@ function fillOffset(offset, remaining) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/default.mjs
+;// ./node_modules/framer-motion/dist/es/utils/offsets/default.mjs
 
 
 function defaultOffset(arr) {
@@ -4212,14 +3716,14 @@ function defaultOffset(arr) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/offsets/time.mjs
+;// ./node_modules/framer-motion/dist/es/utils/offsets/time.mjs
 function convertOffsetToTimes(offset, duration) {
     return offset.map((o) => o * duration);
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/generators/keyframes.mjs
+;// ./node_modules/framer-motion/dist/es/animation/generators/keyframes.mjs
 
 
 
@@ -4272,7 +3776,7 @@ function keyframes({ duration = 300, keyframes: keyframeValues, times, ease = "e
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/drivers/driver-frameloop.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/drivers/driver-frameloop.mjs
 
 
 
@@ -4291,7 +3795,7 @@ const frameloopDriver = (update) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/MainThreadAnimation.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/MainThreadAnimation.mjs
 
 
 
@@ -4682,7 +4186,7 @@ function animateValue(options) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/utils/accelerated-values.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/utils/accelerated-values.mjs
 /**
  * A list of values that can be hardware-accelerated.
  */
@@ -4698,7 +4202,7 @@ const acceleratedValues = new Set([
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/memo.mjs
+;// ./node_modules/framer-motion/dist/es/utils/memo.mjs
 function memo(callback) {
     let result;
     return () => {
@@ -4710,7 +4214,7 @@ function memo(callback) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-flags.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-flags.mjs
 /**
  * Add the ability for test suites to manually set support flags
  * to better test more environments.
@@ -4721,7 +4225,7 @@ const supportsFlags = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/memo-supports.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/memo-supports.mjs
 
 
 
@@ -4732,7 +4236,7 @@ function memoSupports(callback, supportsFlag) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-linear-easing.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-linear-easing.mjs
 
 
 const supportsLinearEasing = /*@__PURE__*/ memoSupports(() => {
@@ -4749,7 +4253,7 @@ const supportsLinearEasing = /*@__PURE__*/ memoSupports(() => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/easing.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/easing.mjs
 
 
 
@@ -4795,7 +4299,7 @@ function mapEasingToNativeEasing(easing, duration) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/index.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/index.mjs
 
 
 function startWaapiAnimation(element, valueName, keyframes, { delay = 0, duration = 300, repeat = 0, repeatType = "loop", ease = "easeInOut", times, } = {}) {
@@ -4820,7 +4324,7 @@ function startWaapiAnimation(element, valueName, keyframes, { delay = 0, duratio
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/attach-timeline.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/attach-timeline.mjs
 function attachTimeline(animation, timeline) {
     animation.timeline = timeline;
     animation.onfinish = null;
@@ -4828,14 +4332,14 @@ function attachTimeline(animation, timeline) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-waapi.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/waapi/utils/supports-waapi.mjs
 
 
 const supportsWaapi = /*@__PURE__*/ memo(() => Object.hasOwnProperty.call(Element.prototype, "animate"));
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animators/AcceleratedAnimation.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animators/AcceleratedAnimation.mjs
 
 
 
@@ -5055,11 +4559,11 @@ class AcceleratedAnimation extends BaseAnimation {
         else {
             const { resolved } = this;
             if (!resolved)
-                return noop/* noop */.Z;
+                return noop/* noop */.l;
             const { animation } = resolved;
             attachTimeline(animation, timeline);
         }
-        return noop/* noop */.Z;
+        return noop/* noop */.l;
     }
     play() {
         if (this.isStopped)
@@ -5155,14 +4659,14 @@ class AcceleratedAnimation extends BaseAnimation {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/scroll/supports.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/scroll/supports.mjs
 
 
 const supportsScrollTimeline = memo(() => window.ScrollTimeline !== undefined);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/GroupPlaybackControls.mjs
+;// ./node_modules/framer-motion/dist/es/animation/GroupPlaybackControls.mjs
 
 
 class GroupPlaybackControls {
@@ -5245,7 +4749,7 @@ class GroupPlaybackControls {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/utils/is-transition-defined.mjs
+;// ./node_modules/framer-motion/dist/es/animation/utils/is-transition-defined.mjs
 /**
  * Decide whether a transition is defined on a given Transition.
  * This filters out orchestration options and returns true
@@ -5257,7 +4761,7 @@ function isTransitionDefined({ when, delay: _delay, delayChildren, staggerChildr
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/motion-value.mjs
+;// ./node_modules/framer-motion/dist/es/animation/interfaces/motion-value.mjs
 
 
 
@@ -5372,7 +4876,7 @@ const animateMotionValue = (name, value, target, transition = {}, element, isHan
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/resolve-value.mjs
+;// ./node_modules/framer-motion/dist/es/utils/resolve-value.mjs
 
 
 const isCustomValue = (v) => {
@@ -5385,7 +4889,7 @@ const resolveFinalValueInKeyframes = (v) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/array.mjs
+;// ./node_modules/framer-motion/dist/es/utils/array.mjs
 function addUniqueItem(arr, item) {
     if (arr.indexOf(item) === -1)
         arr.push(item);
@@ -5408,7 +4912,7 @@ function moveItem([...arr], fromIndex, toIndex) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/subscription-manager.mjs
+;// ./node_modules/framer-motion/dist/es/utils/subscription-manager.mjs
 
 
 class SubscriptionManager {
@@ -5450,7 +4954,7 @@ class SubscriptionManager {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/index.mjs
+;// ./node_modules/framer-motion/dist/es/value/index.mjs
 
 
 
@@ -5769,7 +5273,7 @@ function motionValue(init, options) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/setters.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/setters.mjs
 
 
 
@@ -5798,7 +5302,7 @@ function setTarget(visualElement, definition) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/camel-to-dash.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/camel-to-dash.mjs
 /**
  * Convert camelCase to dash-case properties.
  */
@@ -5806,7 +5310,7 @@ const camelToDash = (str) => str.replace(/([a-z])([A-Z])/gu, "$1-$2").toLowerCas
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/optimized-appear/data-id.mjs
+;// ./node_modules/framer-motion/dist/es/animation/optimized-appear/data-id.mjs
 
 
 const optimizedAppearDataId = "framerAppearId";
@@ -5814,7 +5318,7 @@ const optimizedAppearDataAttribute = "data-" + camelToDash(optimizedAppearDataId
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/optimized-appear/get-appear-id.mjs
+;// ./node_modules/framer-motion/dist/es/animation/optimized-appear/get-appear-id.mjs
 
 
 function getOptimisedAppearId(visualElement) {
@@ -5823,12 +5327,12 @@ function getOptimisedAppearId(visualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs
+;// ./node_modules/framer-motion/dist/es/value/utils/is-motion-value.mjs
 const isMotionValue = (value) => Boolean(value && value.getVelocity);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/use-will-change/is.mjs
+;// ./node_modules/framer-motion/dist/es/value/use-will-change/is.mjs
 
 
 function isWillChangeMotionValue(value) {
@@ -5837,7 +5341,7 @@ function isWillChangeMotionValue(value) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/use-will-change/add-will-change.mjs
+;// ./node_modules/framer-motion/dist/es/value/use-will-change/add-will-change.mjs
 
 
 function addValueToWillChange(visualElement, key) {
@@ -5853,7 +5357,7 @@ function addValueToWillChange(visualElement, key) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-target.mjs
+;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-target.mjs
 
 
 
@@ -5930,7 +5434,7 @@ function animateTarget(visualElement, targetAndTransition, { delay = 0, transiti
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-variant.mjs
+;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element-variant.mjs
 
 
 
@@ -5998,7 +5502,7 @@ function sortByTreeOrder(a, b) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element.mjs
+;// ./node_modules/framer-motion/dist/es/animation/interfaces/visual-element.mjs
 
 
 
@@ -6026,7 +5530,7 @@ function animateVisualElement(visualElement, definition, options = {}) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/get-variant-context.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/get-variant-context.mjs
 
 
 
@@ -6056,7 +5560,7 @@ function getVariantContext(visualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/animation-state.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/animation-state.mjs
 
 
 
@@ -6390,7 +5894,7 @@ function createState() {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/Feature.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/Feature.mjs
 class Feature {
     constructor(node) {
         this.isMounted = false;
@@ -6401,7 +5905,7 @@ class Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animation/index.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/animation/index.mjs
 
 
 
@@ -6444,7 +5948,7 @@ class AnimationFeature extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/animation/exit.mjs
 
 
 let id = 0;
@@ -6477,7 +5981,7 @@ class ExitAnimationFeature extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/animations.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/animations.mjs
 
 
 
@@ -6492,7 +5996,7 @@ const animations = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/drag/state/is-active.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/drag/state/is-active.mjs
 const isDragging = {
     x: false,
     y: false,
@@ -6503,7 +6007,7 @@ function isDragActive() {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/utils/resolve-elements.mjs
+;// ./node_modules/motion-dom/dist/es/utils/resolve-elements.mjs
 function resolveElements(elementOrSelector, scope, selectorCache) {
     var _a;
     if (elementOrSelector instanceof Element) {
@@ -6527,7 +6031,7 @@ function resolveElements(elementOrSelector, scope, selectorCache) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/utils/setup.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/utils/setup.mjs
 
 
 function setupGesture(elementOrSelector, options) {
@@ -6544,7 +6048,7 @@ function setupGesture(elementOrSelector, options) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/hover.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/hover.mjs
 
 
 
@@ -6587,7 +6091,7 @@ function hover(elementOrSelector, onHoverStart, options = {}) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/utils/is-primary-pointer.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/utils/is-primary-pointer.mjs
 const isPrimaryPointer = (event) => {
     if (event.pointerType === "mouse") {
         return typeof event.button !== "number" || event.button <= 0;
@@ -6607,12 +6111,12 @@ const isPrimaryPointer = (event) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/press/utils/state.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/press/utils/state.mjs
 const isPressing = new WeakSet();
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/press/utils/keyboard.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/press/utils/keyboard.mjs
 
 
 /**
@@ -6652,7 +6156,7 @@ const enableKeyboardPress = (focusEvent, eventOptions) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/press/utils/is-keyboard-accessible.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/press/utils/is-keyboard-accessible.mjs
 const focusableElements = new Set([
     "BUTTON",
     "INPUT",
@@ -6666,7 +6170,7 @@ function isElementKeyboardAccessible(element) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/utils/is-node-or-child.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/utils/is-node-or-child.mjs
 /**
  * Recursively traverse up the tree to check whether the provided child node
  * is the parent or a descendant of it.
@@ -6688,7 +6192,7 @@ const isNodeOrChild = (parent, child) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/press/index.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/press/index.mjs
 
 
 
@@ -6765,7 +6269,7 @@ function press(elementOrSelector, onPressStart, options = {}) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs
+;// ./node_modules/motion-dom/dist/es/gestures/drag/state/set-active.mjs
 
 
 function setDragLock(axis) {
@@ -6795,7 +6299,7 @@ function setDragLock(axis) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/motion-dom/dist/es/index.mjs
+;// ./node_modules/motion-dom/dist/es/index.mjs
 
 
 
@@ -6804,7 +6308,7 @@ function setDragLock(axis) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/event-info.mjs
+;// ./node_modules/framer-motion/dist/es/events/event-info.mjs
 
 
 function extractEventInfo(event) {
@@ -6821,7 +6325,7 @@ const addPointerInfo = (handler) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/add-dom-event.mjs
+;// ./node_modules/framer-motion/dist/es/events/add-dom-event.mjs
 function addDomEvent(target, eventName, handler, options = { passive: true }) {
     target.addEventListener(eventName, handler, options);
     return () => target.removeEventListener(eventName, handler);
@@ -6829,7 +6333,7 @@ function addDomEvent(target, eventName, handler, options = { passive: true }) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/events/add-pointer-event.mjs
+;// ./node_modules/framer-motion/dist/es/events/add-pointer-event.mjs
 
 
 
@@ -6839,7 +6343,7 @@ function addPointerEvent(target, eventName, handler, options) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/distance.mjs
+;// ./node_modules/framer-motion/dist/es/utils/distance.mjs
 const distance = (a, b) => Math.abs(a - b);
 function distance2D(a, b) {
     // Multi-dimensional
@@ -6850,7 +6354,7 @@ function distance2D(a, b) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/pan/PanSession.mjs
 
 
 
@@ -7008,7 +6512,7 @@ function getVelocity(history, timeDelta) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
+;// ./node_modules/framer-motion/dist/es/utils/is-ref-object.mjs
 function isRefObject(ref) {
     return (ref &&
         typeof ref === "object" &&
@@ -7017,7 +6521,7 @@ function isRefObject(ref) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-calc.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-calc.mjs
 
 
 const SCALE_PRECISION = 0.0001;
@@ -7071,7 +6575,7 @@ function calcRelativePosition(target, layout, parent) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/drag/utils/constraints.mjs
 
 
 
@@ -7202,7 +6706,7 @@ function resolvePointElastic(dragElastic, label) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/models.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/models.mjs
 const createAxisDelta = () => ({
     translate: 0,
     scale: 1,
@@ -7221,14 +6725,14 @@ const createBox = () => ({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/each-axis.mjs
+;// ./node_modules/framer-motion/dist/es/projection/utils/each-axis.mjs
 function eachAxis(callback) {
     return [callback("x"), callback("y")];
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/conversion.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/conversion.mjs
 /**
  * Bounding boxes tend to be defined as top, left, right, bottom. For various operations
  * it's easier to consider each axis individually. This function returns a bounding box
@@ -7263,7 +6767,7 @@ function transformBoxPoints(point, transformPoint) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/has-transform.mjs
+;// ./node_modules/framer-motion/dist/es/projection/utils/has-transform.mjs
 function isIdentityScale(scale) {
     return scale === undefined || scale === 1;
 }
@@ -7291,7 +6795,7 @@ function is2DTranslate(value) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-apply.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-apply.mjs
 
 
 
@@ -7412,7 +6916,7 @@ function transformBox(box, transform) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/utils/measure.mjs
+;// ./node_modules/framer-motion/dist/es/projection/utils/measure.mjs
 
 
 
@@ -7431,7 +6935,7 @@ function measurePageBox(element, rootProjectionNode, transformPagePoint) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/get-context-window.mjs
+;// ./node_modules/framer-motion/dist/es/utils/get-context-window.mjs
 // Fixes https://github.com/motiondivision/motion/issues/2270
 const getContextWindow = ({ current }) => {
     return current ? current.ownerDocument.defaultView : null;
@@ -7439,7 +6943,7 @@ const getContextWindow = ({ current }) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/drag/VisualElementDragControls.mjs
 
 
 
@@ -7678,7 +7182,7 @@ class VisualElementDragControls {
         if (!constraints || !isRefObject(constraints))
             return false;
         const constraintsElement = constraints.current;
-        (0,errors/* invariant */.k)(constraintsElement !== null, "If `dragConstraints` is set as a React ref, that ref must be passed to another component's `ref` prop.");
+        (0,errors/* invariant */.V)(constraintsElement !== null, "If `dragConstraints` is set as a React ref, that ref must be passed to another component's `ref` prop.");
         const { projection } = this.visualElement;
         // TODO
         if (!projection || !projection.layout)
@@ -7925,7 +7429,7 @@ function getCurrentDirection(offset, lockThreshold = 10) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/drag/index.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/drag/index.mjs
 
 
 
@@ -7933,8 +7437,8 @@ function getCurrentDirection(offset, lockThreshold = 10) {
 class DragGesture extends Feature {
     constructor(node) {
         super(node);
-        this.removeGroupControls = noop/* noop */.Z;
-        this.removeListeners = noop/* noop */.Z;
+        this.removeGroupControls = noop/* noop */.l;
+        this.removeListeners = noop/* noop */.l;
         this.controls = new VisualElementDragControls(node);
     }
     mount() {
@@ -7944,7 +7448,7 @@ class DragGesture extends Feature {
         if (dragControls) {
             this.removeGroupControls = dragControls.subscribe(this.controls);
         }
-        this.removeListeners = this.controls.addListeners() || noop/* noop */.Z;
+        this.removeListeners = this.controls.addListeners() || noop/* noop */.l;
     }
     unmount() {
         this.removeGroupControls();
@@ -7954,7 +7458,7 @@ class DragGesture extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/pan/index.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/pan/index.mjs
 
 
 
@@ -7970,7 +7474,7 @@ const asyncHandler = (handler) => (event, info) => {
 class PanGesture extends Feature {
     constructor() {
         super(...arguments);
-        this.removePointerDownListener = noop/* noop */.Z;
+        this.removePointerDownListener = noop/* noop */.l;
     }
     onPointerDown(pointerDownEvent) {
         this.session = new PanSession(pointerDownEvent, this.createPanHandlers(), {
@@ -8007,12 +7511,12 @@ class PanGesture extends Feature {
 
 
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(7437);
+var jsx_runtime = __webpack_require__(5155);
 // EXTERNAL MODULE: ./node_modules/next/dist/compiled/react/index.js
-var react = __webpack_require__(2265);
+var react = __webpack_require__(2115);
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/PresenceContext.mjs
-var context_PresenceContext = __webpack_require__(4252);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
+var context_PresenceContext = __webpack_require__(9686);
+;// ./node_modules/framer-motion/dist/es/components/AnimatePresence/use-presence.mjs
 
 
 
@@ -8040,7 +7544,7 @@ var context_PresenceContext = __webpack_require__(4252);
  * @public
  */
 function usePresence() {
-    const context = (0,react.useContext)(context_PresenceContext/* PresenceContext */.O);
+    const context = (0,react.useContext)(context_PresenceContext/* PresenceContext */.t);
     if (context === null)
         return [true, null];
     const { isPresent, onExitComplete, register } = context;
@@ -8081,15 +7585,15 @@ function isPresent(context) {
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/LayoutGroupContext.mjs
-var LayoutGroupContext = __webpack_require__(8881);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
+var LayoutGroupContext = __webpack_require__(296);
+;// ./node_modules/framer-motion/dist/es/context/SwitchLayoutGroupContext.mjs
 /* __next_internal_client_entry_do_not_use__ SwitchLayoutGroupContext auto */ 
 /**
  * Internal, exported only for usage in Framer
  */ const SwitchLayoutGroupContext = /*#__PURE__*/ (0,react.createContext)({});
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/state.mjs
+;// ./node_modules/framer-motion/dist/es/projection/node/state.mjs
 /**
  * This should only ever be modified on the client otherwise it'll
  * persist through server requests. If we need instanced states we
@@ -8110,7 +7614,7 @@ const globalProjectionState = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-border-radius.mjs
+;// ./node_modules/framer-motion/dist/es/projection/styles/scale-border-radius.mjs
 
 
 function pixelsToPercent(pixels, axis) {
@@ -8153,7 +7657,7 @@ const correctBorderRadius = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-box-shadow.mjs
+;// ./node_modules/framer-motion/dist/es/projection/styles/scale-box-shadow.mjs
 
 
 
@@ -8190,7 +7694,7 @@ const correctBoxShadow = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/scale-correction.mjs
+;// ./node_modules/framer-motion/dist/es/projection/styles/scale-correction.mjs
 const scaleCorrectors = {};
 function addScaleCorrector(correctors) {
     Object.assign(scaleCorrectors, correctors);
@@ -8198,14 +7702,14 @@ function addScaleCorrector(correctors) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/frameloop/microtask.mjs
+;// ./node_modules/framer-motion/dist/es/frameloop/microtask.mjs
 
 
 const { schedule: microtask, cancel: cancelMicrotask } = createRenderBatcher(queueMicrotask, false);
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/layout/MeasureLayout.mjs
 /* __next_internal_client_entry_do_not_use__ MeasureLayout auto */ 
 
 
@@ -8306,7 +7810,7 @@ class MeasureLayoutWithContext extends react.Component {
 }
 function MeasureLayout(props) {
     const [isPresent, safeToRemove] = usePresence();
-    const layoutGroup = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.p);
+    const layoutGroup = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.L);
     return (0,jsx_runtime.jsx)(MeasureLayoutWithContext, {
         ...props,
         layoutGroup: layoutGroup,
@@ -8333,7 +7837,7 @@ const defaultScaleCorrectors = {
 };
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/animation/mix-values.mjs
+;// ./node_modules/framer-motion/dist/es/projection/animation/mix-values.mjs
 
 
 
@@ -8414,7 +7918,7 @@ function getRadius(values, radiusName) {
 //     )(p)
 // }
 const easeCrossfadeIn = /*@__PURE__*/ compress(0, 0.5, circOut);
-const easeCrossfadeOut = /*@__PURE__*/ compress(0.5, 0.95, noop/* noop */.Z);
+const easeCrossfadeOut = /*@__PURE__*/ compress(0.5, 0.95, noop/* noop */.l);
 function compress(min, max, easing) {
     return (p) => {
         // Could replace ifs with clamp
@@ -8428,7 +7932,7 @@ function compress(min, max, easing) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/copy.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/copy.mjs
 /**
  * Reset an axis to the provided origin box.
  *
@@ -8461,7 +7965,7 @@ function copyAxisDeltaInto(delta, originDelta) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/delta-remove.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/delta-remove.mjs
 
 
 
@@ -8517,7 +8021,7 @@ function removeBoxTransforms(box, transforms, originBox, sourceBox) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/geometry/utils.mjs
+;// ./node_modules/framer-motion/dist/es/projection/geometry/utils.mjs
 
 
 function isAxisDeltaZero(delta) {
@@ -8550,7 +8054,7 @@ function axisDeltaEquals(a, b) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/shared/stack.mjs
+;// ./node_modules/framer-motion/dist/es/projection/shared/stack.mjs
 
 
 class NodeStack {
@@ -8664,7 +8168,7 @@ class NodeStack {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/styles/transform.mjs
+;// ./node_modules/framer-motion/dist/es/projection/styles/transform.mjs
 function buildProjectionTransform(delta, treeScale, latestTransform) {
     let transform = "";
     /**
@@ -8715,12 +8219,12 @@ function buildProjectionTransform(delta, treeScale, latestTransform) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/compare-by-depth.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/compare-by-depth.mjs
 const compareByDepth = (a, b) => a.depth - b.depth;
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/flat-tree.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/flat-tree.mjs
 
 
 
@@ -8746,7 +8250,7 @@ class FlatTree {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs
+;// ./node_modules/framer-motion/dist/es/value/utils/resolve-motion-value.mjs
 
 
 
@@ -8764,7 +8268,7 @@ function resolveMotionValue(value) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/delay.mjs
+;// ./node_modules/framer-motion/dist/es/utils/delay.mjs
 
 
 
@@ -8790,14 +8294,14 @@ function delayInSeconds(callback, timeout) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-element.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-element.mjs
 function isSVGElement(element) {
     return element instanceof SVGElement && element.tagName !== "svg";
 }
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/animation/animate/single-value.mjs
+;// ./node_modules/framer-motion/dist/es/animation/animate/single-value.mjs
 
 
 
@@ -8810,7 +8314,7 @@ function animateSingleValue(value, keyframes, options) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/create-projection-node.mjs
+;// ./node_modules/framer-motion/dist/es/projection/node/create-projection-node.mjs
 
 
 
@@ -10373,7 +9877,7 @@ const userAgentContains = (string) => typeof navigator !== "undefined" &&
  */
 const roundPoint = userAgentContains("applewebkit/") && !userAgentContains("chrome/")
     ? Math.round
-    : noop/* noop */.Z;
+    : noop/* noop */.l;
 function roundAxis(axis) {
     // Round to the nearest .5 pixels to support subpixel layouts
     axis.min = roundPoint(axis.min);
@@ -10395,7 +9899,7 @@ function checkNodeWasScrollRoot(node) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/DocumentProjectionNode.mjs
+;// ./node_modules/framer-motion/dist/es/projection/node/DocumentProjectionNode.mjs
 
 
 
@@ -10410,7 +9914,7 @@ const DocumentProjectionNode = createProjectionNode({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/projection/node/HTMLProjectionNode.mjs
+;// ./node_modules/framer-motion/dist/es/projection/node/HTMLProjectionNode.mjs
 
 
 
@@ -10439,7 +9943,7 @@ const HTMLProjectionNode = createProjectionNode({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/drag.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/drag.mjs
 
 
 
@@ -10458,7 +9962,7 @@ const drag = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/hover.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/hover.mjs
 
 
 
@@ -10490,7 +9994,7 @@ class HoverGesture extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/focus.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/focus.mjs
 
 
 
@@ -10533,7 +10037,7 @@ class FocusGesture extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/gestures/press.mjs
+;// ./node_modules/framer-motion/dist/es/gestures/press.mjs
 
 
 
@@ -10565,7 +10069,7 @@ class PressGesture extends Feature {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/viewport/observers.mjs
 /**
  * Map an IntersectionHandler callback to an element. We only ever make one handler for one
  * element, so even though these handlers might all be triggered by different
@@ -10616,7 +10120,7 @@ function observeIntersection(element, options, callback) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/viewport/index.mjs
 
 
 
@@ -10690,7 +10194,7 @@ function hasViewportOptionChanged({ viewport = {} }, { viewport: prevViewport = 
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/gestures.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/gestures.mjs
 
 
 
@@ -10713,7 +10217,7 @@ const gestureAnimations = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/layout.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/layout.mjs
 
 
 
@@ -10727,22 +10231,22 @@ const layout = {
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/context/MotionConfigContext.mjs
-var MotionConfigContext = __webpack_require__(5750);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
+var MotionConfigContext = __webpack_require__(3127);
+;// ./node_modules/framer-motion/dist/es/context/MotionContext/index.mjs
 /* __next_internal_client_entry_do_not_use__ MotionContext auto */ 
 const MotionContext = /*#__PURE__*/ (0,react.createContext)({});
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/utils/use-isomorphic-effect.mjs
-var use_isomorphic_effect = __webpack_require__(1534);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/LazyContext.mjs
+var use_isomorphic_effect = __webpack_require__(6553);
+;// ./node_modules/framer-motion/dist/es/context/LazyContext.mjs
 /* __next_internal_client_entry_do_not_use__ LazyContext auto */ 
 const LazyContext = /*#__PURE__*/ (0,react.createContext)({
     strict: false
 });
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
+;// ./node_modules/framer-motion/dist/es/motion/utils/use-visual-element.mjs
 
 
 
@@ -10758,8 +10262,8 @@ function useVisualElement(Component, visualState, props, createVisualElement, Pr
     var _a, _b;
     const { visualElement: parent } = (0,react.useContext)(MotionContext);
     const lazyContext = (0,react.useContext)(LazyContext);
-    const presenceContext = (0,react.useContext)(context_PresenceContext/* PresenceContext */.O);
-    const reducedMotionConfig = (0,react.useContext)(MotionConfigContext/* MotionConfigContext */._).reducedMotion;
+    const presenceContext = (0,react.useContext)(context_PresenceContext/* PresenceContext */.t);
+    const reducedMotionConfig = (0,react.useContext)(MotionConfigContext/* MotionConfigContext */.Q).reducedMotion;
     const visualElementRef = (0,react.useRef)(null);
     /**
      * If we haven't preloaded a renderer, check to see if we have one lazy-loaded
@@ -10807,7 +10311,7 @@ function useVisualElement(Component, visualState, props, createVisualElement, Pr
     const wantsHandoff = (0,react.useRef)(Boolean(optimisedAppearId) &&
         !((_a = window.MotionHandoffIsComplete) === null || _a === void 0 ? void 0 : _a.call(window, optimisedAppearId)) &&
         ((_b = window.MotionHasOptimisedAnimation) === null || _b === void 0 ? void 0 : _b.call(window, optimisedAppearId)));
-    (0,use_isomorphic_effect/* useIsomorphicLayoutEffect */.L)(() => {
+    (0,use_isomorphic_effect/* useIsomorphicLayoutEffect */.E)(() => {
         if (!visualElement)
             return;
         isMounted.current = true;
@@ -10878,7 +10382,7 @@ function getClosestProjectingNode(visualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
+;// ./node_modules/framer-motion/dist/es/motion/utils/use-motion-ref.mjs
 
 
 
@@ -10916,7 +10420,7 @@ function useMotionRef(visualState, visualElement, externalRef) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/is-controlling-variants.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/is-controlling-variants.mjs
 
 
 
@@ -10931,7 +10435,7 @@ function isVariantNode(props) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
+;// ./node_modules/framer-motion/dist/es/context/MotionContext/utils.mjs
 
 
 
@@ -10950,7 +10454,7 @@ function getCurrentTreeVariants(props, context) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
+;// ./node_modules/framer-motion/dist/es/context/MotionContext/create.mjs
 
 
 
@@ -10965,7 +10469,7 @@ function variantLabelsAsDependency(prop) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/definitions.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/definitions.mjs
 const featureProps = {
     animation: [
         "animate",
@@ -10995,7 +10499,7 @@ for (const key in featureProps) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/features/load-features.mjs
+;// ./node_modules/framer-motion/dist/es/motion/features/load-features.mjs
 
 
 function loadFeatures(features) {
@@ -11010,13 +10514,13 @@ function loadFeatures(features) {
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/utils/is-browser.mjs
-var is_browser = __webpack_require__(4563);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/symbol.mjs
+var is_browser = __webpack_require__(3577);
+;// ./node_modules/framer-motion/dist/es/motion/utils/symbol.mjs
 const motionComponentSymbol = Symbol.for("motionComponentSymbol");
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/index.mjs
+;// ./node_modules/framer-motion/dist/es/motion/index.mjs
 /* __next_internal_client_entry_do_not_use__ createRendererMotionComponent auto */ 
 
 
@@ -11048,14 +10552,14 @@ const motionComponentSymbol = Symbol.for("motionComponentSymbol");
          * separate class component in order to gain access to getSnapshotBeforeUpdate.
          */ let MeasureLayout;
         const configAndProps = {
-            ...(0,react.useContext)(MotionConfigContext/* MotionConfigContext */._),
+            ...(0,react.useContext)(MotionConfigContext/* MotionConfigContext */.Q),
             ...props,
             layoutId: useLayoutId(props)
         };
         const { isStatic } = configAndProps;
         const context = useCreateMotionContext(props);
         const visualState = useVisualState(props, isStatic);
-        if (!isStatic && is_browser/* isBrowser */.j) {
+        if (!isStatic && is_browser/* isBrowser */.B) {
             useStrictMode(configAndProps, preloadedFeatures);
             const layoutProjection = getProjectionFunctionality(configAndProps);
             MeasureLayout = layoutProjection.MeasureLayout;
@@ -11086,7 +10590,7 @@ const motionComponentSymbol = Symbol.for("motionComponentSymbol");
 }
 function useLayoutId(param) {
     let { layoutId } = param;
-    const layoutGroupId = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.p).id;
+    const layoutGroupId = (0,react.useContext)(LayoutGroupContext/* LayoutGroupContext */.L).id;
     return layoutGroupId && layoutId !== undefined ? layoutGroupId + "-" + layoutId : layoutId;
 }
 function useStrictMode(configAndProps, preloadedFeatures) {
@@ -11110,7 +10614,7 @@ function getProjectionFunctionality(props) {
 }
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/lowercase-elements.mjs
 /**
  * We keep these listed separately as we use the lowercase tag names as part
  * of the runtime bundle to detect SVG components
@@ -11145,7 +10649,7 @@ const lowercaseSVGElements = [
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/is-svg-component.mjs
 
 
 function isSVGComponent(Component) {
@@ -11177,7 +10681,7 @@ function isSVGComponent(Component) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/render.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/render.mjs
 function renderHTML(element, { style, vars }, styleProp, projection) {
     Object.assign(element.style, style, projection && projection.getProjectionStyles(styleProp));
     // Loop over any CSS variables and assign those.
@@ -11188,7 +10692,7 @@ function renderHTML(element, { style, vars }, styleProp, projection) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/camel-case-attrs.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/camel-case-attrs.mjs
 /**
  * A set of attribute names that are always read/written as camel case.
  */
@@ -11220,7 +10724,7 @@ const camelCaseAttributes = new Set([
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/render.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/render.mjs
 
 
 
@@ -11234,7 +10738,7 @@ function renderSVG(element, renderState, _styleProp, projection) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/is-forced-motion-value.mjs
+;// ./node_modules/framer-motion/dist/es/motion/utils/is-forced-motion-value.mjs
 
 
 
@@ -11247,7 +10751,7 @@ function isForcedMotionValue(key, { layout, layoutId }) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/scrape-motion-values.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/scrape-motion-values.mjs
 
 
 
@@ -11269,7 +10773,7 @@ function scrapeMotionValuesFromProps(props, prevProps, visualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/scrape-motion-values.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/scrape-motion-values.mjs
 
 
 
@@ -11291,8 +10795,8 @@ function scrape_motion_values_scrapeMotionValuesFromProps(props, prevProps, visu
 
 
 // EXTERNAL MODULE: ./node_modules/framer-motion/dist/es/utils/use-constant.mjs
-var use_constant = __webpack_require__(3576);
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
+var use_constant = __webpack_require__(4416);
+;// ./node_modules/framer-motion/dist/es/motion/utils/use-visual-state.mjs
 
 
 
@@ -11314,9 +10818,9 @@ function makeState({ scrapeMotionValuesFromProps, createRenderState, onMount, },
 }
 const makeUseVisualState = (config) => (props, isStatic) => {
     const context = (0,react.useContext)(MotionContext);
-    const presenceContext = (0,react.useContext)(context_PresenceContext/* PresenceContext */.O);
+    const presenceContext = (0,react.useContext)(context_PresenceContext/* PresenceContext */.t);
     const make = () => makeState(config, props, context, presenceContext);
-    return isStatic ? make() : (0,use_constant/* useConstant */.h)(make);
+    return isStatic ? make() : (0,use_constant/* useConstant */.M)(make);
 };
 function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
     const values = {};
@@ -11376,7 +10880,7 @@ function makeLatestValues(props, context, presenceContext, scrapeMotionValues) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/create-render-state.mjs
 const createHtmlRenderState = () => ({
     style: {},
     transform: {},
@@ -11386,7 +10890,7 @@ const createHtmlRenderState = () => ({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/create-render-state.mjs
 
 
 const createSvgRenderState = () => ({
@@ -11396,7 +10900,7 @@ const createSvgRenderState = () => ({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/get-as-type.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/get-as-type.mjs
 /**
  * Provided a value and a ValueType, returns the value as that value type.
  */
@@ -11408,7 +10912,7 @@ const getValueAsType = (value, type) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/build-transform.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/build-transform.mjs
 
 
 
@@ -11472,7 +10976,7 @@ function buildTransform(latestValues, transform, transformTemplate) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/utils/build-styles.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/utils/build-styles.mjs
 
 
 
@@ -11539,7 +11043,7 @@ function buildHTMLStyles(state, latestValues, transformTemplate) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/transform-origin.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/transform-origin.mjs
 
 
 function transform_origin_calcOrigin(origin, offset, size) {
@@ -11559,7 +11063,7 @@ function calcSVGTransformOrigin(dimensions, originX, originY) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/path.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/path.mjs
 
 
 const dashKeys = {
@@ -11593,7 +11097,7 @@ function buildSVGPath(attrs, length, spacing = 1, offset = 0, useDashCase = true
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/build-attrs.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/build-attrs.mjs
 
 
 
@@ -11647,12 +11151,12 @@ function buildSVGAttrs(state, { attrX, attrY, attrScale, originX, originY, pathL
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/utils/is-svg-tag.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/utils/is-svg-tag.mjs
 const isSVGTag = (tag) => typeof tag === "string" && tag.toLowerCase() === "svg";
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/config-motion.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/config-motion.mjs
 
 
 
@@ -11694,7 +11198,7 @@ const svgMotionConfig = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/config-motion.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/config-motion.mjs
 
 
 
@@ -11708,7 +11212,7 @@ const htmlMotionConfig = {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/use-props.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/use-props.mjs
 
 
 
@@ -11767,7 +11271,7 @@ function useHTMLProps(props, visualState) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs
+;// ./node_modules/framer-motion/dist/es/motion/utils/valid-prop.mjs
 /**
  * A list of all valid MotionProps.
  *
@@ -11826,7 +11330,7 @@ function isValidMotionProp(key) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/utils/filter-props.mjs
 
 
 let shouldForward = (key) => !isValidMotionProp(key);
@@ -11887,7 +11391,7 @@ function filterProps(props, isDom, forwardMotionProps) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/use-props.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/use-props.mjs
 
 
 
@@ -11913,7 +11417,7 @@ function useSVGProps(props, visualState, _isStatic, Component) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/use-render.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/use-render.mjs
 
 
 
@@ -11948,7 +11452,7 @@ function createUseRender(forwardMotionProps = false) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/components/create-factory.mjs
+;// ./node_modules/framer-motion/dist/es/render/components/create-factory.mjs
 
 
 
@@ -11973,20 +11477,20 @@ function createMotionComponentFactory(preloadedFeatures, createVisualElement) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/reduced-motion/state.mjs
+;// ./node_modules/framer-motion/dist/es/utils/reduced-motion/state.mjs
 // Does this device prefer reduced motion? Returns `null` server-side.
 const prefersReducedMotion = { current: null };
 const hasReducedMotionListener = { current: false };
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/utils/reduced-motion/index.mjs
+;// ./node_modules/framer-motion/dist/es/utils/reduced-motion/index.mjs
 
 
 
 function initPrefersReducedMotion() {
     hasReducedMotionListener.current = true;
-    if (!is_browser/* isBrowser */.j)
+    if (!is_browser/* isBrowser */.B)
         return;
     if (window.matchMedia) {
         const motionMediaQuery = window.matchMedia("(prefers-reduced-motion)");
@@ -12001,7 +11505,7 @@ function initPrefersReducedMotion() {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/utils/motion-values.mjs
+;// ./node_modules/framer-motion/dist/es/render/utils/motion-values.mjs
 
 
 
@@ -12060,12 +11564,12 @@ function updateMotionValuesFromProps(element, next, prev) {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/store.mjs
+;// ./node_modules/framer-motion/dist/es/render/store.mjs
 const visualElementStore = new WeakMap();
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/value-types/find.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/value-types/find.mjs
 
 
 
@@ -12082,7 +11586,7 @@ const findValueType = (v) => valueTypes.find(testValueType(v));
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/VisualElement.mjs
+;// ./node_modules/framer-motion/dist/es/render/VisualElement.mjs
 
 
 
@@ -12559,7 +12063,7 @@ class VisualElement {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/DOMVisualElement.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/DOMVisualElement.mjs
 
 
 
@@ -12604,7 +12108,7 @@ class DOMVisualElement extends VisualElement {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs
+;// ./node_modules/framer-motion/dist/es/render/html/HTMLVisualElement.mjs
 
 
 
@@ -12649,7 +12153,7 @@ class HTMLVisualElement extends DOMVisualElement {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/svg/SVGVisualElement.mjs
+;// ./node_modules/framer-motion/dist/es/render/svg/SVGVisualElement.mjs
 
 
 
@@ -12696,7 +12200,7 @@ class SVGVisualElement extends DOMVisualElement {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
+;// ./node_modules/framer-motion/dist/es/render/dom/create-visual-element.mjs
 
 
 
@@ -12712,7 +12216,7 @@ const createDomVisualElement = (Component, options) => {
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/components/motion/create.mjs
+;// ./node_modules/framer-motion/dist/es/render/components/motion/create.mjs
 
 
 
@@ -12729,7 +12233,7 @@ const createMotionComponent = /*@__PURE__*/ createMotionComponentFactory({
 
 
 
-;// CONCATENATED MODULE: ./node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs
+;// ./node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs
 
 
 
@@ -12740,26 +12244,13 @@ const motion = /*@__PURE__*/ createDOMMotionComponentProxy(createMotionComponent
 
 /***/ }),
 
-/***/ 4563:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 4416:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   j: function() { return /* binding */ isBrowser; }
+/* harmony export */   M: () => (/* binding */ useConstant)
 /* harmony export */ });
-const isBrowser = typeof window !== "undefined";
-
-
-
-
-/***/ }),
-
-/***/ 3576:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   h: function() { return /* binding */ useConstant; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2265);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2115);
 
 
 /**
@@ -12782,36 +12273,605 @@ function useConstant(init) {
 
 /***/ }),
 
-/***/ 1534:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 4652:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    default: function() {
+        return _default;
+    },
+    getImageProps: function() {
+        return getImageProps;
+    }
+});
+const _interop_require_default = __webpack_require__(8140);
+const _getimgprops = __webpack_require__(5040);
+const _imagecomponent = __webpack_require__(1356);
+const _imageloader = /*#__PURE__*/ _interop_require_default._(__webpack_require__(1124));
+function getImageProps(imgProps) {
+    const { props } = (0, _getimgprops.getImgProps)(imgProps, {
+        defaultLoader: _imageloader.default,
+        // This is replaced by webpack define plugin
+        imgConf: {"deviceSizes":[640,750,828,1080,1200,1920,2048,3840],"imageSizes":[16,32,48,64,96,128,256,384],"path":"/_next/image","loader":"default","dangerouslyAllowSVG":false,"unoptimized":true}
+    });
+    // Normally we don't care about undefined props because we pass to JSX,
+    // but this exported function could be used by the end user for anything
+    // so we delete undefined props to clean it up a little.
+    for (const [key, value] of Object.entries(props)){
+        if (value === undefined) {
+            delete props[key];
+        }
+    }
+    return {
+        props
+    };
+}
+const _default = _imagecomponent.Image; //# sourceMappingURL=image-external.js.map
+
+
+/***/ }),
+
+/***/ 4841:
+/***/ ((module, exports, __webpack_require__) => {
+
+/* __next_internal_client_entry_do_not_use__  cjs */ 
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    default: function() {
+        return _default;
+    },
+    defaultHead: function() {
+        return defaultHead;
+    }
+});
+const _interop_require_default = __webpack_require__(8140);
+const _interop_require_wildcard = __webpack_require__(9417);
+const _jsxruntime = __webpack_require__(5155);
+const _react = /*#__PURE__*/ _interop_require_wildcard._(__webpack_require__(2115));
+const _sideeffect = /*#__PURE__*/ _interop_require_default._(__webpack_require__(1262));
+const _ampcontextsharedruntime = __webpack_require__(737);
+const _headmanagercontextsharedruntime = __webpack_require__(2073);
+const _ampmode = __webpack_require__(861);
+const _warnonce = __webpack_require__(4781);
+function defaultHead(inAmpMode) {
+    if (inAmpMode === void 0) inAmpMode = false;
+    const head = [
+        /*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+            charSet: "utf-8"
+        }, "charset")
+    ];
+    if (!inAmpMode) {
+        head.push(/*#__PURE__*/ (0, _jsxruntime.jsx)("meta", {
+            name: "viewport",
+            content: "width=device-width"
+        }, "viewport"));
+    }
+    return head;
+}
+function onlyReactElement(list, child) {
+    // React children can be "string" or "number" in this case we ignore them for backwards compat
+    if (typeof child === 'string' || typeof child === 'number') {
+        return list;
+    }
+    // Adds support for React.Fragment
+    if (child.type === _react.default.Fragment) {
+        return list.concat(_react.default.Children.toArray(child.props.children).reduce((fragmentList, fragmentChild)=>{
+            if (typeof fragmentChild === 'string' || typeof fragmentChild === 'number') {
+                return fragmentList;
+            }
+            return fragmentList.concat(fragmentChild);
+        }, []));
+    }
+    return list.concat(child);
+}
+const METATYPES = [
+    'name',
+    'httpEquiv',
+    'charSet',
+    'itemProp'
+];
+/*
+ returns a function for filtering head child elements
+ which shouldn't be duplicated, like <title/>
+ Also adds support for deduplicated `key` properties
+*/ function unique() {
+    const keys = new Set();
+    const tags = new Set();
+    const metaTypes = new Set();
+    const metaCategories = {};
+    return (h)=>{
+        let isUnique = true;
+        let hasKey = false;
+        if (h.key && typeof h.key !== 'number' && h.key.indexOf('$') > 0) {
+            hasKey = true;
+            const key = h.key.slice(h.key.indexOf('$') + 1);
+            if (keys.has(key)) {
+                isUnique = false;
+            } else {
+                keys.add(key);
+            }
+        }
+        // eslint-disable-next-line default-case
+        switch(h.type){
+            case 'title':
+            case 'base':
+                if (tags.has(h.type)) {
+                    isUnique = false;
+                } else {
+                    tags.add(h.type);
+                }
+                break;
+            case 'meta':
+                for(let i = 0, len = METATYPES.length; i < len; i++){
+                    const metatype = METATYPES[i];
+                    if (!h.props.hasOwnProperty(metatype)) continue;
+                    if (metatype === 'charSet') {
+                        if (metaTypes.has(metatype)) {
+                            isUnique = false;
+                        } else {
+                            metaTypes.add(metatype);
+                        }
+                    } else {
+                        const category = h.props[metatype];
+                        const categories = metaCategories[metatype] || new Set();
+                        if ((metatype !== 'name' || !hasKey) && categories.has(category)) {
+                            isUnique = false;
+                        } else {
+                            categories.add(category);
+                            metaCategories[metatype] = categories;
+                        }
+                    }
+                }
+                break;
+        }
+        return isUnique;
+    };
+}
+/**
+ *
+ * @param headChildrenElements List of children of <Head>
+ */ function reduceComponents(headChildrenElements, props) {
+    const { inAmpMode } = props;
+    return headChildrenElements.reduce(onlyReactElement, []).reverse().concat(defaultHead(inAmpMode).reverse()).filter(unique()).reverse().map((c, i)=>{
+        const key = c.key || i;
+        if (false) {}
+        return /*#__PURE__*/ _react.default.cloneElement(c, {
+            key
+        });
+    });
+}
+/**
+ * This component injects elements to `<head>` of your page.
+ * To avoid duplicated `tags` in `<head>` you can use the `key` property, which will make sure every tag is only rendered once.
+ */ function Head(param) {
+    let { children } = param;
+    const ampState = (0, _react.useContext)(_ampcontextsharedruntime.AmpStateContext);
+    const headManager = (0, _react.useContext)(_headmanagercontextsharedruntime.HeadManagerContext);
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_sideeffect.default, {
+        reduceComponentsToState: reduceComponents,
+        headManager: headManager,
+        inAmpMode: (0, _ampmode.isInAmpMode)(ampState),
+        children: children
+    });
+}
+const _default = Head;
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=head.js.map
+
+
+/***/ }),
+
+/***/ 5040:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "getImgProps", ({
+    enumerable: true,
+    get: function() {
+        return getImgProps;
+    }
+}));
+const _warnonce = __webpack_require__(4781);
+const _imageblursvg = __webpack_require__(4105);
+const _imageconfig = __webpack_require__(821);
+const VALID_LOADING_VALUES = (/* unused pure expression or super */ null && ([
+    'lazy',
+    'eager',
+    undefined
+]));
+// Object-fit values that are not valid background-size values
+const INVALID_BACKGROUND_SIZE_VALUES = [
+    '-moz-initial',
+    'fill',
+    'none',
+    'scale-down',
+    undefined
+];
+function isStaticRequire(src) {
+    return src.default !== undefined;
+}
+function isStaticImageData(src) {
+    return src.src !== undefined;
+}
+function isStaticImport(src) {
+    return !!src && typeof src === 'object' && (isStaticRequire(src) || isStaticImageData(src));
+}
+const allImgs = new Map();
+let perfObserver;
+function getInt(x) {
+    if (typeof x === 'undefined') {
+        return x;
+    }
+    if (typeof x === 'number') {
+        return Number.isFinite(x) ? x : NaN;
+    }
+    if (typeof x === 'string' && /^[0-9]+$/.test(x)) {
+        return parseInt(x, 10);
+    }
+    return NaN;
+}
+function getWidths(param, width, sizes) {
+    let { deviceSizes, allSizes } = param;
+    if (sizes) {
+        // Find all the "vw" percent sizes used in the sizes prop
+        const viewportWidthRe = /(^|\s)(1?\d?\d)vw/g;
+        const percentSizes = [];
+        for(let match; match = viewportWidthRe.exec(sizes); match){
+            percentSizes.push(parseInt(match[2]));
+        }
+        if (percentSizes.length) {
+            const smallestRatio = Math.min(...percentSizes) * 0.01;
+            return {
+                widths: allSizes.filter((s)=>s >= deviceSizes[0] * smallestRatio),
+                kind: 'w'
+            };
+        }
+        return {
+            widths: allSizes,
+            kind: 'w'
+        };
+    }
+    if (typeof width !== 'number') {
+        return {
+            widths: deviceSizes,
+            kind: 'w'
+        };
+    }
+    const widths = [
+        ...new Set(// > are actually 3x in the green color, but only 1.5x in the red and
+        // > blue colors. Showing a 3x resolution image in the app vs a 2x
+        // > resolution image will be visually the same, though the 3x image
+        // > takes significantly more data. Even true 3x resolution screens are
+        // > wasteful as the human eye cannot see that level of detail without
+        // > something like a magnifying glass.
+        // https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/capping-image-fidelity-on-ultra-high-resolution-devices.html
+        [
+            width,
+            width * 2 /*, width * 3*/ 
+        ].map((w)=>allSizes.find((p)=>p >= w) || allSizes[allSizes.length - 1]))
+    ];
+    return {
+        widths,
+        kind: 'x'
+    };
+}
+function generateImgAttrs(param) {
+    let { config, src, unoptimized, width, quality, sizes, loader } = param;
+    if (unoptimized) {
+        return {
+            src,
+            srcSet: undefined,
+            sizes: undefined
+        };
+    }
+    const { widths, kind } = getWidths(config, width, sizes);
+    const last = widths.length - 1;
+    return {
+        sizes: !sizes && kind === 'w' ? '100vw' : sizes,
+        srcSet: widths.map((w, i)=>loader({
+                config,
+                src,
+                quality,
+                width: w
+            }) + " " + (kind === 'w' ? w : i + 1) + kind).join(', '),
+        // It's intended to keep `src` the last attribute because React updates
+        // attributes in order. If we keep `src` the first one, Safari will
+        // immediately start to fetch `src`, before `sizes` and `srcSet` are even
+        // updated by React. That causes multiple unnecessary requests if `srcSet`
+        // and `sizes` are defined.
+        // This bug cannot be reproduced in Chrome or Firefox.
+        src: loader({
+            config,
+            src,
+            quality,
+            width: widths[last]
+        })
+    };
+}
+function getImgProps(param, _state) {
+    let { src, sizes, unoptimized = false, priority = false, loading, className, quality, width, height, fill = false, style, overrideSrc, onLoad, onLoadingComplete, placeholder = 'empty', blurDataURL, fetchPriority, decoding = 'async', layout, objectFit, objectPosition, lazyBoundary, lazyRoot, ...rest } = param;
+    const { imgConf, showAltText, blurComplete, defaultLoader } = _state;
+    let config;
+    let c = imgConf || _imageconfig.imageConfigDefault;
+    if ('allSizes' in c) {
+        config = c;
+    } else {
+        var _c_qualities;
+        const allSizes = [
+            ...c.deviceSizes,
+            ...c.imageSizes
+        ].sort((a, b)=>a - b);
+        const deviceSizes = c.deviceSizes.sort((a, b)=>a - b);
+        const qualities = (_c_qualities = c.qualities) == null ? void 0 : _c_qualities.sort((a, b)=>a - b);
+        config = {
+            ...c,
+            allSizes,
+            deviceSizes,
+            qualities
+        };
+    }
+    if (typeof defaultLoader === 'undefined') {
+        throw Object.defineProperty(new Error('images.loaderFile detected but the file is missing default export.\nRead more: https://nextjs.org/docs/messages/invalid-images-config'), "__NEXT_ERROR_CODE", {
+            value: "E163",
+            enumerable: false,
+            configurable: true
+        });
+    }
+    let loader = rest.loader || defaultLoader;
+    // Remove property so it's not spread on <img> element
+    delete rest.loader;
+    delete rest.srcSet;
+    // This special value indicates that the user
+    // didn't define a "loader" prop or "loader" config.
+    const isDefaultLoader = '__next_img_default' in loader;
+    if (isDefaultLoader) {
+        if (config.loader === 'custom') {
+            throw Object.defineProperty(new Error('Image with src "' + src + '" is missing "loader" prop.' + "\nRead more: https://nextjs.org/docs/messages/next-image-missing-loader"), "__NEXT_ERROR_CODE", {
+                value: "E252",
+                enumerable: false,
+                configurable: true
+            });
+        }
+    } else {
+        // The user defined a "loader" prop or config.
+        // Since the config object is internal only, we
+        // must not pass it to the user-defined "loader".
+        const customImageLoader = loader;
+        loader = (obj)=>{
+            const { config: _, ...opts } = obj;
+            return customImageLoader(opts);
+        };
+    }
+    if (layout) {
+        if (layout === 'fill') {
+            fill = true;
+        }
+        const layoutToStyle = {
+            intrinsic: {
+                maxWidth: '100%',
+                height: 'auto'
+            },
+            responsive: {
+                width: '100%',
+                height: 'auto'
+            }
+        };
+        const layoutToSizes = {
+            responsive: '100vw',
+            fill: '100vw'
+        };
+        const layoutStyle = layoutToStyle[layout];
+        if (layoutStyle) {
+            style = {
+                ...style,
+                ...layoutStyle
+            };
+        }
+        const layoutSizes = layoutToSizes[layout];
+        if (layoutSizes && !sizes) {
+            sizes = layoutSizes;
+        }
+    }
+    let staticSrc = '';
+    let widthInt = getInt(width);
+    let heightInt = getInt(height);
+    let blurWidth;
+    let blurHeight;
+    if (isStaticImport(src)) {
+        const staticImageData = isStaticRequire(src) ? src.default : src;
+        if (!staticImageData.src) {
+            throw Object.defineProperty(new Error("An object should only be passed to the image component src parameter if it comes from a static image import. It must include src. Received " + JSON.stringify(staticImageData)), "__NEXT_ERROR_CODE", {
+                value: "E460",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        if (!staticImageData.height || !staticImageData.width) {
+            throw Object.defineProperty(new Error("An object should only be passed to the image component src parameter if it comes from a static image import. It must include height and width. Received " + JSON.stringify(staticImageData)), "__NEXT_ERROR_CODE", {
+                value: "E48",
+                enumerable: false,
+                configurable: true
+            });
+        }
+        blurWidth = staticImageData.blurWidth;
+        blurHeight = staticImageData.blurHeight;
+        blurDataURL = blurDataURL || staticImageData.blurDataURL;
+        staticSrc = staticImageData.src;
+        if (!fill) {
+            if (!widthInt && !heightInt) {
+                widthInt = staticImageData.width;
+                heightInt = staticImageData.height;
+            } else if (widthInt && !heightInt) {
+                const ratio = widthInt / staticImageData.width;
+                heightInt = Math.round(staticImageData.height * ratio);
+            } else if (!widthInt && heightInt) {
+                const ratio = heightInt / staticImageData.height;
+                widthInt = Math.round(staticImageData.width * ratio);
+            }
+        }
+    }
+    src = typeof src === 'string' ? src : staticSrc;
+    let isLazy = !priority && (loading === 'lazy' || typeof loading === 'undefined');
+    if (!src || src.startsWith('data:') || src.startsWith('blob:')) {
+        // https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
+        unoptimized = true;
+        isLazy = false;
+    }
+    if (config.unoptimized) {
+        unoptimized = true;
+    }
+    if (isDefaultLoader && !config.dangerouslyAllowSVG && src.split('?', 1)[0].endsWith('.svg')) {
+        // Special case to make svg serve as-is to avoid proxying
+        // through the built-in Image Optimization API.
+        unoptimized = true;
+    }
+    const qualityInt = getInt(quality);
+    if (false) { var _config_localPatterns; }
+    const imgStyle = Object.assign(fill ? {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        objectFit,
+        objectPosition
+    } : {}, showAltText ? {} : {
+        color: 'transparent'
+    }, style);
+    const backgroundImage = !blurComplete && placeholder !== 'empty' ? placeholder === 'blur' ? 'url("data:image/svg+xml;charset=utf-8,' + (0, _imageblursvg.getImageBlurSvg)({
+        widthInt,
+        heightInt,
+        blurWidth,
+        blurHeight,
+        blurDataURL: blurDataURL || '',
+        objectFit: imgStyle.objectFit
+    }) + '")' : 'url("' + placeholder + '")' // assume `data:image/`
+     : null;
+    const backgroundSize = !INVALID_BACKGROUND_SIZE_VALUES.includes(imgStyle.objectFit) ? imgStyle.objectFit : imgStyle.objectFit === 'fill' ? '100% 100%' // the background-size equivalent of `fill`
+     : 'cover';
+    let placeholderStyle = backgroundImage ? {
+        backgroundSize,
+        backgroundPosition: imgStyle.objectPosition || '50% 50%',
+        backgroundRepeat: 'no-repeat',
+        backgroundImage
+    } : {};
+    if (false) {}
+    const imgAttributes = generateImgAttrs({
+        config,
+        src,
+        unoptimized,
+        width: widthInt,
+        quality: qualityInt,
+        sizes,
+        loader
+    });
+    if (false) {}
+    const props = {
+        ...rest,
+        loading: isLazy ? 'lazy' : loading,
+        fetchPriority,
+        width: widthInt,
+        height: heightInt,
+        decoding,
+        className,
+        style: {
+            ...imgStyle,
+            ...placeholderStyle
+        },
+        sizes: imgAttributes.sizes,
+        srcSet: imgAttributes.srcSet,
+        src: overrideSrc || imgAttributes.src
+    };
+    const meta = {
+        unoptimized,
+        priority,
+        placeholder,
+        fill
+    };
+    return {
+        props,
+        meta
+    };
+} //# sourceMappingURL=get-img-props.js.map
+
+
+/***/ }),
+
+/***/ 5239:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   L: function() { return /* binding */ useIsomorphicLayoutEffect; }
+/* harmony export */   "default": () => (/* reexport default from dynamic */ _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0___default.a)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2265);
-/* harmony import */ var _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4563);
+/* harmony import */ var _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4652);
+/* harmony import */ var _shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_shared_lib_image_external__WEBPACK_IMPORTED_MODULE_0__);
 
 
 
-const useIsomorphicLayoutEffect = _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__/* .isBrowser */ .j ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
+//# sourceMappingURL=image.js.map
+
+/***/ }),
+
+/***/ 6553:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   E: () => (/* binding */ useIsomorphicLayoutEffect)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2115);
+/* harmony import */ var _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3577);
+
+
+
+const useIsomorphicLayoutEffect = _is_browser_mjs__WEBPACK_IMPORTED_MODULE_1__/* .isBrowser */ .B ? react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect : react__WEBPACK_IMPORTED_MODULE_0__.useEffect;
 
 
 
 
 /***/ }),
 
-/***/ 2035:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 8041:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   K: function() { return /* binding */ warning; },
-/* harmony export */   k: function() { return /* binding */ invariant; }
+/* harmony export */   $: () => (/* binding */ warning),
+/* harmony export */   V: () => (/* binding */ invariant)
 /* harmony export */ });
-/* harmony import */ var _noop_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6277);
+/* harmony import */ var _noop_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4119);
 
 
-let warning = _noop_mjs__WEBPACK_IMPORTED_MODULE_0__/* .noop */ .Z;
-let invariant = _noop_mjs__WEBPACK_IMPORTED_MODULE_0__/* .noop */ .Z;
+let warning = _noop_mjs__WEBPACK_IMPORTED_MODULE_0__/* .noop */ .l;
+let invariant = _noop_mjs__WEBPACK_IMPORTED_MODULE_0__/* .noop */ .l;
 if (false) {}
 
 
@@ -12819,15 +12879,39 @@ if (false) {}
 
 /***/ }),
 
-/***/ 6277:
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+/***/ 9686:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Z: function() { return /* binding */ noop; }
+/* harmony export */   t: () => (/* binding */ PresenceContext)
 /* harmony export */ });
-const noop = (any) => any;
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2115);
+/* __next_internal_client_entry_do_not_use__ PresenceContext auto */ 
+/**
+ * @public
+ */ const PresenceContext = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(null);
 
 
+
+/***/ }),
+
+/***/ 9862:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "RouterContext", ({
+    enumerable: true,
+    get: function() {
+        return RouterContext;
+    }
+}));
+const _interop_require_default = __webpack_require__(8140);
+const _react = /*#__PURE__*/ _interop_require_default._(__webpack_require__(2115));
+const RouterContext = _react.default.createContext(null);
+if (false) {} //# sourceMappingURL=router-context.shared-runtime.js.map
 
 
 /***/ })
