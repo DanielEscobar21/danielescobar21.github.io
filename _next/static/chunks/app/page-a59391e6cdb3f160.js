@@ -176,7 +176,7 @@ const Navbar = ()=>{
                                 scale: 1.05
                             },
                             onClick: ()=>scrollToSection('inicio'),
-                            children: "descoba.dev"
+                            children: "descoba"
                         }),
                         /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
                             className: "hidden md:flex items-center space-x-8",
@@ -353,7 +353,7 @@ const texts = {
         },
         about: {
             title: "Sobre Mí",
-            description: "Soy un Ingeniero de Software Full Stack apasionado por crear soluciones digitales innovadoras y escalables. Con m\xe1s de 2 a\xf1os de experiencia, me especializo en el desarrollo de aplicaciones web y m\xf3viles utilizando tecnolog\xedas modernas.\n\n      Mi experiencia abarca desde el desarrollo frontend con React y TypeScript hasta la implementaci\xf3n de soluciones backend robustas con Django y Node.js. Me destaco en la integraci\xf3n de servicios cloud y la optimizaci\xf3n de rendimiento, siempre enfocado en crear experiencias de usuario excepcionales.\n\n      Disfruto especialmente trabajando en proyectos desafiantes que requieren pensamiento creativo y soluciones t\xe9cnicas innovadoras. Mi objetivo es seguir creciendo como desarrollador mientras contribuyo a proyectos que generen un impacto positivo.",
+            description: "Ingeniero de Software Full Stack con m\xe1s de 4 a\xf1os de experiencia construyendo, escalando y manteniendo productos web y m\xf3viles de extremo a extremo. S\xf3lida formaci\xf3n en desarrollo backend y frontend con Python, Django, Node.js, React y TypeScript, con experiencia pr\xe1ctica en dise\xf1o de APIs, construcci\xf3n de funcionalidades en tiempo real e integraci\xf3n de servicios de terceros.\n\n      Experiencia en despliegue y operaci\xf3n de sistemas escalables y nativos de la nube en AWS, con foco en rendimiento, confiabilidad y arquitectura limpia. Capacidad demostrada para llevar productos desde el concepto inicial hasta producci\xf3n, incluyendo funcionalidades impulsadas por IA, flujos de trabajo intensivos en datos e interfaces centradas en el usuario. C\xf3modo trabajando en equipos remotos, multifuncionales e internacionales, colaborando estrechamente con producto, dise\xf1o y stakeholders para entregar soluciones de alto impacto.",
             skills: {
                 technical: {
                     title: "Habilidades Técnicas",
@@ -502,8 +502,8 @@ const texts = {
             },
             images: [
                 {
-                    src: "/img/profile/profile1.jpg",
-                    alt: "!Ese soy yo!"
+                    src: "/img/profile/profile1.jpeg",
+                    alt: "¡Ese soy yo!"
                 }
             ]
         },
@@ -539,11 +539,11 @@ const texts = {
                         "PostgreSQL"
                     ],
                     achievements: [
-                        "Desarrollé una aplicación móvil con React Native, Redux y TypeScript para gestión integral de pacientes.",
+                        "Desarrollé una aplicación móvil para clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos con React Native, Redux y TypeScript.",
                         "Integré modelos de OpenAI para brindar soporte impulsado por IA a los usuarios.",
                         "Creé interfaces intuitivas con enfoque en UX y acceso basado en roles.",
                         "Construí el backend con Django REST Framework, gestionando usuarios, roles, notificaciones, chat, cronjobs y pagos a través de Stripe.",
-                        "Desarrollé dos sitios web con React: uno informativo y otro como panel de administración."
+                        "Desarrollé dos sitios web con React: uno informativo de la app y otro como panel de administración para gestionar contenido y usuarios."
                     ]
                 },
                 {
@@ -562,7 +562,7 @@ const texts = {
                         "MySQL"
                     ],
                     achievements: [
-                        "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel.",
+                        "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel, con suscripciones, pagos, descuentos y cupones gestionados mediante Stripe.",
                         "Facilité más de 1,000 sesiones de aprendizaje con una plataforma Laravel responsive y segura.",
                         "Diseñé la plataforma usando Bootstrap y Sass, asegurando un diseño responsive y atractivo.",
                         "Implementé control de acceso basado en roles y permisos usando Laravel."
@@ -679,11 +679,67 @@ const texts = {
             title: "Experiencia",
             timeline: [
                 {
-                    date: "Mayo 2022 - Presente",
+                    date: "Mar 2025 - Presente",
+                    role: "Software Engineer",
+                    company: "Lumston - Point B",
+                    logo: "/img/companies/lumston.jpeg",
+                    location: "Guadalajara, JAL, MX - Remoto",
+                    description: "Desarrollo full-stack y liderazgo técnico de equipos en proyectos empresariales.",
+                    tech: [
+                        "Python",
+                        "Django",
+                        "Django REST Framework",
+                        "Node.js",
+                        "React",
+                        "Next.js",
+                        "TS",
+                        "JS",
+                        "AWS",
+                        "CI/CD",
+                        "DevOps",
+                        "Perplexity",
+                        "OpenAI"
+                    ],
+                    achievements: [
+                        "Construí y mantuve APIs RESTful escalables y colaboré estrechamente con equipos frontend para entregar funcionalidades completas usando Django, Django REST Framework y Node.js.",
+                        "Trabajé extensivamente con Node.js en desarrollo backend, junto con frameworks en Python, para implementar lógica de negocio robusta y pipelines de procesamiento de datos eficientes.",
+                        "Implementé soluciones serverless y orientadas a eventos con AWS Lambda, S3 y SQS.",
+                        "Optimicé consultas y diseño de esquema en PostgreSQL, reduciendo la latencia de consultas en más de un 30%.",
+                        "Desplegué y monitoreé servicios con AWS ECS y CloudWatch, mejorando la confiabilidad y observabilidad del sistema.",
+                        "Trabajé en un entorno Ágil contribuyendo a pipelines CI/CD y prácticas seguras de manejo de datos."
+                    ]
+                },
+                {
+                    date: "Ago 2025 - Dic 2025",
+                    role: "Backend Engineer",
+                    company: "Health 'N Sync",
+                    logo: "/img/companies/health.jpeg",
+                    location: "Atlanta, GA, EE. UU. - Remoto",
+                    description: "Desarrollo backend y diseño de APIs para una plataforma de coordinación médica que atiende flujos legales y de atención en salud.",
+                    tech: [
+                        "Python",
+                        "Django",
+                        "Django REST Framework",
+                        "PostgreSQL",
+                        "AWS",
+                        "OpenAI",
+                        "Docker",
+                        "CI/CD",
+                        "DevOps"
+                    ],
+                    achievements: [
+                        "Desarrollé y mantuve servicios backend para una plataforma de coordinación médica usada por firmas de abogados de lesiones personales.",
+                        "Diseñé y optimicé APIs y flujos de trabajo para gestión de casos, seguimiento de tratamientos y comunicación entre coordinadores de atención, proveedores y equipos legales.",
+                        "Implementé funcionalidades con IA para extracción de datos en documentos, triaje de casos y automatización de flujos de trabajo.",
+                        "Colaboré con equipos de frontend y producto para garantizar un flujo de datos seguro y consistente entre plataformas."
+                    ]
+                },
+                {
+                    date: "Mayo 2022 - Mar 2025",
                     role: "Software Engineer",
                     company: "Alluxi",
                     logo: "/img/companies/alluxi.png",
-                    location: "Remoto",
+                    location: "Monterrey, NL, MX - Remoto",
                     description: "Desarrollo full-stack y liderazgo técnico de equipos en proyectos empresariales.",
                     tech: [
                         "JS",
@@ -699,6 +755,7 @@ const texts = {
                         "Docker",
                         "CI/CD",
                         "PostgreSQL",
+                        "MongoDB",
                         "Redux",
                         "REST APIs",
                         "Git",
@@ -706,19 +763,19 @@ const texts = {
                         "Tailwind CSS"
                     ],
                     achievements: [
-                        "Lideré equipos multifuncionales para implementar más de 3 proyectos full-stack, reduciendo el tiempo de implementación en un 20%.",
+                        "Lideré equipos multifuncionales para desplegar más de 3 proyectos full-stack, reduciendo el tiempo de despliegue en un 20%.",
                         "Optimicé implementaciones en AWS, logrando tiempos de carga 30% más rápidos y mayor tiempo de actividad de las aplicaciones.",
                         "Desarrollé y mantuve aplicaciones multiplataforma utilizando frameworks modernos.",
                         "Apliqué metodologías ágiles y herramientas como Jira para la gestión de proyectos."
                     ]
                 },
                 {
-                    date: "Enero 2022 - Mayo 2022",
+                    date: "Ene 2022 - Mayo 2022",
                     role: "Software Developer",
                     company: "BIIDA Technology",
                     logo: "/img/companies/biida.png",
-                    location: "León, Guanajuato",
-                    description: "Desarrollo full-stack y optimización de aplicaciones web empresariales.",
+                    location: "León, GTO, MX",
+                    description: "Desarrollo full-stack y optimización de aplicaciones web.",
                     tech: [
                         "JS",
                         "TS",
@@ -747,25 +804,25 @@ const texts = {
             title: "Formación",
             timeline: [
                 {
-                    date: "2023",
-                    degree: "Especialidad en Desarrollo de Aplicaciones Empresariales",
-                    institution: "Instituto Tecnológico Nacional de México",
-                    description: "Especialización en arquitecturas empresariales y desarrollo de aplicaciones escalables.",
+                    date: "2025",
+                    degree: "Applied DevOps Engineering",
+                    institution: "IBM",
+                    description: "Especialización en prácticas DevOps, desarrollo cloud-native y automatización CI/CD.",
                     achievements: [
-                        "Patrones de diseño empresariales",
-                        "Arquitecturas distribuidas y microservicios",
-                        "Integración de sistemas empresariales",
-                        "Gestión de proyectos de software"
+                        "Desarrollo de aplicaciones con microservicios y serverless",
+                        "Integración y entrega continuas (CI/CD)",
+                        "Seguridad de aplicaciones para desarrolladores y profesionales DevOps",
+                        "Monitoreo y observabilidad para desarrollo y DevOps"
                     ]
                 },
                 {
                     date: "2018 - 2023",
-                    degree: "Ingeniería en Sistemas Computacionales",
+                    degree: "Ingeniería de Software",
                     institution: "Instituto Tecnológico Nacional de México",
                     description: "Especialización en desarrollo de software, bases de datos y computación en la nube.",
                     achievements: [
                         "Promedio General: 93/100",
-                        "Cursos Relevantes: Estructuras de Datos (Java), Probabilidad y Estadística (Python)",
+                        "Cursos relevantes: Estructuras de Datos (Java), Probabilidad y Estadística (Python)",
                         "Programación Orientada a Objetos (Java), Simulación (Python)",
                         "Bases de Datos Avanzadas (SQL), Ingeniería de Software",
                         "Computación en la Nube (AWS), Ciencia de Datos"
@@ -795,7 +852,7 @@ const texts = {
         },
         about: {
             title: "About Me",
-            description: "I am a Full Stack Software Engineer passionate about creating innovative and scalable digital solutions. With over 2 years of experience, I specialize in developing web and mobile applications using modern technologies.\n\n      My expertise ranges from frontend development with React and TypeScript to implementing robust backend solutions with Django and Node.js. I excel at cloud service integration and performance optimization, always focused on creating exceptional user experiences.\n\n      I particularly enjoy working on challenging projects that require creative thinking and innovative technical solutions. My goal is to continue growing as a developer while contributing to projects that make a positive impact.",
+            description: "Full Stack Software Engineer with 4+ years of experience building, scaling, and maintaining end-to-end web and mobile products. Strong background in backend and frontend development using Python, Django, Node.js, React, and TypeScript, with hands-on experience designing APIs, building real-time features, and integrating third-party services.\n\n      Experienced in deploying and operating scalable, cloud-native systems on AWS, with a focus on performance, reliability, and clean architecture. Proven ability to take products from early concept to production, including AI-driven features, data-intensive workflows, and user-centric interfaces. Comfortable working in fully remote, cross-functional, and international teams, collaborating closely with product, design, and stakeholders to deliver high-impact solutions.",
             skills: {
                 technical: {
                     title: "Technical Skills",
@@ -943,7 +1000,7 @@ const texts = {
             },
             images: [
                 {
-                    src: "/img/profile/profile1.jpg",
+                    src: "/img/profile/profile1.jpeg",
                     alt: "Thats me!"
                 }
             ]
@@ -1120,11 +1177,67 @@ const texts = {
             title: "Experience",
             timeline: [
                 {
-                    date: "May 2022 - Present",
+                    date: "Mar 2025 - Present",
+                    role: "Software Engineer",
+                    company: "Lumston - Point B",
+                    logo: "/img/companies/lumston.jpeg",
+                    location: "Guadalajara, JAL, MX - Remote",
+                    description: "Full-stack development and technical team leadership in enterprise projects.",
+                    tech: [
+                        "Python",
+                        "Django",
+                        "Django REST Framework",
+                        "Node.js",
+                        "React",
+                        "Next.js",
+                        "TS",
+                        "JS",
+                        "AWS",
+                        "CI/CD",
+                        "DevOps",
+                        "Perplexity",
+                        "OpenAI"
+                    ],
+                    achievements: [
+                        "Built and maintained scalable RESTful APIs and collaborated closely with frontend teams to deliver complete product features using Django, Django REST Framework, and Node.js.",
+                        "Worked extensively with Node.js for backend development, alongside Python-based frameworks, to implement robust business logic and efficient data processing pipelines.",
+                        "Implemented serverless and event-driven solutions with AWS Lambda, S3, and SQS.",
+                        "Optimized PostgreSQL queries and schema design, reducing query latency by over 30%.",
+                        "Deployed and monitored services using AWS ECS and CloudWatch, improving system reliability and observability.",
+                        "Worked in an Agile environment contributing to CI/CD pipelines and secure data handling practices."
+                    ]
+                },
+                {
+                    date: "Ago 2025 - Dic 2025",
+                    role: "Backend Engineer",
+                    company: "Health ‘N Sync",
+                    logo: "/img/companies/health.jpeg",
+                    location: "Atlanta, GA, US - Remote",
+                    description: "Backend development and API design for a medical coordination platform serving legal and healthcare workflows.",
+                    tech: [
+                        "Python",
+                        "Django",
+                        "Django REST Framework",
+                        "PostgreSQL",
+                        "AWS",
+                        "OpenAI",
+                        "Docker",
+                        "CI/CD",
+                        "DevOps"
+                    ],
+                    achievements: [
+                        "Developed and maintained backend services for a medical coordination platform used by personal injury law firms.",
+                        "Designed and optimized APIs and user-facing workflows supporting case management, treatment tracking, and communication between care coordinators, providers, and legal teams.",
+                        "Implemented AI-powered features for document data extraction, case triage, and workflow automation.",
+                        "Collaborated with frontend and product teams to ensure secure and consistent data flow across platforms."
+                    ]
+                },
+                {
+                    date: "May 2022 - Mar 2025",
                     role: "Software Engineer",
                     company: "Alluxi",
                     logo: "/img/companies/alluxi.png",
-                    location: "Remote",
+                    location: "Monterrey, NL, MX - Remote",
                     description: "Full-stack development and technical team leadership in enterprise projects.",
                     tech: [
                         "JS",
@@ -1155,11 +1268,11 @@ const texts = {
                     ]
                 },
                 {
-                    date: "January 2022 - May 2022",
+                    date: "Jan 2022 - May 2022",
                     role: "Software Developer",
                     company: "BIIDA Technology",
                     logo: "/img/companies/biida.png",
-                    location: "León, Guanajuato",
+                    location: "León, GTO, MX",
                     description: "Full-stack development and web application optimization.",
                     tech: [
                         "JS",
@@ -1189,15 +1302,15 @@ const texts = {
             title: "Education",
             timeline: [
                 {
-                    date: "2023",
-                    degree: "Enterprise Application Development Specialization",
-                    institution: "National Technological Institute of Mexico",
-                    description: "Specialization in enterprise architectures and scalable application development.",
+                    date: "2025",
+                    degree: "Applied DevOps Engineering",
+                    institution: "IBM",
+                    description: "Specialized in DevOps practices, cloud-native development, and CI/CD automation.",
                     achievements: [
-                        "Enterprise design patterns",
-                        "Distributed architectures and microservices",
-                        "Enterprise system integration",
-                        "Software project management"
+                        "Application Development using Microservices and Serverless",
+                        "Continuous Integration and Continuous Delivery (CI/CD)",
+                        "Application Security for Developers and DevOps Professionals",
+                        "Monitoring and Observability for Development and DevOps"
                     ]
                 },
                 {
@@ -1409,6 +1522,7 @@ function Home() {
     const [openTechSkill, setOpenTechSkill] = (0,react.useState)(currentContent.about.skills.technical.items[0].name);
     const [openSoftSkill, setOpenSoftSkill] = (0,react.useState)(currentContent.about.skills.soft.items[0].name);
     const [openLanguageSkill, setOpenLanguageSkill] = (0,react.useState)(currentContent.about.skills.languages.items[0].name);
+    const [experiencePage, setExperiencePage] = (0,react.useState)(0);
     // Efecto para el autoplay del carrusel
     (0,react.useEffect)(()=>{
         let interval;
@@ -1449,6 +1563,20 @@ function Home() {
         setAutoPlay(false);
         setCurrentPage(page);
     };
+    const experienceTotalPages = Math.ceil(currentContent.experience.timeline.length / 2);
+    (0,react.useEffect)(()=>{
+        setExperiencePage((prev)=>prev >= experienceTotalPages ? 0 : prev);
+    }, [
+        language,
+        experienceTotalPages
+    ]);
+    const nextExperiencePage = ()=>{
+        setExperiencePage((prev)=>prev === experienceTotalPages - 1 ? 0 : prev + 1);
+    };
+    const prevExperiencePage = ()=>{
+        setExperiencePage((prev)=>prev === 0 ? experienceTotalPages - 1 : prev - 1);
+    };
+    const goToExperiencePage = (page)=>setExperiencePage(page);
     // Funciones separadas para manejar cada tipo de skill
     const handleTechSkillClick = (skillName)=>{
         setOpenTechSkill(openTechSkill === skillName ? skillName : skillName);
@@ -1574,7 +1702,7 @@ function Home() {
                                 },
                                 children: [
                                     /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
-                                        href: "/Daniel_Escobar_Resume_EN.pdf",
+                                        href: "/Daniel_Escobar_Software_Engineer.pdf",
                                         download: true,
                                         target: "_blank",
                                         rel: "noopener noreferrer",
@@ -2063,7 +2191,7 @@ function Home() {
                         className: "absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03] pointer-events-none"
                     }),
                     /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.div, {
-                        className: "max-w-5xl mx-auto py-20",
+                        className: "max-w-7xl mx-auto py-20 px-4 md:px-12",
                         initial: {
                             opacity: 0
                         },
@@ -2078,68 +2206,87 @@ function Home() {
                                 className: titleClass,
                                 children: currentContent.experience.title
                             }),
-                            /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                className: "space-y-8",
-                                children: currentContent.experience.timeline.map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
-                                        className: "relative",
+                            /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                className: "relative",
+                                children: [
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
+                                        className: "grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-14 md:mx-20",
                                         initial: {
                                             opacity: 0,
-                                            y: 20
+                                            x: 20
                                         },
-                                        whileInView: {
+                                        animate: {
                                             opacity: 1,
-                                            y: 0
-                                        },
-                                        viewport: {
-                                            once: true
+                                            x: 0
                                         },
                                         transition: {
-                                            delay: index * 0.2
+                                            duration: 0.4,
+                                            ease: "easeOut"
                                         },
-                                        children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                            className: "".concat(cardClass, " p-8"),
-                                            children: [
-                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                                    className: "flex flex-col md:flex-row md:items-center md:justify-between mb-6",
+                                        children: currentContent.experience.timeline.slice(experiencePage * 2, experiencePage * 2 + 2).map((item, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)(proxy/* motion */.P.div, {
+                                                className: "relative h-full",
+                                                initial: {
+                                                    opacity: 0,
+                                                    y: 16
+                                                },
+                                                animate: {
+                                                    opacity: 1,
+                                                    y: 0
+                                                },
+                                                transition: {
+                                                    duration: 0.35,
+                                                    delay: index * 0.1
+                                                },
+                                                children: /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                    className: "".concat(cardClass, " p-8 md:p-10 h-full max-h-[58vh] flex flex-col overflow-hidden"),
                                                     children: [
                                                         /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                                            className: "flex items-center gap-4 mb-4 md:mb-0",
+                                                            className: "shrink-0 mb-4",
                                                             children: [
-                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                                                    className: "relative w-12 h-12 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800",
-                                                                    children: item.logo ? /*#__PURE__*/ (0,jsx_runtime.jsx)(api_image["default"], {
-                                                                        src: item.logo,
-                                                                        alt: "".concat(item.company, " logo"),
-                                                                        fill: true,
-                                                                        className: "object-cover"
-                                                                    }) : /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                        className: "text-2xl font-medium text-neutral-400",
-                                                                        children: item.company.charAt(0)
-                                                                    })
+                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                    className: "inline-block px-4 py-1.5 text-sm md:text-base font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full w-fit mb-4",
+                                                                    children: item.date
                                                                 }),
                                                                 /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                                                    className: "space-y-1",
+                                                                    className: "flex items-center gap-5",
                                                                     children: [
-                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("h3", {
-                                                                            className: "text-xl font-medium text-neutral-900 dark:text-neutral-100",
-                                                                            children: item.role
+                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                                            className: "relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800 shrink-0",
+                                                                            children: item.logo ? /*#__PURE__*/ (0,jsx_runtime.jsx)(api_image["default"], {
+                                                                                src: item.logo,
+                                                                                alt: "".concat(item.company, " logo"),
+                                                                                fill: true,
+                                                                                className: "object-cover"
+                                                                            }) : /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                                className: "flex items-center justify-center w-full h-full text-2xl font-medium text-neutral-400",
+                                                                                children: item.company.charAt(0)
+                                                                            })
                                                                         }),
                                                                         /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                                                            className: "flex items-center gap-2 text-neutral-600 dark:text-neutral-400",
+                                                                            className: "space-y-1 min-w-0",
                                                                             children: [
-                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                                    className: "font-medium",
-                                                                                    children: item.company
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("h3", {
+                                                                                    className: "text-xl md:text-2xl font-medium text-neutral-900 dark:text-neutral-100 truncate",
+                                                                                    children: item.role
                                                                                 }),
-                                                                                item.location && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                                    className: "flex items-center gap-2 text-neutral-600 dark:text-neutral-400 flex-wrap",
                                                                                     children: [
                                                                                         /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                                            className: "text-neutral-400",
-                                                                                            children: "•"
+                                                                                            className: "font-medium text-base",
+                                                                                            children: item.company
                                                                                         }),
-                                                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                                            className: "text-sm text-neutral-500",
-                                                                                            children: item.location
+                                                                                        item.location && /*#__PURE__*/ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+                                                                                            children: [
+                                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                                                    className: "text-neutral-400",
+                                                                                                    children: "•"
+                                                                                                }),
+                                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                                                    className: "text-sm md:text-base text-neutral-500",
+                                                                                                    children: item.location
+                                                                                                })
+                                                                                            ]
                                                                                         })
                                                                                     ]
                                                                                 })
@@ -2149,41 +2296,86 @@ function Home() {
                                                                 })
                                                             ]
                                                         }),
-                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                            className: "inline-block px-3 py-1 text-sm font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full",
-                                                            children: item.date
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
-                                                    className: "text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed",
-                                                    children: item.description
-                                                }),
-                                                item.achievements && item.achievements.length > 0 && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                                    className: "space-y-3 mb-6",
-                                                    children: item.achievements.map((achievement, i)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
-                                                            className: "flex items-start gap-3 text-neutral-600 dark:text-neutral-400",
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                            className: "flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 scrollbar-theme",
                                                             children: [
-                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                    className: "mt-2 w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0"
+                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("p", {
+                                                                    className: "text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed text-base md:text-lg",
+                                                                    children: item.description
                                                                 }),
-                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                                    className: "text-sm leading-relaxed",
-                                                                    children: achievement
+                                                                item.achievements && item.achievements.length > 0 && /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                                    className: "space-y-3 mb-4",
+                                                                    children: item.achievements.slice(0, 5).map((achievement, i)=>/*#__PURE__*/ (0,jsx_runtime.jsxs)("div", {
+                                                                            className: "flex items-start gap-3 text-neutral-600 dark:text-neutral-400",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                                    className: "mt-2 w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0"
+                                                                                }),
+                                                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                                    className: "text-sm md:text-base leading-relaxed",
+                                                                                    children: achievement
+                                                                                })
+                                                                            ]
+                                                                        }, i))
                                                                 })
                                                             ]
-                                                        }, i))
-                                                }),
-                                                /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
-                                                    className: "flex flex-wrap gap-2",
-                                                    children: item.tech.map((tech, techIndex)=>/*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
-                                                            className: "px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full  text-neutral-500 dark:text-neutral-400  border border-neutral-200/10 dark:border-neutral-700/10 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-600  transition-colors duration-300",
-                                                            children: tech
-                                                        }, techIndex))
+                                                        }),
+                                                        /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                                            className: "flex flex-wrap gap-2 mt-4 shrink-0",
+                                                            children: item.tech.map((tech, techIndex)=>/*#__PURE__*/ (0,jsx_runtime.jsx)("span", {
+                                                                    className: "px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full text-neutral-500 dark:text-neutral-400 border border-neutral-200/10 dark:border-neutral-700/10 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors duration-300",
+                                                                    children: tech
+                                                                }, techIndex))
+                                                        })
+                                                    ]
                                                 })
-                                            ]
+                                            }, "".concat(experiencePage, "-").concat(index)))
+                                    }, experiencePage),
+                                    /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
+                                        className: "flex justify-center gap-2 mt-6 mb-4",
+                                        children: Array.from({
+                                            length: experienceTotalPages
+                                        }).map((_, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                                className: "h-2 rounded-full transition-all duration-300\n                             ".concat(index === experiencePage ? "bg-neutral-900 dark:bg-neutral-100 w-6" : "bg-neutral-300 dark:bg-neutral-700 w-2"),
+                                                onClick: ()=>goToExperiencePage(index),
+                                                "aria-label": language === "es" ? "Ir a p\xe1gina ".concat(index + 1) : "Go to page ".concat(index + 1)
+                                            }, index))
+                                    }),
+                                    experienceTotalPages > 1 && experiencePage > 0 && /*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                        className: "absolute left-2 md:left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors duration-300 focus:outline-none p-2 z-10",
+                                        onClick: prevExperiencePage,
+                                        "aria-label": language === "es" ? "Anterior" : "Previous",
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
+                                            className: "w-6 h-6 rotate-180",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            strokeWidth: 1.5,
+                                            viewBox: "0 0 24 24",
+                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("path", {
+                                                strokeLinecap: "round",
+                                                strokeLinejoin: "round",
+                                                d: "M9 5l7 7-7 7"
+                                            })
                                         })
-                                    }, index))
+                                    }),
+                                    experienceTotalPages > 1 && experiencePage < experienceTotalPages - 1 && /*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
+                                        className: "absolute right-2 md:right-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors duration-300 focus:outline-none p-2 z-10",
+                                        onClick: nextExperiencePage,
+                                        "aria-label": language === "es" ? "Siguiente" : "Next",
+                                        children: /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
+                                            className: "w-6 h-6",
+                                            fill: "none",
+                                            stroke: "currentColor",
+                                            strokeWidth: 1.5,
+                                            viewBox: "0 0 24 24",
+                                            children: /*#__PURE__*/ (0,jsx_runtime.jsx)("path", {
+                                                strokeLinecap: "round",
+                                                strokeLinejoin: "round",
+                                                d: "M9 5l7 7-7 7"
+                                            })
+                                        })
+                                    })
+                                ]
                             })
                         ]
                     }),
@@ -2306,7 +2498,7 @@ function Home() {
                                                                 children: [
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("h4", {
                                                                         className: "text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100",
-                                                                        children: language === 'es' ? 'Logros' : 'Achievements'
+                                                                        children: language === "es" ? "Logros" : "Achievements"
                                                                     }),
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("div", {
                                                                         className: "space-y-3",
@@ -2334,7 +2526,7 @@ function Home() {
                                                                     x: 5
                                                                 },
                                                                 children: [
-                                                                    language === 'es' ? 'Ver proyecto' : 'View project',
+                                                                    language === "es" ? "Ver proyecto" : "View project",
                                                                     /*#__PURE__*/ (0,jsx_runtime.jsx)("svg", {
                                                                         className: "w-4 h-4 transform transition-transform group-hover/link:translate-x-1",
                                                                         fill: "none",
@@ -2359,7 +2551,7 @@ function Home() {
                                         children: Array.from({
                                             length: totalPages
                                         }).map((_, index)=>/*#__PURE__*/ (0,jsx_runtime.jsx)("button", {
-                                                className: "w-2 h-2 rounded-full transition-all duration-300 \n                             ".concat(index === currentPage ? 'bg-neutral-900 dark:bg-neutral-100 w-4' : 'bg-neutral-300 dark:bg-neutral-700'),
+                                                className: "w-2 h-2 rounded-full transition-all duration-300 \n                             ".concat(index === currentPage ? "bg-neutral-900 dark:bg-neutral-100 w-4" : "bg-neutral-300 dark:bg-neutral-700"),
                                                 onClick: ()=>goToPage(index),
                                                 "aria-label": "Go to page ".concat(index + 1)
                                             }, index))
