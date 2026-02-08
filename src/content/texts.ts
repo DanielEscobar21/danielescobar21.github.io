@@ -13,11 +13,9 @@ export const texts = {
     },
     about: {
       title: "Sobre Mí",
-      description: `Soy un Ingeniero de Software Full Stack apasionado por crear soluciones digitales innovadoras y escalables. Con más de 2 años de experiencia, me especializo en el desarrollo de aplicaciones web y móviles utilizando tecnologías modernas.
+      description: `Ingeniero de Software Full Stack con más de 4 años de experiencia construyendo, escalando y manteniendo productos web y móviles de extremo a extremo. Sólida formación en desarrollo backend y frontend con Python, Django, Node.js, React y TypeScript, con experiencia práctica en diseño de APIs, construcción de funcionalidades en tiempo real e integración de servicios de terceros.
 
-      Mi experiencia abarca desde el desarrollo frontend con React y TypeScript hasta la implementación de soluciones backend robustas con Django y Node.js. Me destaco en la integración de servicios cloud y la optimización de rendimiento, siempre enfocado en crear experiencias de usuario excepcionales.
-
-      Disfruto especialmente trabajando en proyectos desafiantes que requieren pensamiento creativo y soluciones técnicas innovadoras. Mi objetivo es seguir creciendo como desarrollador mientras contribuyo a proyectos que generen un impacto positivo.`,
+      Experiencia en despliegue y operación de sistemas escalables y nativos de la nube en AWS, con foco en rendimiento, confiabilidad y arquitectura limpia. Capacidad demostrada para llevar productos desde el concepto inicial hasta producción, incluyendo funcionalidades impulsadas por IA, flujos de trabajo intensivos en datos e interfaces centradas en el usuario. Cómodo trabajando en equipos remotos, multifuncionales e internacionales, colaborando estrechamente con producto, diseño y stakeholders para entregar soluciones de alto impacto.`,
       skills: {
         technical: {
           title: "Habilidades Técnicas",
@@ -172,8 +170,8 @@ export const texts = {
       },
       images: [
         {
-          src: "/img/profile/profile1.jpg",
-          alt: "!Ese soy yo!",
+          src: "/img/profile/profile1.jpeg",
+          alt: "¡Ese soy yo!",
         },
       ],
     },
@@ -197,7 +195,7 @@ export const texts = {
           description:
             "Aplicación móvil y plataforma web para clínica bariátrica",
           longDescription:
-            "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.", 
+            "Desarrollo de una aplicación móvil completa para una clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos. Incluye integración con IA y un panel de administración web.",
           tech: [
             "React.js",
             "React Native",
@@ -211,11 +209,11 @@ export const texts = {
             "PostgreSQL",
           ],
           achievements: [
-            "Desarrollé una aplicación móvil con React Native, Redux y TypeScript para gestión integral de pacientes.",
+            "Desarrollé una aplicación móvil para clínica bariátrica que gestiona citas, pagos, progreso de pacientes y planes dietéticos con React Native, Redux y TypeScript.",
             "Integré modelos de OpenAI para brindar soporte impulsado por IA a los usuarios.",
             "Creé interfaces intuitivas con enfoque en UX y acceso basado en roles.",
             "Construí el backend con Django REST Framework, gestionando usuarios, roles, notificaciones, chat, cronjobs y pagos a través de Stripe.",
-            "Desarrollé dos sitios web con React: uno informativo y otro como panel de administración.",
+            "Desarrollé dos sitios web con React: uno informativo de la app y otro como panel de administración para gestionar contenido y usuarios.",
           ],
         },
         {
@@ -228,7 +226,7 @@ export const texts = {
           url: "https://kouchea.com",
           tech: ["Laravel", "PHP", "Bootstrap", "SASS", "Stripe", "MySQL"],
           achievements: [
-            "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel.",
+            "Desarrollé una plataforma en línea para enseñanza de matemáticas usando Laravel, con suscripciones, pagos, descuentos y cupones gestionados mediante Stripe.",
             "Facilité más de 1,000 sesiones de aprendizaje con una plataforma Laravel responsive y segura.",
             "Diseñé la plataforma usando Bootstrap y Sass, asegurando un diseño responsive y atractivo.",
             "Implementé control de acceso basado en roles y permisos usando Laravel.",
@@ -353,11 +351,69 @@ export const texts = {
       title: "Experiencia",
       timeline: [
         {
-          date: "Mayo 2022 - Presente",
+          date: "Mar 2025 - Presente",
+          role: "Software Engineer",
+          company: "Lumston - Point B",
+          logo: "/img/companies/lumston.jpeg",
+          location: "Guadalajara, JAL, MX - Remoto",
+          description:
+            "Desarrollo full-stack y liderazgo técnico de equipos en proyectos empresariales.",
+          tech: [
+            "Python",
+            "Django",
+            "Django REST Framework",
+            "Node.js",
+            "React",
+            "Next.js",
+            "TS",
+            "JS",
+            "AWS",
+            "CI/CD",
+            "DevOps",
+            "Perplexity",
+            "OpenAI",
+          ],
+          achievements: [
+            "Construí y mantuve APIs RESTful escalables y colaboré estrechamente con equipos frontend para entregar funcionalidades completas usando Django, Django REST Framework y Node.js.",
+            "Trabajé extensivamente con Node.js en desarrollo backend, junto con frameworks en Python, para implementar lógica de negocio robusta y pipelines de procesamiento de datos eficientes.",
+            "Implementé soluciones serverless y orientadas a eventos con AWS Lambda, S3 y SQS.",
+            "Optimicé consultas y diseño de esquema en PostgreSQL, reduciendo la latencia de consultas en más de un 30%.",
+            "Desplegué y monitoreé servicios con AWS ECS y CloudWatch, mejorando la confiabilidad y observabilidad del sistema.",
+            "Trabajé en un entorno Ágil contribuyendo a pipelines CI/CD y prácticas seguras de manejo de datos.",
+          ],
+        },
+        {
+          date: "Ago 2025 - Dic 2025",
+          role: "Backend Engineer",
+          company: "Health 'N Sync",
+          logo: "/img/companies/health.jpeg",
+          location: "Atlanta, GA, EE. UU. - Remoto",
+          description:
+            "Desarrollo backend y diseño de APIs para una plataforma de coordinación médica que atiende flujos legales y de atención en salud.",
+          tech: [
+            "Python",
+            "Django",
+            "Django REST Framework",
+            "PostgreSQL",
+            "AWS",
+            "OpenAI",
+            "Docker",
+            "CI/CD",
+            "DevOps",
+          ],
+          achievements: [
+            "Desarrollé y mantuve servicios backend para una plataforma de coordinación médica usada por firmas de abogados de lesiones personales.",
+            "Diseñé y optimicé APIs y flujos de trabajo para gestión de casos, seguimiento de tratamientos y comunicación entre coordinadores de atención, proveedores y equipos legales.",
+            "Implementé funcionalidades con IA para extracción de datos en documentos, triaje de casos y automatización de flujos de trabajo.",
+            "Colaboré con equipos de frontend y producto para garantizar un flujo de datos seguro y consistente entre plataformas.",
+          ],
+        },
+        {
+          date: "Mayo 2022 - Mar 2025",
           role: "Software Engineer",
           company: "Alluxi",
           logo: "/img/companies/alluxi.png",
-          location: "Remoto",
+          location: "Monterrey, NL, MX - Remoto",
           description:
             "Desarrollo full-stack y liderazgo técnico de equipos en proyectos empresariales.",
           tech: [
@@ -374,6 +430,7 @@ export const texts = {
             "Docker",
             "CI/CD",
             "PostgreSQL",
+            "MongoDB",
             "Redux",
             "REST APIs",
             "Git",
@@ -381,20 +438,20 @@ export const texts = {
             "Tailwind CSS",
           ],
           achievements: [
-            "Lideré equipos multifuncionales para implementar más de 3 proyectos full-stack, reduciendo el tiempo de implementación en un 20%.",
+            "Lideré equipos multifuncionales para desplegar más de 3 proyectos full-stack, reduciendo el tiempo de despliegue en un 20%.",
             "Optimicé implementaciones en AWS, logrando tiempos de carga 30% más rápidos y mayor tiempo de actividad de las aplicaciones.",
             "Desarrollé y mantuve aplicaciones multiplataforma utilizando frameworks modernos.",
             "Apliqué metodologías ágiles y herramientas como Jira para la gestión de proyectos.",
           ],
         },
         {
-          date: "Enero 2022 - Mayo 2022",
+          date: "Ene 2022 - Mayo 2022",
           role: "Software Developer",
           company: "BIIDA Technology",
           logo: "/img/companies/biida.png",
-          location: "León, Guanajuato",
+          location: "León, GTO, MX",
           description:
-            "Desarrollo full-stack y optimización de aplicaciones web empresariales.",
+            "Desarrollo full-stack y optimización de aplicaciones web.",
           tech: [
             "JS",
             "TS",
@@ -423,27 +480,27 @@ export const texts = {
       title: "Formación",
       timeline: [
         {
-          date: "2023",
-          degree: "Especialidad en Desarrollo de Aplicaciones Empresariales",
-          institution: "Instituto Tecnológico Nacional de México",
+          date: "2025",
+          degree: "Applied DevOps Engineering",
+          institution: "IBM",
           description:
-            "Especialización en arquitecturas empresariales y desarrollo de aplicaciones escalables.",
+            "Especialización en prácticas DevOps, desarrollo cloud-native y automatización CI/CD.",
           achievements: [
-            "Patrones de diseño empresariales",
-            "Arquitecturas distribuidas y microservicios",
-            "Integración de sistemas empresariales",
-            "Gestión de proyectos de software",
+            "Desarrollo de aplicaciones con microservicios y serverless",
+            "Integración y entrega continuas (CI/CD)",
+            "Seguridad de aplicaciones para desarrolladores y profesionales DevOps",
+            "Monitoreo y observabilidad para desarrollo y DevOps",
           ],
         },
         {
           date: "2018 - 2023",
-          degree: "Ingeniería en Sistemas Computacionales",
+          degree: "Ingeniería de Software",
           institution: "Instituto Tecnológico Nacional de México",
           description:
             "Especialización en desarrollo de software, bases de datos y computación en la nube.",
           achievements: [
             "Promedio General: 93/100",
-            "Cursos Relevantes: Estructuras de Datos (Java), Probabilidad y Estadística (Python)",
+            "Cursos relevantes: Estructuras de Datos (Java), Probabilidad y Estadística (Python)",
             "Programación Orientada a Objetos (Java), Simulación (Python)",
             "Bases de Datos Avanzadas (SQL), Ingeniería de Software",
             "Computación en la Nube (AWS), Ciencia de Datos",
@@ -474,11 +531,9 @@ export const texts = {
     },
     about: {
       title: "About Me",
-      description: `I am a Full Stack Software Engineer passionate about creating innovative and scalable digital solutions. With over 2 years of experience, I specialize in developing web and mobile applications using modern technologies.
+      description: `Full Stack Software Engineer with 4+ years of experience building, scaling, and maintaining end-to-end web and mobile products. Strong background in backend and frontend development using Python, Django, Node.js, React, and TypeScript, with hands-on experience designing APIs, building real-time features, and integrating third-party services.
 
-      My expertise ranges from frontend development with React and TypeScript to implementing robust backend solutions with Django and Node.js. I excel at cloud service integration and performance optimization, always focused on creating exceptional user experiences.
-
-      I particularly enjoy working on challenging projects that require creative thinking and innovative technical solutions. My goal is to continue growing as a developer while contributing to projects that make a positive impact.`,
+      Experienced in deploying and operating scalable, cloud-native systems on AWS, with a focus on performance, reliability, and clean architecture. Proven ability to take products from early concept to production, including AI-driven features, data-intensive workflows, and user-centric interfaces. Comfortable working in fully remote, cross-functional, and international teams, collaborating closely with product, design, and stakeholders to deliver high-impact solutions.`,
       skills: {
         technical: {
           title: "Technical Skills",
@@ -629,7 +684,7 @@ export const texts = {
       },
       images: [
         {
-          src: "/img/profile/profile1.jpg",
+          src: "/img/profile/profile1.jpeg",
           alt: "Thats me!",
         },
       ],
@@ -808,11 +863,69 @@ export const texts = {
       title: "Experience",
       timeline: [
         {
-          date: "May 2022 - Present",
+          date: "Mar 2025 - Present",
+          role: "Software Engineer",
+          company: "Lumston - Point B",
+          logo: "/img/companies/lumston.jpeg",
+          location: "Guadalajara, JAL, MX - Remote",
+          description:
+            "Full-stack development and technical team leadership in enterprise projects.",
+          tech: [
+            "Python",
+            "Django",
+            "Django REST Framework",
+            "Node.js",
+            "React",
+            "Next.js",
+            "TS",
+            "JS",
+            "AWS",
+            "CI/CD",
+            "DevOps",
+            "Perplexity",
+            "OpenAI",
+          ],
+          achievements: [
+            "Built and maintained scalable RESTful APIs and collaborated closely with frontend teams to deliver complete product features using Django, Django REST Framework, and Node.js.",
+            "Worked extensively with Node.js for backend development, alongside Python-based frameworks, to implement robust business logic and efficient data processing pipelines.",
+            "Implemented serverless and event-driven solutions with AWS Lambda, S3, and SQS.",
+            "Optimized PostgreSQL queries and schema design, reducing query latency by over 30%.",
+            "Deployed and monitored services using AWS ECS and CloudWatch, improving system reliability and observability.",
+            "Worked in an Agile environment contributing to CI/CD pipelines and secure data handling practices."
+          ],
+        },
+        {
+          date: "Ago 2025 - Dic 2025",
+          role: "Backend Engineer",
+          company: "Health ‘N Sync",
+          logo: "/img/companies/health.jpeg",
+          location: "Atlanta, GA, US - Remote",
+          description:
+            "Backend development and API design for a medical coordination platform serving legal and healthcare workflows.",
+          tech: [
+            "Python",
+            "Django",
+            "Django REST Framework",
+            "PostgreSQL",
+            "AWS",
+            "OpenAI",
+            "Docker",
+            "CI/CD",
+            "DevOps",
+          ],
+          achievements: [
+            "Developed and maintained backend services for a medical coordination platform used by personal injury law firms.",
+            "Designed and optimized APIs and user-facing workflows supporting case management, treatment tracking, and communication between care coordinators, providers, and legal teams.",
+            "Implemented AI-powered features for document data extraction, case triage, and workflow automation.",
+            "Collaborated with frontend and product teams to ensure secure and consistent data flow across platforms.",
+          ],
+        },
+        {
+          date: "May 2022 - Mar 2025",
           role: "Software Engineer",
           company: "Alluxi",
           logo: "/img/companies/alluxi.png",
-          location: "Remote",
+          location: "Monterrey, NL, MX - Remote",
           description:
             "Full-stack development and technical team leadership in enterprise projects.",
           tech: [
@@ -844,11 +957,11 @@ export const texts = {
           ],
         },
         {
-          date: "January 2022 - May 2022",
+          date: "Jan 2022 - May 2022",
           role: "Software Developer",
           company: "BIIDA Technology",
           logo: "/img/companies/biida.png",
-          location: "León, Guanajuato",
+          location: "León, GTO, MX",
           description:
             "Full-stack development and web application optimization.",
           tech: [
@@ -879,16 +992,16 @@ export const texts = {
       title: "Education",
       timeline: [
         {
-          date: "2023",
-          degree: "Enterprise Application Development Specialization",
-          institution: "National Technological Institute of Mexico",
+          date: "2025",
+          degree: "Applied DevOps Engineering",
+          institution: "IBM",
           description:
-            "Specialization in enterprise architectures and scalable application development.",
+            "Specialized in DevOps practices, cloud-native development, and CI/CD automation.",
           achievements: [
-            "Enterprise design patterns",
-            "Distributed architectures and microservices",
-            "Enterprise system integration",
-            "Software project management",
+            "Application Development using Microservices and Serverless",
+            "Continuous Integration and Continuous Delivery (CI/CD)",
+            "Application Security for Developers and DevOps Professionals",
+            "Monitoring and Observability for Development and DevOps",
           ],
         },
         {

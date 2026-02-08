@@ -29,3 +29,48 @@ body {
     font-size: 13px;
   }
 }
+
+/* Scrollbar que respeta tema claro/oscuro */
+.scrollbar-theme {
+  scrollbar-width: thin;
+}
+
+.scrollbar-theme::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-theme::-webkit-scrollbar-track {
+  background: rgb(229 229 229);
+  border-radius: 3px;
+}
+
+.scrollbar-theme::-webkit-scrollbar-thumb {
+  background: rgb(163 163 163);
+  border-radius: 3px;
+}
+
+.scrollbar-theme::-webkit-scrollbar-thumb:hover {
+  background: rgb(115 115 115);
+}
+
+/* Tema claro (Firefox) */
+.scrollbar-theme {
+  scrollbar-color: rgb(163 163 163) rgb(229 229 229);
+}
+
+/* Tema oscuro */
+.dark .scrollbar-theme {
+  scrollbar-color: rgb(115 115 115) rgb(38 38 38);
+}
+
+.dark .scrollbar-theme::-webkit-scrollbar-track {
+  background: rgb(38 38 38);
+}
+
+.dark .scrollbar-theme::-webkit-scrollbar-thumb {
+  background: rgb(115 115 115);
+}
+
+.dark .scrollbar-theme::-webkit-scrollbar-thumb:hover {
+  background: rgb(163 163 163);
+}

@@ -5,7 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: 'https://descoba.dev',
+  // Sin assetPrefix: los estilos y scripts usan rutas relativas (/_next/static/...)
+  // y se sirven correctamente en descoba.dev y en local.
   webpack: (config) => {
     config.optimization.minimize = false;
     return config;
