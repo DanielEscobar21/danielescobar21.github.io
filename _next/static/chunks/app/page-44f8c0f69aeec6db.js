@@ -2674,7 +2674,7 @@ function Home() {
                                         },
                                         children: [
                                             /*#__PURE__*/ (0,jsx_runtime.jsxs)(proxy/* motion */.P.a, {
-                                                href: "/Daniel_Escobar_Resume_EN.pdf",
+                                                href: "/Daniel_Escobar_Software_Engineer.pdf",
                                                 download: true,
                                                 target: "_blank",
                                                 rel: "noopener noreferrer",
