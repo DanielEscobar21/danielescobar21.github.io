@@ -156,6 +156,7 @@ export default function Home() {
   const [openTechSkill, setOpenTechSkill] = useState<string>(currentContent.about.skills.technical.items[0].name);
   const [openSoftSkill, setOpenSoftSkill] = useState<string>(currentContent.about.skills.soft.items[0].name);
   const [openLanguageSkill, setOpenLanguageSkill] = useState<string>(currentContent.about.skills.languages.items[0].name);
+  const [experiencePage, setExperiencePage] = useState(0);
 
   // Efecto para el autoplay del carrusel
   useEffect(() => {
@@ -201,6 +202,20 @@ export default function Home() {
     setCurrentPage(page);
   };
 
+  const experienceTotalPages = Math.ceil(currentContent.experience.timeline.length / 2);
+
+  useEffect(() => {
+    setExperiencePage((prev) => (prev >= experienceTotalPages ? 0 : prev));
+  }, [language, experienceTotalPages]);
+
+  const nextExperiencePage = () => {
+    setExperiencePage((prev) => (prev === experienceTotalPages - 1 ? 0 : prev + 1));
+  };
+  const prevExperiencePage = () => {
+    setExperiencePage((prev) => (prev === 0 ? experienceTotalPages - 1 : prev - 1));
+  };
+  const goToExperiencePage = (page: number) => setExperiencePage(page);
+
   // Funciones separadas para manejar cada tipo de skill
   const handleTechSkillClick = (skillName: string) => {
     setOpenTechSkill(openTechSkill === skillName ? skillName : skillName);
@@ -241,7 +256,7 @@ export default function Home() {
         {/* Background decorations - moved to the top */}
         <div className="absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03] pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-100/50 dark:to-neutral-900/50 pointer-events-none" />
-        
+
         {/* Content container - added z-index */}
         <motion.div
           className="w-full max-w-4xl mx-auto text-center relative z-10"
@@ -294,7 +309,7 @@ export default function Home() {
           >
             {/* CV Button */}
             <motion.a
-              href="/Daniel_Escobar_Resume_EN.pdf"
+              href="/Daniel_Escobar_Software_Engineer.pdf"
               download
               target="_blank"
               rel="noopener noreferrer"
@@ -471,71 +486,75 @@ export default function Home() {
                 {currentContent.about.skills.technical.title}
               </h3>
               <div className="space-y-2">
-                {currentContent.about.skills.technical.items.map((category, index) => (
-                  <motion.div
-                    key={category.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`${cardClass} overflow-hidden`}
-                  >
-                    <button
-                      onClick={() => handleTechSkillClick(category.name)}
-                      className="w-full flex items-center justify-between p-2.5 text-left"
-                    >
-                      <h4 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
-                        {category.name}
-                      </h4>
-                      <motion.svg
-                        className="w-5 h-5 text-neutral-500"
-                        animate={{ rotate: openTechSkill === category.name ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </motion.svg>
-                    </button>
-                    
+                {currentContent.about.skills.technical.items.map(
+                  (category, index) => (
                     <motion.div
-                      initial={false}
-                      animate={{
-                        height: openTechSkill === category.name ? "auto" : 0,
-                        opacity: openTechSkill === category.name ? 1 : 0
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeInOut"
-                      }}
-                      className="overflow-hidden"
+                      key={category.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`${cardClass} overflow-hidden`}
                     >
-                      <div className="p-2.5 pt-0">
-                        <div className="flex flex-wrap gap-1.5">
-                          {category.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="px-2 py-0.5 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
+                      <button
+                        onClick={() => handleTechSkillClick(category.name)}
+                        className="w-full flex items-center justify-between p-2.5 text-left"
+                      >
+                        <h4 className="text-base font-medium text-neutral-900 dark:text-neutral-100">
+                          {category.name}
+                        </h4>
+                        <motion.svg
+                          className="w-5 h-5 text-neutral-500"
+                          animate={{
+                            rotate: openTechSkill === category.name ? 180 : 0,
+                          }}
+                          transition={{ duration: 0.2 }}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </motion.svg>
+                      </button>
+
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: openTechSkill === category.name ? "auto" : 0,
+                          opacity: openTechSkill === category.name ? 1 : 0,
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          ease: "easeInOut",
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="p-2.5 pt-0">
+                          <div className="flex flex-wrap gap-1.5">
+                            {category.skills.map((skill) => (
+                              <span
+                                key={skill}
+                                className="px-2 py-0.5 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
                                        text-neutral-500 dark:text-neutral-400 
                                        border border-neutral-200/10 dark:border-neutral-700/10
                                        hover:text-neutral-900 dark:hover:text-neutral-100
                                        hover:border-neutral-300 dark:hover:border-neutral-600 
                                        transition-colors duration-300"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                ))}
+                  ),
+                )}
               </div>
             </motion.div>
 
@@ -567,7 +586,9 @@ export default function Home() {
                       </h4>
                       <motion.svg
                         className="w-5 h-5 text-neutral-500"
-                        animate={{ rotate: openSoftSkill === skill.name ? 180 : 0 }}
+                        animate={{
+                          rotate: openSoftSkill === skill.name ? 180 : 0,
+                        }}
                         transition={{ duration: 0.2 }}
                         fill="none"
                         viewBox="0 0 24 24"
@@ -581,16 +602,16 @@ export default function Home() {
                         />
                       </motion.svg>
                     </button>
-                    
+
                     <motion.div
                       initial={false}
                       animate={{
                         height: openSoftSkill === skill.name ? "auto" : 0,
-                        opacity: openSoftSkill === skill.name ? 1 : 0
+                        opacity: openSoftSkill === skill.name ? 1 : 0,
                       }}
                       transition={{
                         duration: 0.3,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                       }}
                       className="overflow-hidden"
                     >
@@ -635,16 +656,20 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div className={`${cardClass} p-6 relative overflow-hidden group w-full`}>
+                <div
+                  className={`${cardClass} p-6 relative overflow-hidden group w-full`}
+                >
                   {/* Decorative line */}
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary-500/50 to-primary-600/50 dark:from-primary-400/30 dark:to-primary-500/30 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                  
+
                   {/* Date badge */}
                   <div className="absolute top-4 right-4">
-                    <span className="inline-block px-3 py-1.5 text-base font-mono 
+                    <span
+                      className="inline-block px-3 py-1.5 text-base font-mono 
                                    bg-neutral-100 dark:bg-neutral-800/50 
                                    text-neutral-600 dark:text-neutral-400 
-                                   rounded-full border border-neutral-200/10 dark:border-neutral-700/10">
+                                   rounded-full border border-neutral-200/10 dark:border-neutral-700/10"
+                    >
                       {item.date}
                     </span>
                   </div>
@@ -669,9 +694,11 @@ export default function Home() {
                             key={i}
                             className="flex items-start gap-2 text-neutral-600 dark:text-neutral-400 group/achievement"
                           >
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/50 dark:bg-primary-400/30 
+                            <span
+                              className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/50 dark:bg-primary-400/30 
                                            group-hover/achievement:bg-primary-500 dark:group-hover/achievement:bg-primary-400 
-                                           transition-colors duration-300 shrink-0" />
+                                           transition-colors duration-300 shrink-0"
+                            />
                             <span className="text-xs leading-relaxed group-hover/achievement:text-neutral-900 dark:group-hover/achievement:text-neutral-100 transition-colors duration-300">
                               {achievement}
                             </span>
@@ -691,108 +718,195 @@ export default function Home() {
         />
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Section - Carrusel horizontal 2 por página */}
       <section
         id="experiencia"
         className={`${sectionClass} relative bg-gradient-to-bl from-light-subtle via-light-base to-light-subtle dark:from-dark-subtle dark:via-dark-base dark:to-dark-subtle overflow-hidden`}
       >
         <div className="absolute inset-0 bg-noise opacity-[0.015] dark:opacity-[0.03] pointer-events-none" />
         <motion.div
-          className="max-w-5xl mx-auto py-20"
+          className="max-w-7xl mx-auto py-20 px-4 md:px-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <h2 className={titleClass}>{currentContent.experience.title}</h2>
-          <div className="space-y-8">
-            {currentContent.experience.timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                className="relative"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <div className={`${cardClass} p-8`}>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                    <div className="flex items-center gap-4 mb-4 md:mb-0">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800">
-                        {item.logo ? (
-                          <Image
-                            src={item.logo}
-                            alt={`${item.company} logo`}
-                            fill
-                            className="object-cover"
-                          />
-                        ) : (
-                          <span className="text-2xl font-medium text-neutral-400">
-                            {item.company.charAt(0)}
-                          </span>
+
+          <div className="relative">
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-14 md:mx-20"
+              key={experiencePage}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {currentContent.experience.timeline
+                .slice(experiencePage * 2, experiencePage * 2 + 2)
+                .map((item, index) => (
+                  <motion.div
+                    key={`${experiencePage}-${index}`}
+                    className="relative h-full"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, delay: index * 0.1 }}
+                  >
+                    <div
+                      className={`${cardClass} p-8 md:p-10 h-full max-h-[58vh] flex flex-col overflow-hidden`}
+                    >
+                      <div className="shrink-0 mb-4">
+                        <span className="inline-block px-4 py-1.5 text-sm md:text-base font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full w-fit mb-4">
+                          {item.date}
+                        </span>
+                        <div className="flex items-center gap-5">
+                          <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border border-neutral-200 dark:border-neutral-800 shrink-0">
+                            {item.logo ? (
+                              <Image
+                                src={item.logo}
+                                alt={`${item.company} logo`}
+                                fill
+                                className="object-cover"
+                              />
+                            ) : (
+                              <span className="flex items-center justify-center w-full h-full text-2xl font-medium text-neutral-400">
+                                {item.company.charAt(0)}
+                              </span>
+                            )}
+                          </div>
+                          <div className="space-y-1 min-w-0">
+                            <h3 className="text-xl md:text-2xl font-medium text-neutral-900 dark:text-neutral-100 truncate">
+                              {item.role}
+                            </h3>
+                            <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 flex-wrap">
+                              <span className="font-medium text-base">
+                                {item.company}
+                              </span>
+                              {item.location && (
+                                <>
+                                  <span className="text-neutral-400">•</span>
+                                  <span className="text-sm md:text-base text-neutral-500">
+                                    {item.location}
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex-1 min-h-0 overflow-y-auto pr-1 -mr-1 scrollbar-theme">
+                        <p className="text-neutral-600 dark:text-neutral-400 mb-4 leading-relaxed text-base md:text-lg">
+                          {item.description}
+                        </p>
+
+                        {item.achievements && item.achievements.length > 0 && (
+                          <div className="space-y-3 mb-4">
+                            {item.achievements
+                              .slice(0, 5)
+                              .map((achievement, i) => (
+                                <div
+                                  key={i}
+                                  className="flex items-start gap-3 text-neutral-600 dark:text-neutral-400"
+                                >
+                                  <span className="mt-2 w-2 h-2 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0" />
+                                  <span className="text-sm md:text-base leading-relaxed">
+                                    {achievement}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
                         )}
                       </div>
 
-                      <div className="space-y-1">
-                        <h3 className="text-xl font-medium text-neutral-900 dark:text-neutral-100">
-                          {item.role}
-                        </h3>
-                        <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
-                          <span className="font-medium">{item.company}</span>
-                          {item.location && (
-                            <>
-                              <span className="text-neutral-400">•</span>
-                              <span className="text-sm text-neutral-500">
-                                {item.location}
-                              </span>
-                            </>
-                          )}
-                        </div>
+                      <div className="flex flex-wrap gap-2 mt-4 shrink-0">
+                        {item.tech.map((tech, techIndex) => (
+                          <span
+                            key={techIndex}
+                            className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full
+                                     text-neutral-500 dark:text-neutral-400
+                                     border border-neutral-200/10 dark:border-neutral-700/10
+                                     hover:text-neutral-900 dark:hover:text-neutral-100
+                                     transition-colors duration-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
+                  </motion.div>
+                ))}
+            </motion.div>
 
-                    <span className="inline-block px-3 py-1 text-sm font-mono text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/50 rounded-full">
-                      {item.date}
-                    </span>
-                  </div>
+            {/* Dots del carrusel experiencia */}
+            <div className="flex justify-center gap-2 mt-6 mb-4">
+              {Array.from({ length: experienceTotalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-2 rounded-full transition-all duration-300
+                             ${
+                               index === experiencePage
+                                 ? "bg-neutral-900 dark:bg-neutral-100 w-6"
+                                 : "bg-neutral-300 dark:bg-neutral-700 w-2"
+                             }`}
+                  onClick={() => goToExperiencePage(index)}
+                  aria-label={
+                    language === "es"
+                      ? `Ir a página ${index + 1}`
+                      : `Go to page ${index + 1}`
+                  }
+                />
+              ))}
+            </div>
 
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  {/* Achievements */}
-                  {item.achievements && item.achievements.length > 0 && (
-                    <div className="space-y-3 mb-6">
-                      {item.achievements.map((achievement, i) => (
-                        <div
-                          key={i}
-                          className="flex items-start gap-3 text-neutral-600 dark:text-neutral-400"
-                        >
-                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary-500 dark:bg-primary-400 shrink-0" />
-                          <span className="text-sm leading-relaxed">{achievement}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
-                    {item.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 text-sm bg-light-subtle dark:bg-dark-subtle rounded-full 
-                                 text-neutral-500 dark:text-neutral-400 
-                                 border border-neutral-200/10 dark:border-neutral-700/10
-                                 hover:text-neutral-900 dark:hover:text-neutral-100
-                                 hover:border-neutral-300 dark:hover:border-neutral-600 
-                                 transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+            {/* Flechas del carrusel experiencia: izquierda solo si no es la primera página, derecha solo si no es la última */}
+            {experienceTotalPages > 1 && experiencePage > 0 && (
+              <button
+                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2
+                           text-neutral-400 dark:text-neutral-600
+                           hover:text-neutral-900 dark:hover:text-neutral-100
+                           transition-colors duration-300 focus:outline-none p-2 z-10"
+                onClick={prevExperiencePage}
+                aria-label={language === "es" ? "Anterior" : "Previous"}
+              >
+                <svg
+                  className="w-6 h-6 rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            )}
+            {experienceTotalPages > 1 &&
+              experiencePage < experienceTotalPages - 1 && (
+                <button
+                  className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2
+                           text-neutral-400 dark:text-neutral-600
+                           hover:text-neutral-900 dark:hover:text-neutral-100
+                           transition-colors duration-300 focus:outline-none p-2 z-10"
+                  onClick={nextExperiencePage}
+                  aria-label={language === "es" ? "Siguiente" : "Next"}
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              )}
           </div>
         </motion.div>
         <SectionNavigation
@@ -816,14 +930,14 @@ export default function Home() {
           <h2 className={titleClass}>{currentContent.projects.title}</h2>
 
           {/* Projects Grid Container - Añadimos padding-x para los botones */}
-          <div 
+          <div
             className="relative px-8 md:px-16"
             onMouseEnter={() => setAutoPlay(false)}
             onMouseLeave={() => setAutoPlay(true)}
           >
             {/* Projects Grid */}
             <div className="max-w-5xl mx-auto">
-              <motion.div 
+              <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -831,32 +945,34 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
               >
                 {currentContent.projects.cards
-                  .slice(currentPage * (isMobile ? 1 : 2), 
-                         currentPage * (isMobile ? 1 : 2) + (isMobile ? 1 : 2))
+                  .slice(
+                    currentPage * (isMobile ? 1 : 2),
+                    currentPage * (isMobile ? 1 : 2) + (isMobile ? 1 : 2),
+                  )
                   .map((project, index) => (
                     <motion.div
                       key={index}
                       className={`${cardClass} group/card overflow-hidden md:max-w-lg w-full h-full`}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ 
+                      transition={{
                         duration: 0.4,
                         delay: index * 0.15,
-                        ease: "easeOut"
+                        ease: "easeOut",
                       }}
-                      whileHover={{ 
+                      whileHover={{
                         transition: {
-                          duration: 0.2
-                        }
+                          duration: 0.2,
+                        },
                       }}
                     >
-                      <motion.div 
+                      <motion.div
                         className="p-4 md:p-6 flex flex-col h-full relative"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ 
+                        transition={{
                           duration: 0.3,
-                          delay: index * 0.15 + 0.2
+                          delay: index * 0.15 + 0.2,
                         }}
                       >
                         {/* Project Header */}
@@ -897,26 +1013,27 @@ export default function Home() {
                         </div>
 
                         {/* Achievements */}
-                        {project.achievements && project.achievements.length > 0 && (
-                          <div className="flex-grow mb-6">
-                            <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
-                              {language === 'es' ? 'Logros' : 'Achievements'}
-                            </h4>
-                            <div className="space-y-3">
-                              {project.achievements.map((achievement, i) => (
-                                <div
-                                  key={i}
-                                  className="flex items-start gap-3"
-                                >
-                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600 shrink-0" />
-                                  <span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    {achievement}
-                                  </span>
-                                </div>
-                              ))}
+                        {project.achievements &&
+                          project.achievements.length > 0 && (
+                            <div className="flex-grow mb-6">
+                              <h4 className="text-lg font-medium mb-4 text-neutral-900 dark:text-neutral-100">
+                                {language === "es" ? "Logros" : "Achievements"}
+                              </h4>
+                              <div className="space-y-3">
+                                {project.achievements.map((achievement, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex items-start gap-3"
+                                  >
+                                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-400 dark:bg-neutral-600 shrink-0" />
+                                    <span className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                      {achievement}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          )}
 
                         {/* Project Link */}
                         {project.url && (
@@ -929,7 +1046,9 @@ export default function Home() {
                                      transition-colors mt-auto group/link"
                             whileHover={{ x: 5 }}
                           >
-                            {language === 'es' ? 'Ver proyecto' : 'View project'}
+                            {language === "es"
+                              ? "Ver proyecto"
+                              : "View project"}
                             <svg
                               className="w-4 h-4 transform transition-transform group-hover/link:translate-x-1"
                               fill="none"
@@ -957,9 +1076,11 @@ export default function Home() {
                 <button
                   key={index}
                   className={`w-2 h-2 rounded-full transition-all duration-300 
-                             ${index === currentPage ? 
-                               'bg-neutral-900 dark:bg-neutral-100 w-4' : 
-                               'bg-neutral-300 dark:bg-neutral-700'}`}
+                             ${
+                               index === currentPage
+                                 ? "bg-neutral-900 dark:bg-neutral-100 w-4"
+                                 : "bg-neutral-300 dark:bg-neutral-700"
+                             }`}
                   onClick={() => goToPage(index)}
                   aria-label={`Go to page ${index + 1}`}
                 />
@@ -1078,7 +1199,7 @@ export default function Home() {
             </div>
 
             {/* Social media and CV buttons */}
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row items-center gap-4 mt-8"
               animate={{
                 y: showNotification ? 40 : 0,

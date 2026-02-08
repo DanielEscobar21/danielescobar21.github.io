@@ -69,7 +69,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             onClick={() => scrollToSection('inicio')}
           >
-            descoba.dev
+            descoba
           </motion.span>
 
           {/* Desktop Navigation */}
